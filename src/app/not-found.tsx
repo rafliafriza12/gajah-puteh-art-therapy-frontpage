@@ -1,143 +1,212 @@
 "use client";
 import Link from "next/link";
-import { Container } from "@/components/atoms/Container";
-import BumiLogo from "@/components/atoms/BumiLogo";
-import GroundVector from "@/components/atoms/vectors/GroundVector";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-charcoal-green relative flex items-center justify-center overflow-hidden">
-      {/* Background Decorative SVG */}
-      <div className="absolute inset-0 opacity-10">
+    <main className="min-h-screen bg-gradient-to-br from-charcoal-green via-charcoal-green-dark to-neutral-02 relative flex items-center justify-center overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating circles */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-jade/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-moss-stone/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-topaz/5 rounded-full blur-3xl" />
+
+        {/* Decorative lines */}
         <svg
-          className="w-full h-full"
-          viewBox="0 0 1920 1080"
-          fill="none"
+          className="absolute inset-0 w-full h-full opacity-5"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M221.496 -77.3723C226.811 -62.1975 235.015 -49.6995 245.047 -36.4788C250.568 -23.3276 262.084 -0.390254 272.574 10.008C279.84 14.4896 285.285 18.642 292.17 24.2248C302.096 29.0328 314.248 29.367 322.128 38.3164C389.323 123.208 447.859 89.7501 423.791 221.568C426.393 290.489 377.482 288.664 359.065 339.672C350.48 396.185 301.386 406.286 267.593 441.878C245.668 475.393 238.285 520.326 204.037 544.873C191.256 553.563 182.412 557.394 173.964 570.849C160.947 588.804 150.667 610.234 127.585 616.516C106.003 639.208 100.128 621.321 75.7081 615.898C61.0914 617.509 48.8541 628.567 34.2447 631.571C22.464 649.277 25.963 675.973 11.3654 691.789C-7.0499 695.559 -20.089 674.33 -24.1125 658.527C-24.5533 644.749 -22.3814 629.685 -24.7998 615.386C-30.6685 569.472 -50.905 526.219 -63.6249 481.104C-77.25 439.237 -83.4472 391.542 -44.9694 367.449C-21.1247 353.789 2.32576 342.023 13.9837 315.672C102.056 233.205 50.8157 246.752 78.5369 167.932C91.0468 135.16 79.2908 86.4436 117.865 71.5501C138.389 51.259 127.08 10.3524 148.216 -10.2659C171.239 -22.0434 177.873 -46.5107 185.039 -69.7901C186.743 -96.3296 206.373 -112.692 221.497 -77.3599L221.496 -77.3723Z"
-            fill="#CAD4BA"
-            opacity="0.3"
-          />
-          <path
-            d="M1700 800C1650 750 1600 700 1550 680C1500 660 1450 650 1400 670C1350 690 1300 740 1280 800C1260 860 1270 920 1300 970C1330 1020 1380 1060 1440 1070C1500 1080 1560 1060 1600 1020C1640 980 1670 920 1700 860L1700 800Z"
-            fill="#A0AC67"
-            opacity="0.2"
-          />
+          <defs>
+            <pattern
+              id="grid"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="white"
+                strokeWidth="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
 
-      {/* Ground Vector at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-0 opacity-20">
-        <GroundVector />
-      </div>
-
-      <Container className="relative z-10">
-        <div className="flex flex-col items-center justify-center text-center gap-8 py-20">
-          {/* Logo */}
-          <div className="w-32 lg:w-40 mb-4 animate-pulse">
-            <BumiLogo variant="white" />
-          </div>
-
-          {/* 404 Text */}
+      <div className="relative z-10 px-6 py-12 max-w-4xl mx-auto text-center">
+        {/* Elephant Icon */}
+        <div className="mb-8 flex justify-center">
           <div className="relative">
-            <h1 className="text-[120px] sm:text-[180px] lg:text-[240px] font-bold text-moss-stone/20 leading-none select-none">
-              404
-            </h1>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-light text-white-mineral">
-                Page Not Found
-              </span>
+            <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-jade/20 to-moss-stone/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/10 shadow-2xl">
+              <svg
+                className="w-16 h-16 sm:w-20 sm:h-20 text-jade"
+                viewBox="0 0 64 64"
+                fill="currentColor"
+              >
+                {/* Simplified elephant silhouette */}
+                <path d="M52 28c0-8.8-7.2-16-16-16h-4c-2.2 0-4 1.8-4 4v4c0 2.2-1.8 4-4 4h-4c-4.4 0-8 3.6-8 8v12c0 2.2 1.8 4 4 4h4v4c0 2.2 1.8 4 4 4s4-1.8 4-4v-4h8v4c0 2.2 1.8 4 4 4s4-1.8 4-4v-4h4c2.2 0 4-1.8 4-4V32c2.2 0 4-1.8 4-4zM20 36c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
+              </svg>
             </div>
-          </div>
-
-          {/* Description */}
-          <div className="max-w-2xl space-y-4">
-            <p className="text-lg sm:text-xl text-earth-craft font-light leading-relaxed">
-              The page you are looking for might have been removed, had its name
-              changed, or is temporarily unavailable.
-            </p>
-            <p className="text-base text-white-mineral/80">
-              Mari kembali ke halaman utama untuk melanjutkan eksplorasi tentang
-              Bumi Resources.
-            </p>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Link
-              href="/"
-              className="group relative px-8 py-4 bg-moss-stone text-charcoal-green font-medium rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-moss-stone/50"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 transition-transform group-hover:-translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                  />
-                </svg>
-                Back to Home
-              </span>
-              <div className="absolute inset-0 bg-earth-craft transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-            </Link>
-
-            <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.back();
-              }}
-              className="px-8 py-4 border-2 border-earth-craft text-earth-craft font-medium rounded-lg transition-all duration-300 hover:bg-earth-craft hover:text-charcoal-green hover:scale-105"
-            >
-              Go Back
-            </Link>
-          </div>
-
-          {/* Additional Help */}
-          <div className="mt-12 pt-8 border-t border-white-mineral/20">
-            <p className="text-sm text-white-mineral/60 mb-4">
-              Need help? Try these popular pages:
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link
-                href="/"
-                className="text-earth-craft hover:text-moss-stone transition-colors underline underline-offset-4"
-              >
-                Home
-              </Link>
-              <span className="text-white-mineral/30">•</span>
-              <Link
-                href="/#about"
-                className="text-earth-craft hover:text-moss-stone transition-colors underline underline-offset-4"
-              >
-                About Us
-              </Link>
-              <span className="text-white-mineral/30">•</span>
-              <Link
-                href="/#contact"
-                className="text-earth-craft hover:text-moss-stone transition-colors underline underline-offset-4"
-              >
-                Contact
-              </Link>
-              <span className="text-white-mineral/30">•</span>
-              <Link
-                href="/#news"
-                className="text-earth-craft hover:text-moss-stone transition-colors underline underline-offset-4"
-              >
-                News
-              </Link>
-            </div>
+            {/* Decorative ring */}
+            <div
+              className="absolute inset-0 w-32 h-32 sm:w-40 sm:h-40 border-2 border-dashed border-jade/30 rounded-full animate-spin-slow"
+              style={{ animationDuration: "20s" }}
+            />
           </div>
         </div>
-      </Container>
+
+        {/* 404 Number with glow effect */}
+        <div className="relative mb-6">
+          <h1 className="text-[140px] sm:text-[180px] lg:text-[220px] font-black leading-none tracking-tight">
+            <span className="bg-gradient-to-b from-white via-jade-light to-jade bg-clip-text text-transparent drop-shadow-2xl">
+              404
+            </span>
+          </h1>
+          {/* Glow effect */}
+          <div className="absolute inset-0 text-[140px] sm:text-[180px] lg:text-[220px] font-black leading-none tracking-tight text-jade/20 blur-2xl -z-10">
+            404
+          </div>
+        </div>
+
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mb-4">
+          Halaman Tidak Ditemukan
+        </h2>
+
+        {/* Description */}
+        <p className="text-base sm:text-lg text-grey-light/80 max-w-xl mx-auto mb-10 leading-relaxed">
+          Maaf, halaman yang Anda cari tidak dapat ditemukan. Mungkin halaman
+          telah dipindahkan, dihapus, atau alamat yang Anda masukkan tidak
+          tepat.
+        </p>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link
+            href="/"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-jade to-moss-stone text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-jade/30 hover:scale-105"
+          >
+            <svg
+              className="w-5 h-5 transition-transform group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            Kembali ke Beranda
+          </Link>
+
+          <button
+            onClick={() => window.history.back()}
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 transition-all duration-300 hover:bg-white/10 hover:border-jade/50 hover:scale-105"
+          >
+            <svg
+              className="w-5 h-5 transition-transform group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Halaman Sebelumnya
+          </button>
+        </div>
+
+        {/* Help Section */}
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <p className="text-sm text-grey-light/60 mb-6">
+            Atau kunjungi halaman-halaman berikut:
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
+            <Link
+              href="/login"
+              className="text-jade hover:text-jade-light transition-colors inline-flex items-center gap-1"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                />
+              </svg>
+              Login
+            </Link>
+            <Link
+              href="/register/counselor"
+              className="text-jade hover:text-jade-light transition-colors inline-flex items-center gap-1"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                />
+              </svg>
+              Daftar
+            </Link>
+            <Link
+              href="/forgot-password"
+              className="text-jade hover:text-jade-light transition-colors inline-flex items-center gap-1"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                />
+              </svg>
+              Lupa Password
+            </Link>
+          </div>
+        </div>
+
+        {/* Decorative bottom element */}
+        <div className="mt-12 flex justify-center gap-2">
+          <div
+            className="w-2 h-2 rounded-full bg-jade/60 animate-bounce"
+            style={{ animationDelay: "0ms" }}
+          />
+          <div
+            className="w-2 h-2 rounded-full bg-jade/60 animate-bounce"
+            style={{ animationDelay: "150ms" }}
+          />
+          <div
+            className="w-2 h-2 rounded-full bg-jade/60 animate-bounce"
+            style={{ animationDelay: "300ms" }}
+          />
+        </div>
+      </div>
     </main>
   );
 }
