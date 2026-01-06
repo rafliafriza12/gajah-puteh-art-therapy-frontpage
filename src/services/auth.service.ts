@@ -23,6 +23,9 @@ import {
   IParent,
   IUpdateCounselorInput,
   IUpdateParentInput,
+  IForgotPasswordInput,
+  IForgotPasswordResponse,
+  IResetPasswordInput,
 } from "@/types/auth";
 
 // ============ AUTH SERVICE ============
@@ -140,6 +143,25 @@ async function logout(): Promise<void> {
 }
 
 /**
+ * Request forgot password
+ */
+async function forgotPassword(
+  input: IForgotPasswordInput
+): Promise<IForgotPasswordResponse> {
+  return await publicPost<IForgotPasswordResponse>(
+    "/auth/forgot-password",
+    input
+  );
+}
+
+/**
+ * Reset password with token
+ */
+async function resetPassword(input: IResetPasswordInput): Promise<void> {
+  return await publicPost<void>("/auth/reset-password", input);
+}
+
+/**
  * Check if user is authenticated
  */
 function isAuthenticated(): boolean {
@@ -157,5 +179,7 @@ export const authService = {
   updateCounselorProfile,
   updateParentProfile,
   logout,
+  forgotPassword,
+  resetPassword,
   isAuthenticated,
 };

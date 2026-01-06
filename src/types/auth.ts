@@ -3,6 +3,8 @@
  * Sesuai dengan backend auth endpoints
  */
 
+export type UserRole = "counselor" | "parent";
+
 export interface IEducation {
   university: string;
   stage: "D3" | "D4" | "S1" | "S2" | "S3";
@@ -86,6 +88,21 @@ export interface IChangePasswordInput {
   newPassword: string;
 }
 
+export interface IForgotPasswordInput {
+  email: string;
+  role: UserRole;
+}
+
+export interface IForgotPasswordResponse {
+  message: string;
+  resetToken: string;
+}
+
+export interface IResetPasswordInput {
+  token: string;
+  newPassword: string;
+}
+
 // Update profile types
 export interface IUpdateCounselorInput {
   fullname?: string;
@@ -109,8 +126,6 @@ export interface IUpdateParentInput {
 
 // Backend mengembalikan langsung user data tanpa wrapper
 export type ICurrentUser = ICounselor | IParent;
-
-export type UserRole = "counselor" | "parent";
 
 // Type guards untuk membedakan Counselor dan Parent
 export function isCounselor(user: ICurrentUser): user is ICounselor {

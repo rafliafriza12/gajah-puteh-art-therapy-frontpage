@@ -16,6 +16,8 @@ import {
   IChangePasswordInput,
   IUpdateCounselorInput,
   IUpdateParentInput,
+  IForgotPasswordInput,
+  IResetPasswordInput,
 } from "@/types/auth";
 import { useRouter } from "next/navigation";
 
@@ -160,6 +162,31 @@ export function useLogout() {
       // Clear all queries
       queryClient.clear();
       // Redirect ke login
+      router.push("/login");
+    },
+  });
+}
+
+/**
+ * Hook untuk forgot password (request reset)
+ */
+export function useForgotPassword() {
+  return useMutation({
+    mutationFn: (data: IForgotPasswordInput) =>
+      authService.forgotPassword(data),
+  });
+}
+
+/**
+ * Hook untuk reset password dengan token
+ */
+export function useResetPassword() {
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: (data: IResetPasswordInput) => authService.resetPassword(data),
+    onSuccess: () => {
+      // Redirect ke login setelah berhasil reset password
       router.push("/login");
     },
   });
