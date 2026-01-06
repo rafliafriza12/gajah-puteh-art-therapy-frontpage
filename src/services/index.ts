@@ -24,4 +24,5 @@ export * from "./hooks/useObservation";
 export * from "./hooks/usePretest";
 export * from "./hooks/usePosttest";
 export * from "./hooks/useScreening";
+export * from "./hooks/useUsers";
 export * from "./activityHooks";
