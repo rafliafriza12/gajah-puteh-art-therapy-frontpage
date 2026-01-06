@@ -9,7 +9,6 @@ import PasswordInput from "@/components/atoms/inputs/PasswordInput";
 import { ContentInput } from "@/components/atoms/Input";
 import { SubmitButton } from "@/components/atoms/buttons/SubmitButton";
 import { toast } from "react-toastify";
-import Link from "next/link";
 
 const RegisterParentForm: React.FC = () => {
   const [formData, setFormData] = useState<IParentRegisterInput>({
@@ -56,145 +55,118 @@ const RegisterParentForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 w-full">
-      {/* Personal Information */}
-      <div className="space-y-4">
-        <h3 className="text-lg sm:text-xl font-medium text-charcoal-green-dark">
-          Personal Information
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Full Name *</BodySmallMedium>
-            </label>
-            <ContentInput
-              placeholder="Jane Doe"
-              value={formData.fullname}
-              onChange={(e) => handleChange("fullname", e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Email *</BodySmallMedium>
-            </label>
-            <EmailInput
-              placeholder="jane@example.com"
-              value={formData.email}
-              onChange={(e) => handleChange("email", e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Phone Number *</BodySmallMedium>
-            </label>
-            <ContentInput
-              type="tel"
-              placeholder="08123456789"
-              value={formData.phone}
-              onChange={(e) => handleChange("phone", e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Address *</BodySmallMedium>
-            </label>
-            <ContentInput
-              placeholder="Street address, City"
-              value={formData.address}
-              onChange={(e) => handleChange("address", e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Age *</BodySmallMedium>
-            </label>
-            <ContentInput
-              type="number"
-              placeholder="25"
-              value={formData.age.toString()}
-              onChange={(e) =>
-                handleChange("age", parseInt(e.target.value) || 0)
-              }
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Occupation *</BodySmallMedium>
-            </label>
-            <ContentInput
-              placeholder="e.g., Teacher"
-              value={formData.work}
-              onChange={(e) => handleChange("work", e.target.value)}
-            />
-          </div>
+    <form onSubmit={handleSubmit} className="w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-3">
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Full Name *</BodySmallMedium>
+          </label>
+          <ContentInput
+            placeholder="Jane Doe"
+            value={formData.fullname}
+            onChange={(e) => handleChange("fullname", e.target.value)}
+          />
         </div>
-      </div>
 
-      {/* Password */}
-      <div className="space-y-4">
-        <h3 className="text-lg sm:text-xl font-medium text-charcoal-green-dark">
-          Security
-        </h3>
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Email *</BodySmallMedium>
+          </label>
+          <EmailInput
+            placeholder="jane@example.com"
+            value={formData.email}
+            onChange={(e) => handleChange("email", e.target.value)}
+          />
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Password *</BodySmallMedium>
-            </label>
-            <PasswordInput
-              placeholder="Minimum 6 characters"
-              value={formData.password}
-              onChange={(e) => handleChange("password", e.target.value)}
-            />
-          </div>
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">
+              Phone Number *
+            </BodySmallMedium>
+          </label>
+          <ContentInput
+            type="tel"
+            placeholder="08123456789"
+            value={formData.phone}
+            onChange={(e) => handleChange("phone", e.target.value)}
+          />
+        </div>
 
-          <div>
-            <label className="block mb-2">
-              <BodySmallMedium>Confirm Password *</BodySmallMedium>
-            </label>
-            <PasswordInput
-              placeholder="Re-enter password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Address *</BodySmallMedium>
+          </label>
+          <ContentInput
+            placeholder="Street address, City"
+            value={formData.address}
+            onChange={(e) => handleChange("address", e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Age *</BodySmallMedium>
+          </label>
+          <ContentInput
+            type="number"
+            placeholder="25"
+            value={formData.age.toString()}
+            onChange={(e) => handleChange("age", parseInt(e.target.value) || 0)}
+          />
+        </div>
+
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Occupation *</BodySmallMedium>
+          </label>
+          <ContentInput
+            placeholder="e.g., Teacher"
+            value={formData.work}
+            onChange={(e) => handleChange("work", e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Password *</BodySmallMedium>
+          </label>
+          <PasswordInput
+            placeholder="Min 8 characters"
+            value={formData.password}
+            onChange={(e) => handleChange("password", e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">
+              Confirm Password *
+            </BodySmallMedium>
+          </label>
+          <PasswordInput
+            placeholder="Re-enter password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
         </div>
       </div>
 
       {/* Error Message */}
       {error && (
-        <div className="rounded-md bg-error/10 p-3">
+        <div className="rounded-md bg-error/10 p-3 mt-4">
           <p className="text-sm text-error">{error.message}</p>
         </div>
       )}
 
       {/* Submit Button */}
-      <div className="pt-4">
+      <div className="mt-4 w-full flex justify-center">
         <SubmitButton
           variant="primary"
           text={isPending ? "Creating account..." : "Create Account"}
-          className="w-full flex justify-center items-center"
+          className="w-full sm:w-auto sm:px-12 flex justify-center items-center"
           disabled={isPending}
         />
-      </div>
-
-      {/* Login Link */}
-      <div className="text-center">
-        <BodySmallMedium className="text-grey">
-          Already have an account?{" "}
-          <Link
-            href="/login"
-            className="text-moss-stone hover:text-charcoal-green transition-colors font-medium"
-          >
-            Sign in
-          </Link>
-        </BodySmallMedium>
       </div>
     </form>
   );

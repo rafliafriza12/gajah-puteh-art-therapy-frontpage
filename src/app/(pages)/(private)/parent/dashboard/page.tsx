@@ -401,7 +401,7 @@ export default function ParentDashboardPage() {
               ?.filter((therapy) =>
                 children.some((child) => child._id === therapy.childId)
               )
-              .slice(0, 5)
+              .slice(0, 6)
               .map((therapy) => {
                 const child = children.find((c) => c._id === therapy.childId);
                 return (

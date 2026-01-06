@@ -36,7 +36,7 @@ export default function CounselorDashboardPage() {
     };
   }, [parents, therapies, activitiesData]);
 
-  const recentActivities = activitiesData?.activities.slice(0, 10) || [];
+  const recentActivities = activitiesData?.activities.slice(0, 6) || [];
   const isLoading =
     userLoading || parentsLoading || therapiesLoading || isLoadingActivities;
 

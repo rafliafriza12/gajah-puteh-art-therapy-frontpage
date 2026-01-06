@@ -75,9 +75,9 @@ const RegisterCounselorForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full">
+    <form onSubmit={handleSubmit} className="w-full">
       {/* Student Checkbox */}
-      <div className="flex items-center gap-2 p-3 bg-grey-stroke/10 rounded-lg">
+      <div className="flex items-center gap-2 p-3 bg-grey-stroke/10 rounded-lg mb-4">
         <input
           type="checkbox"
           id="isStudent"
@@ -90,10 +90,10 @@ const RegisterCounselorForm: React.FC = () => {
         </label>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-3">
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Full Name *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Full Name *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="John Doe"
@@ -103,8 +103,8 @@ const RegisterCounselorForm: React.FC = () => {
         </div>
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Email *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Email *</BodySmallMedium>
           </label>
           <EmailInput
             placeholder="john@example.com"
@@ -114,8 +114,10 @@ const RegisterCounselorForm: React.FC = () => {
         </div>
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Phone Number *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">
+              Phone Number *
+            </BodySmallMedium>
           </label>
           <ContentInput
             type="tel"
@@ -126,8 +128,8 @@ const RegisterCounselorForm: React.FC = () => {
         </div>
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Address *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Address *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="City, Street"
@@ -137,8 +139,8 @@ const RegisterCounselorForm: React.FC = () => {
         </div>
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>University *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">University *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="University name"
@@ -150,13 +152,15 @@ const RegisterCounselorForm: React.FC = () => {
         </div>
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Education Level *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">
+              Education Level *
+            </BodySmallMedium>
           </label>
           <select
             value={formData.education.stage}
             onChange={(e) => handleChange("education.stage", e.target.value)}
-            className="w-full border text-sm border-grey-stroke rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-moss-stone transition-colors bg-white"
+            className="w-full border text-sm border-grey-stroke rounded-xl px-4 py-2.5 outline-none focus:ring-1 focus:ring-moss-stone transition-colors bg-white"
           >
             <option value="D3">D3</option>
             <option value="D4">D4</option>
@@ -167,8 +171,8 @@ const RegisterCounselorForm: React.FC = () => {
         </div>
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Major *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Major *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="Psychology"
@@ -177,29 +181,33 @@ const RegisterCounselorForm: React.FC = () => {
           />
         </div>
 
-        <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Semester (optional)</BodySmallMedium>
-          </label>
-          <ContentInput
-            type="number"
-            placeholder="1-14"
-            value={formData.education.semester?.toString() || ""}
-            onChange={(e) =>
-              handleChange(
-                "education.semester",
-                e.target.value ? parseInt(e.target.value) : null
-              )
-            }
-          />
-        </div>
+        {formData.isStudent && (
+          <div>
+            <label className="block mb-1">
+              <BodySmallMedium className="text-sm">Semester *</BodySmallMedium>
+            </label>
+            <ContentInput
+              type="number"
+              placeholder="1-14"
+              value={formData.education.semester?.toString() || ""}
+              onChange={(e) =>
+                handleChange(
+                  "education.semester",
+                  e.target.value ? parseInt(e.target.value) : null
+                )
+              }
+            />
+          </div>
+        )}
 
         {/* Professional fields - only show if NOT student */}
         {!formData.isStudent && (
           <>
             <div>
-              <label className="block mb-1.5">
-                <BodySmallMedium>Practice License (optional)</BodySmallMedium>
+              <label className="block mb-1">
+                <BodySmallMedium className="text-sm">
+                  Practice License *
+                </BodySmallMedium>
               </label>
               <ContentInput
                 placeholder="License number"
@@ -211,8 +219,10 @@ const RegisterCounselorForm: React.FC = () => {
             </div>
 
             <div>
-              <label className="block mb-1.5">
-                <BodySmallMedium>Workplace (optional)</BodySmallMedium>
+              <label className="block mb-1">
+                <BodySmallMedium className="text-sm">
+                  Workplace *
+                </BodySmallMedium>
               </label>
               <ContentInput
                 placeholder="Clinic/Hospital"
@@ -224,19 +234,21 @@ const RegisterCounselorForm: React.FC = () => {
         )}
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Password *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">Password *</BodySmallMedium>
           </label>
           <PasswordInput
-            placeholder="Min 6 characters"
+            placeholder="Min 8 characters"
             value={formData.password}
             onChange={(e) => handleChange("password", e.target.value)}
           />
         </div>
 
         <div>
-          <label className="block mb-1.5">
-            <BodySmallMedium>Confirm Password *</BodySmallMedium>
+          <label className="block mb-1">
+            <BodySmallMedium className="text-sm">
+              Confirm Password *
+            </BodySmallMedium>
           </label>
           <PasswordInput
             placeholder="Re-enter password"
@@ -247,16 +259,16 @@ const RegisterCounselorForm: React.FC = () => {
       </div>
 
       {error && (
-        <div className="rounded-md bg-error/10 p-3">
+        <div className="rounded-md bg-error/10 p-3 mt-4">
           <p className="text-sm text-error">{error.message}</p>
         </div>
       )}
 
-      <div className="pt-2">
+      <div className="mt-4 w-full flex justify-center">
         <SubmitButton
           variant="primary"
           text={isPending ? "Creating account..." : "Create Account"}
-          className="w-full flex justify-center items-center"
+          className="w-full sm:w-auto sm:px-12 flex justify-center items-center"
           disabled={isPending}
         />
       </div>
