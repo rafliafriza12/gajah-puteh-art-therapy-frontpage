@@ -170,9 +170,9 @@ const ProfilePageTemplate = () => {
           age: age,
         });
       }
-      showToast.success("Profile updated successfully");
+      showToast.success("Profil berhasil diperbarui");
     } catch (error: any) {
-      showToast.error(error?.message || "Failed to update profile");
+      showToast.error(error?.message || "Gagal memperbarui profil");
     }
   };
 
@@ -183,21 +183,21 @@ const ProfilePageTemplate = () => {
     if (password.length < 8) {
       return {
         valid: false,
-        message: "Password must be at least 8 characters",
+        message: "Password minimal 8 karakter",
       };
     }
 
     if (!/[A-Z]/.test(password)) {
       return {
         valid: false,
-        message: "Password must contain at least 1 uppercase letter",
+        message: "Password harus mengandung minimal 1 huruf kapital",
       };
     }
 
     if (!/[0-9]/.test(password)) {
       return {
         valid: false,
-        message: "Password must contain at least 1 number",
+        message: "Password harus mengandung minimal 1 angka",
       };
     }
 
@@ -205,7 +205,7 @@ const ProfilePageTemplate = () => {
       return {
         valid: false,
         message:
-          'Password must contain at least 1 special character (!@#$%^&*(),.?":{}|<>)',
+          'Password harus mengandung minimal 1 karakter spesial (!@#$%^&*(),.?":{}|<>)',
       };
     }
 
@@ -214,7 +214,7 @@ const ProfilePageTemplate = () => {
 
   const handleChangePassword = async () => {
     if (!oldPassword || !newPassword) {
-      showToast.error("Please fill in both old and new password");
+      showToast.error("Harap isi password lama dan password baru");
       return;
     }
 
@@ -230,12 +230,12 @@ const ProfilePageTemplate = () => {
         oldPassword,
         newPassword,
       });
-      showToast.success("Password changed successfully");
+      showToast.success("Password berhasil diubah");
       setOldPassword("");
       setNewPassword("");
       setIsEditingPassword(false);
     } catch (error: any) {
-      showToast.error(error?.message || "Failed to change password");
+      showToast.error(error?.message || "Gagal mengubah password");
     }
   };
 
@@ -250,7 +250,7 @@ const ProfilePageTemplate = () => {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <Heading3 className="text-xl sm:text-2xl lg:text-3xl">
-            Profile
+            Profil
           </Heading3>
         </div>
         <div className="bg-neutral-01 rounded-lg border border-grey-stroke p-4 sm:p-6">
@@ -267,9 +267,9 @@ const ProfilePageTemplate = () => {
   if (!user) {
     return (
       <div className="space-y-4">
-        <Heading3 className="text-xl sm:text-2xl lg:text-3xl">Profile</Heading3>
+        <Heading3 className="text-xl sm:text-2xl lg:text-3xl">Profil</Heading3>
         <div className="bg-neutral-01 rounded-lg border border-grey-stroke p-4 sm:p-6">
-          <p className="text-grey text-sm">Failed to load user data</p>
+          <p className="text-grey text-sm">Gagal memuat data pengguna</p>
         </div>
       </div>
     );
@@ -278,7 +278,7 @@ const ProfilePageTemplate = () => {
   return (
     <div className="space-y-4 ">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
-        <Heading3 className="text-xl sm:text-2xl lg:text-3xl">Profile</Heading3>
+        <Heading3 className="text-xl sm:text-2xl lg:text-3xl">Profil</Heading3>
         <button
           onClick={handleSaveChanges}
           disabled={
@@ -287,8 +287,8 @@ const ProfilePageTemplate = () => {
           className="px-4 py-2.5 bg-moss-stone text-neutral-01 rounded-lg text-sm sm:text-base font-medium hover:bg-moss-stone/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
         >
           {updateCounselorProfile.isPending || updateParentProfile.isPending
-            ? "Saving..."
-            : "Save Change"}
+            ? "Menyimpan..."
+            : "Simpan Perubahan"}
         </button>
       </div>
 
@@ -296,7 +296,7 @@ const ProfilePageTemplate = () => {
         <div className="flex flex-col gap-4 sm:gap-6">
           <div>
             <label className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-              Full Name
+              Nama Lengkap
             </label>
             <input
               type="text"
@@ -320,7 +320,7 @@ const ProfilePageTemplate = () => {
 
           <div>
             <label className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-              Phone
+              Nomor Telepon
             </label>
             <input
               type="text"
@@ -332,7 +332,7 @@ const ProfilePageTemplate = () => {
 
           <div>
             <label className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-              Address
+              Alamat
             </label>
             <textarea
               value={address}
@@ -357,7 +357,7 @@ const ProfilePageTemplate = () => {
                       onChange={() => setIsStudent(true)}
                       className="w-4 h-4 text-moss-stone focus:ring-moss-stone"
                     />
-                    <span className="text-sm">Student</span>
+                    <span className="text-sm">Mahasiswa</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -366,7 +366,7 @@ const ProfilePageTemplate = () => {
                       onChange={() => setIsStudent(false)}
                       className="w-4 h-4 text-moss-stone focus:ring-moss-stone"
                     />
-                    <span className="text-sm">Professional</span>
+                    <span className="text-sm">Profesional</span>
                   </label>
                 </div>
               </div>
@@ -374,7 +374,7 @@ const ProfilePageTemplate = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    University <span className="text-error">*</span>
+                    Universitas <span className="text-error">*</span>
                   </label>
                   <input
                     type="text"
@@ -386,7 +386,7 @@ const ProfilePageTemplate = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Stage <span className="text-error">*</span>
+                    Jenjang <span className="text-error">*</span>
                   </label>
                   <select
                     value={stage}
@@ -408,7 +408,7 @@ const ProfilePageTemplate = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Major <span className="text-error">*</span>
+                      Jurusan <span className="text-error">*</span>
                     </label>
                     <input
                       type="text"
@@ -442,7 +442,7 @@ const ProfilePageTemplate = () => {
               ) : (
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Major <span className="text-error">*</span>
+                    Jurusan <span className="text-error">*</span>
                   </label>
                   <input
                     type="text"
@@ -458,7 +458,7 @@ const ProfilePageTemplate = () => {
               {!isStudent && (
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Practice License Number (STR){" "}
+                    Nomor Surat Tanda Registrasi (STR){" "}
                     <span className="text-error">*</span>
                   </label>
                   <input
@@ -476,7 +476,7 @@ const ProfilePageTemplate = () => {
               {!isStudent && (
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Work/Institution <span className="text-error">*</span>
+                    Pekerjaan/Institusi <span className="text-error">*</span>
                   </label>
                   <input
                     type="text"
@@ -496,7 +496,7 @@ const ProfilePageTemplate = () => {
             <>
               <div>
                 <label className="block text-sm font-medium mb-2">
-                  Work/Occupation
+                  Pekerjaan
                 </label>
                 <input
                   type="text"
@@ -507,7 +507,7 @@ const ProfilePageTemplate = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Age</label>
+                <label className="block text-sm font-medium mb-2">Usia</label>
                 <input
                   type="number"
                   value={age}
@@ -519,10 +519,10 @@ const ProfilePageTemplate = () => {
           )}
 
           <div>
-            <label className="block text-sm font-medium mb-2">Role</label>
+            <label className="block text-sm font-medium mb-2">Peran</label>
             <input
               type="text"
-              value={isCounselor(user) ? "Counselor" : "Parent"}
+              value={isCounselor(user) ? "Konselor" : "Orang Tua"}
               disabled
               className="w-full px-4 py-2.5 border border-grey-stroke rounded-lg text-sm bg-grey-lightest text-grey cursor-not-allowed"
             />
@@ -532,9 +532,9 @@ const ProfilePageTemplate = () => {
           <div className="border-t border-grey-stroke pt-6 mt-4">
             <div className="flex items-center justify-between mb-4 flex-col gap-4 md:flex-row">
               <div>
-                <Heading5 className="mb-1">Change Password</Heading5>
+                <Heading5 className="mb-1">Ubah Password</Heading5>
                 <p className="text-sm text-grey">
-                  Update your password to keep your account secure
+                  Perbarui password Anda untuk menjaga keamanan akun
                 </p>
               </div>
               {!isEditingPassword && (
@@ -551,7 +551,7 @@ const ProfilePageTemplate = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Old Password
+                    Password Lama
                   </label>
                   <div className="relative">
                     <input
@@ -559,7 +559,7 @@ const ProfilePageTemplate = () => {
                       value={oldPassword}
                       onChange={(e) => setOldPassword(e.target.value)}
                       className="w-full px-4 py-2.5 pr-10 border border-grey-stroke rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-moss-stone"
-                      placeholder="Enter your old password"
+                      placeholder="Masukkan password lama"
                     />
                     <button
                       type="button"
@@ -614,7 +614,7 @@ const ProfilePageTemplate = () => {
 
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    New Password
+                    Password Baru
                   </label>
                   <div className="relative">
                     <input
@@ -622,7 +622,7 @@ const ProfilePageTemplate = () => {
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
                       className="w-full px-4 py-2.5 pr-10 border border-grey-stroke rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-moss-stone"
-                      placeholder="Enter your new password"
+                      placeholder="Masukkan password baru"
                     />
                     <button
                       type="button"
@@ -677,7 +677,7 @@ const ProfilePageTemplate = () => {
                   {/* Password Requirements */}
                   <div className="mt-2 space-y-1">
                     <p className="text-xs font-medium text-neutral-02">
-                      Password must contain:
+                      Password harus mengandung:
                     </p>
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
@@ -709,7 +709,7 @@ const ProfilePageTemplate = () => {
                               : "text-grey"
                           }`}
                         >
-                          At least 8 characters
+                          Minimal 8 karakter
                         </span>
                       </div>
 
@@ -742,7 +742,7 @@ const ProfilePageTemplate = () => {
                               : "text-grey"
                           }`}
                         >
-                          At least 1 uppercase letter
+                          Minimal 1 huruf kapital
                         </span>
                       </div>
 
@@ -775,7 +775,7 @@ const ProfilePageTemplate = () => {
                               : "text-grey"
                           }`}
                         >
-                          At least 1 number
+                          Minimal 1 angka
                         </span>
                       </div>
 
@@ -808,7 +808,7 @@ const ProfilePageTemplate = () => {
                               : "text-grey"
                           }`}
                         >
-                          At least 1 special character (!@#$%^&*...)
+                          Minimal 1 karakter spesial (!@#$%^&*...)
                         </span>
                       </div>
                     </div>
@@ -820,16 +820,14 @@ const ProfilePageTemplate = () => {
                     onClick={handleCancelPasswordEdit}
                     className="px-4 py-2 border border-grey-stroke text-grey rounded-lg text-sm font-medium hover:bg-grey-lightest transition-colors"
                   >
-                    Cancel
+                    Batal
                   </button>
                   <button
                     onClick={handleChangePassword}
                     disabled={changePassword.isPending}
                     className="px-4 py-2 bg-moss-stone text-white rounded-lg text-sm font-medium hover:bg-moss-stone/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {changePassword.isPending
-                      ? "Changing..."
-                      : "Change Password"}
+                    {changePassword.isPending ? "Mengubah..." : "Ubah Password"}
                   </button>
                 </div>
               </div>

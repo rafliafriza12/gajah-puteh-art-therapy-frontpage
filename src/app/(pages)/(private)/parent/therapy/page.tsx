@@ -27,9 +27,9 @@ export default function ParentTherapyPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <Heading3 className="text-neutral-02">Therapy Progress</Heading3>
+          <Heading3 className="text-neutral-02">Progres Terapi</Heading3>
           <p className="text-grey mt-2">
-            Track your children's therapy sessions and progress
+            Pantau sesi terapi dan perkembangan anak-anak Anda
           </p>
         </div>
       </div>
@@ -42,27 +42,27 @@ export default function ParentTherapyPage() {
               <tr>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Session ID
+                    ID Sesi
                   </BodySmallMedium>
                 </th>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Child
+                    Anak
                   </BodySmallMedium>
                 </th>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Counselor
+                    Konselor
                   </BodySmallMedium>
                 </th>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Date
+                    Tanggal
                   </BodySmallMedium>
                 </th>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Actions
+                    Aksi
                   </BodySmallMedium>
                 </th>
               </tr>
@@ -144,7 +144,7 @@ export default function ParentTherapyPage() {
                       <td className="px-6 py-4">
                         <Link href={`/parent/therapy/${therapy._id}`}>
                           <button className="text-sm text-moss-stone hover:text-moss-stone-dark font-medium">
-                            View Details
+                            Lihat Detail
                           </button>
                         </Link>
                       </td>
@@ -167,9 +167,9 @@ export default function ParentTherapyPage() {
                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
-                    <p className="text-grey mb-2">No therapy sessions yet</p>
+                    <p className="text-grey mb-2">Belum ada sesi terapi</p>
                     <p className="text-sm text-grey">
-                      Your children haven't started any therapy sessions
+                      Anak-anak Anda belum memulai sesi terapi
                     </p>
                   </td>
                 </tr>
@@ -183,12 +183,12 @@ export default function ParentTherapyPage() {
       {!isLoading && therapies && therapies.length > 0 && (
         <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-6">
           <h4 className="font-semibold text-blue-900 mb-2">
-            About Therapy Sessions
+            Tentang Sesi Terapi
           </h4>
           <p className="text-sm text-blue-800">
-            Each therapy session includes observations, assessments (DASS
-            screening), and progress tracking. Click "View Details" to see
-            complete information about each session.
+            Setiap sesi terapi mencakup observasi, asesmen (skrining DASS), dan
+            pemantauan perkembangan. Klik "Lihat Detail" untuk melihat informasi
+            lengkap tentang setiap sesi.
           </p>
         </div>
       )}

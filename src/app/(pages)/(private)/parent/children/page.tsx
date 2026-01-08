@@ -95,10 +95,10 @@ export default function ParentChildrenPage() {
           id: editingChild._id,
           data: formData as IUpdateChildInput,
         });
-        showToast.success("Child updated successfully");
+        showToast.success("Data anak berhasil diperbarui");
       } else {
         await createChild.mutateAsync(formData);
-        showToast.success("Child added successfully");
+        showToast.success("Anak berhasil ditambahkan");
       }
       refetch();
       handleCloseModal();
@@ -108,10 +108,10 @@ export default function ParentChildrenPage() {
   };
 
   const handleDelete = async (childId: string) => {
-    if (!confirm("Are you sure you want to delete this child?")) return;
+    if (!confirm("Apakah Anda yakin ingin menghapus data anak ini?")) return;
     try {
       await deleteChild.mutateAsync(childId);
-      showToast.success("Child deleted successfully");
+      showToast.success("Data anak berhasil dihapus");
       refetch();
     } catch (error) {
       showErrorToast(error);
@@ -123,8 +123,8 @@ export default function ParentChildrenPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <Heading3 className="text-neutral-02">My Children</Heading3>
-          <p className="text-grey mt-2">Manage your children information</p>
+          <Heading3 className="text-neutral-02">Anak Saya</Heading3>
+          <p className="text-grey mt-2">Kelola informasi anak-anak Anda</p>
         </div>
         <button
           onClick={() => handleOpenModal()}
@@ -143,7 +143,7 @@ export default function ParentChildrenPage() {
               d="M12 4v16m8-8H4"
             />
           </svg>
-          <span className="hidden md:block">Add Child</span>
+          <span className="hidden md:block">Tambah Anak</span>
         </button>
       </div>
 
@@ -197,7 +197,7 @@ export default function ParentChildrenPage() {
                   <h4 className="text-lg font-medium text-neutral-02">
                     {child.fullname || `Child #${child.childOrder}`}
                   </h4>
-                  <p className="text-sm text-grey">{child.age} years old</p>
+                  <p className="text-sm text-grey">{child.age} tahun</p>
                 </div>
               </div>
 
@@ -210,7 +210,7 @@ export default function ParentChildrenPage() {
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Date of Birth
+                    Tanggal Lahir
                   </BodySmallMedium>
                   <p className="text-sm text-neutral-02">
                     {new Date(child.birth).toLocaleDateString("id-ID")}
@@ -219,10 +219,10 @@ export default function ParentChildrenPage() {
                 {child.education && (
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Education
+                      Pendidikan
                     </BodySmallMedium>
                     <p className="text-sm text-neutral-02">
-                      {child.education.stage} - Class {child.education.class}
+                      {child.education.stage} - Kelas {child.education.class}
                     </p>
                   </div>
                 )}
@@ -233,7 +233,7 @@ export default function ParentChildrenPage() {
                   href={`/parent/children/${child._id}`}
                   className="flex-1 text-center px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors"
                 >
-                  View Details
+                  Lihat Detail
                 </Link>
                 <button
                   onClick={() => handleOpenModal(child)}
@@ -290,9 +290,9 @@ export default function ParentChildrenPage() {
                   d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <p className="text-grey mb-2">No children registered yet</p>
+              <p className="text-grey mb-2">Belum ada anak yang terdaftar</p>
               <p className="text-sm text-grey mb-4">
-                Click the "Add Child" button to register your first child
+                Klik tombol "Tambah Anak" untuk mendaftarkan anak pertama Anda
               </p>
             </div>
           </div>
@@ -305,7 +305,7 @@ export default function ParentChildrenPage() {
           <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-grey-stroke flex items-center justify-between sticky top-0 bg-white">
               <h2 className="text-xl font-semibold text-neutral-02">
-                {editingChild ? "Edit Child" : "Add New Child"}
+                {editingChild ? "Edit Data Anak" : "Tambah Anak Baru"}
               </h2>
               <button
                 onClick={handleCloseModal}
@@ -332,7 +332,7 @@ export default function ParentChildrenPage() {
                 {/* Full Name */}
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-neutral-02 mb-2">
-                    Full Name <span className="text-error">*</span>
+                    Nama Lengkap <span className="text-error">*</span>
                   </label>
                   <input
                     type="text"
@@ -342,7 +342,7 @@ export default function ParentChildrenPage() {
                       setFormData({ ...formData, fullname: e.target.value })
                     }
                     className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
-                    placeholder="Enter child's full name"
+                    placeholder="Masukkan nama lengkap anak"
                   />
                 </div>
 
@@ -359,14 +359,14 @@ export default function ParentChildrenPage() {
                       setFormData({ ...formData, nik: e.target.value })
                     }
                     className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
-                    placeholder="Enter NIK"
+                    placeholder="Masukkan NIK"
                   />
                 </div>
 
                 {/* Biological Mother Name */}
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-neutral-02 mb-2">
-                    Biological Mother Name <span className="text-error">*</span>
+                    Nama Ibu Kandung <span className="text-error">*</span>
                   </label>
                   <input
                     type="text"
@@ -379,14 +379,14 @@ export default function ParentChildrenPage() {
                       })
                     }
                     className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
-                    placeholder="Enter mother's name"
+                    placeholder="Masukkan nama ibu kandung"
                   />
                 </div>
 
                 {/* Date of Birth */}
                 <div>
                   <label className="block text-sm font-medium text-neutral-02 mb-2">
-                    Date of Birth <span className="text-error">*</span>
+                    Tanggal Lahir <span className="text-error">*</span>
                   </label>
                   <input
                     type="date"
@@ -402,7 +402,7 @@ export default function ParentChildrenPage() {
                 {/* Age */}
                 <div>
                   <label className="block text-sm font-medium text-neutral-02 mb-2">
-                    Age <span className="text-error">*</span>
+                    Usia <span className="text-error">*</span>
                   </label>
                   <input
                     type="number"
@@ -417,14 +417,14 @@ export default function ParentChildrenPage() {
                       })
                     }
                     className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
-                    placeholder="Age"
+                    placeholder="Usia"
                   />
                 </div>
 
                 {/* Child Order */}
                 <div>
                   <label className="block text-sm font-medium text-neutral-02 mb-2">
-                    Child Order <span className="text-error">*</span>
+                    Anak Ke- <span className="text-error">*</span>
                   </label>
                   <input
                     type="number"
@@ -438,14 +438,14 @@ export default function ParentChildrenPage() {
                       })
                     }
                     className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
-                    placeholder="1st, 2nd, 3rd child..."
+                    placeholder="Anak ke-1, ke-2, ke-3..."
                   />
                 </div>
 
                 {/* Education Stage */}
                 <div>
                   <label className="block text-sm font-medium text-neutral-02 mb-2">
-                    Education Stage <span className="text-error">*</span>
+                    Jenjang Pendidikan <span className="text-error">*</span>
                   </label>
                   <select
                     required
@@ -461,16 +461,16 @@ export default function ParentChildrenPage() {
                     }
                     className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
                   >
-                    <option value="SD">SD (Elementary)</option>
-                    <option value="SMP">SMP (Junior High)</option>
-                    <option value="SMA">SMA (Senior High)</option>
+                    <option value="SD">SD (Sekolah Dasar)</option>
+                    <option value="SMP">SMP (Sekolah Menengah Pertama)</option>
+                    <option value="SMA">SMA (Sekolah Menengah Atas)</option>
                   </select>
                 </div>
 
                 {/* Education Class */}
                 <div>
                   <label className="block text-sm font-medium text-neutral-02 mb-2">
-                    Class/Grade <span className="text-error">*</span>
+                    Kelas <span className="text-error">*</span>
                   </label>
                   <input
                     type="number"
@@ -488,7 +488,7 @@ export default function ParentChildrenPage() {
                       })
                     }
                     className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
-                    placeholder="Grade number"
+                    placeholder="Nomor kelas"
                   />
                 </div>
               </div>
@@ -500,7 +500,7 @@ export default function ParentChildrenPage() {
                   onClick={handleCloseModal}
                   className="flex-1 px-4 py-2 border border-grey-stroke text-neutral-02 rounded-lg hover:bg-grey-stroke/10 transition-colors"
                 >
-                  Cancel
+                  Batal
                 </button>
                 <button
                   type="submit"
@@ -508,10 +508,10 @@ export default function ParentChildrenPage() {
                   className="flex-1 px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {createChild.isPending || updateChild.isPending
-                    ? "Saving..."
+                    ? "Menyimpan..."
                     : editingChild
-                    ? "Update Child"
-                    : "Add Child"}
+                    ? "Perbarui Data Anak"
+                    : "Tambah Anak"}
                 </button>
               </div>
             </form>

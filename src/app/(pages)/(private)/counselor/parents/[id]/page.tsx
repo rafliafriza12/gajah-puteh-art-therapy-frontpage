@@ -23,12 +23,12 @@ export default function ParentDetailPage() {
     return (
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Parent not found</p>
+          <p className="text-grey">Orangtua tidak ditemukan</p>
           <Link
             href="/counselor/children"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
           >
-            ← Back to Children List
+            ← Kembali ke Daftar Anak
           </Link>
         </div>
       </div>
@@ -43,12 +43,12 @@ export default function ParentDetailPage() {
           href="/counselor/children"
           className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mb-4 inline-block"
         >
-          ← Back to Children List
+          ← Kembali ke Daftar Anak
         </Link>
         <div className="flex items-center gap-3">
-          <Heading3 className="text-neutral-02">Parent Details</Heading3>
+          <Heading3 className="text-neutral-02">Detail Orangtua</Heading3>
           <span className="px-3 py-1 text-sm font-medium rounded bg-blue-100 text-blue-700">
-            Parent
+            Orangtua
           </span>
         </div>
       </div>
@@ -85,12 +85,12 @@ export default function ParentDetailPage() {
               {/* Personal Information Card */}
               <div className="bg-white border border-grey-stroke rounded-xl p-6">
                 <Heading5 className="text-neutral-02 mb-4">
-                  Personal Information
+                  Informasi Pribadi
                 </Heading5>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="md:col-span-2">
                     <BodySmallMedium className="text-grey mb-1">
-                      Full Name
+                      Nama Lengkap
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.fullname}</p>
                   </div>
@@ -102,25 +102,25 @@ export default function ParentDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Phone
+                      Telepon
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.phone}</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Age
+                      Usia
                     </BodySmallMedium>
-                    <p className="text-neutral-02">{parent.age} years</p>
+                    <p className="text-neutral-02">{parent.age} tahun</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Occupation
+                      Pekerjaan
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.work}</p>
                   </div>
                   <div className="md:col-span-2">
                     <BodySmallMedium className="text-grey mb-1">
-                      Address
+                      Alamat
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.address}</p>
                   </div>
@@ -131,7 +131,7 @@ export default function ParentDetailPage() {
               <div className="bg-white border border-grey-stroke rounded-xl p-6">
                 <div className="flex items-center justify-between mb-4">
                   <Heading5 className="text-neutral-02">
-                    Children ({children?.length || 0})
+                    Anak ({children?.length || 0})
                   </Heading5>
                 </div>
                 {children && children.length > 0 ? (
@@ -155,10 +155,10 @@ export default function ParentDetailPage() {
                             </h5>
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="px-2 py-0.5 text-xs font-medium rounded bg-green-100 text-green-700 whitespace-nowrap">
-                                Child
+                                Anak
                               </span>
                               <span className="px-2 py-0.5 text-xs font-medium rounded bg-moss-stone/10 text-moss-stone whitespace-nowrap">
-                                {child.age} years
+                                {child.age} tahun
                               </span>
                             </div>
                           </div>
@@ -172,7 +172,7 @@ export default function ParentDetailPage() {
                           </div>
                         </div>
                         <span className="hidden sm:inline text-moss-stone font-medium text-sm whitespace-nowrap">
-                          View Details →
+                          Lihat Detail →
                         </span>
                         <span className="sm:hidden text-moss-stone font-medium text-xs mt-1">
                           →
@@ -183,7 +183,7 @@ export default function ParentDetailPage() {
                 ) : (
                   <div className="text-center py-8">
                     <p className="text-grey text-sm">
-                      No children registered yet for this parent
+                      Belum ada anak terdaftar untuk orangtua ini
                     </p>
                   </div>
                 )}
@@ -209,13 +209,15 @@ export default function ParentDetailPage() {
             </div>
           ) : (
             <div className="bg-white border border-grey-stroke rounded-xl p-6 sticky top-6">
-              <Heading5 className="text-neutral-02 mb-4">Quick Stats</Heading5>
+              <Heading5 className="text-neutral-02 mb-4">
+                Statistik Cepat
+              </Heading5>
               <div className="space-y-4">
                 {/* Total Children */}
                 <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-grey mb-1">Total Children</p>
+                      <p className="text-sm text-grey mb-1">Total Anak</p>
                       <p className="text-2xl font-bold text-blue-700">
                         {children?.length || 0}
                       </p>
@@ -242,7 +244,7 @@ export default function ParentDetailPage() {
                 <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-grey mb-1">Average Age</p>
+                      <p className="text-sm text-grey mb-1">Rata-rata Usia</p>
                       <p className="text-2xl font-bold text-green-700">
                         {children && children.length > 0
                           ? Math.round(
@@ -252,7 +254,7 @@ export default function ParentDetailPage() {
                               ) / children.length
                             )
                           : 0}{" "}
-                        years
+                        tahun
                       </p>
                     </div>
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
@@ -275,7 +277,7 @@ export default function ParentDetailPage() {
 
                 {/* Contact Info */}
                 <div className="p-4 bg-moss-stone/5 border border-moss-stone/20 rounded-lg">
-                  <p className="text-sm text-grey mb-2">Contact Parent</p>
+                  <p className="text-sm text-grey mb-2">Hubungi Orangtua</p>
                   <div className="space-y-2">
                     <a
                       href={`mailto:${parent?.email}`}
@@ -294,7 +296,7 @@ export default function ParentDetailPage() {
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      Send Email
+                      Kirim Email
                     </a>
                     <a
                       href={`tel:${parent?.phone}`}
@@ -313,7 +315,7 @@ export default function ParentDetailPage() {
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      Call Phone
+                      Hubungi Telepon
                     </a>
                   </div>
                 </div>

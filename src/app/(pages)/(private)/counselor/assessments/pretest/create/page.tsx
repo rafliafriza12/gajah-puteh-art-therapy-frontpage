@@ -31,7 +31,7 @@ export default function CreatePretestPage() {
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "You can only create assessments for your own therapy sessions"
+        "Anda hanya dapat membuat asesmen untuk sesi terapi Anda sendiri"
       );
       router.push("/counselor/assessments/pretest");
     }
@@ -93,7 +93,7 @@ export default function CreatePretestPage() {
     e.preventDefault();
 
     if (!selectedTherapyId) {
-      toast.error("Please select a therapy session");
+      toast.error("Silakan pilih sesi terapi");
       return;
     }
 
@@ -120,11 +120,11 @@ export default function CreatePretestPage() {
       },
       {
         onSuccess: () => {
-          toast.success("Pretest assessment created successfully!");
+          toast.success("Asesmen pretest berhasil dibuat!");
           router.push(`/counselor/therapy/${selectedTherapyId}`);
         },
         onError: (error: any) => {
-          toast.error(error?.message || "Failed to create pretest assessment");
+          toast.error(error?.message || "Gagal membuat asesmen pretest");
         },
       }
     );
@@ -150,13 +150,13 @@ export default function CreatePretestPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back
+          Kembali
         </button>
         <Heading3 className="text-neutral-02">
-          Create Pretest Assessment (SDQ)
+          Buat Asesmen Pretest (SDQ)
         </Heading3>
         <p className="text-grey mt-2">
-          Strengths and Difficulties Questionnaire - Baseline Assessment
+          Kuesioner Kekuatan dan Kesulitan - Asesmen Awal
         </p>
       </div>
 
@@ -165,13 +165,11 @@ export default function CreatePretestPage() {
         className="bg-white border border-grey-stroke rounded-xl p-6 lg:p-8 space-y-6 overflow-x-hidden"
       >
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">
-            Emotional Symptoms
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Gejala Emosional</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Emotional Symptoms Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Gejala Emosional *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -181,13 +179,13 @@ export default function CreatePretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter emotional symptoms score"
+                placeholder="Masukkan skor gejala emosional"
               />
             </div>
             <div>
               <label className="block mb-2">
                 <BodySmallMedium>
-                  Emotional Symptoms Interpretation *
+                  Interpretasi Gejala Emosional *
                 </BodySmallMedium>
               </label>
               <textarea
@@ -197,18 +195,18 @@ export default function CreatePretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
         </div>
 
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">Conduct Problems</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Masalah Perilaku</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Conduct Problem Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Masalah Perilaku *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -218,13 +216,13 @@ export default function CreatePretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter conduct problem score"
+                placeholder="Masukkan skor masalah perilaku"
               />
             </div>
             <div>
               <label className="block mb-2">
                 <BodySmallMedium>
-                  Conduct Problem Interpretation *
+                  Interpretasi Masalah Perilaku *
                 </BodySmallMedium>
               </label>
               <textarea
@@ -234,7 +232,7 @@ export default function CreatePretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -242,12 +240,12 @@ export default function CreatePretestPage() {
 
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Hyperactivity/Inattention
+            Hiperaktivitas/Kurang Perhatian
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Hyperactivity Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Hiperaktivitas *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -257,14 +255,12 @@ export default function CreatePretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter hyperactivity score"
+                placeholder="Masukkan skor hiperaktivitas"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>
-                  Hyperactivity Interpretation *
-                </BodySmallMedium>
+                <BodySmallMedium>Interpretasi Hiperaktivitas *</BodySmallMedium>
               </label>
               <textarea
                 name="hyperactivityInterpretation"
@@ -273,7 +269,7 @@ export default function CreatePretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -281,12 +277,12 @@ export default function CreatePretestPage() {
 
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Peer Relationship Problems
+            Masalah Hubungan Teman Sebaya
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Peer Problem Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Masalah Teman Sebaya *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -296,12 +292,14 @@ export default function CreatePretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter peer problem score"
+                placeholder="Masukkan skor masalah teman sebaya"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Peer Problem Interpretation *</BodySmallMedium>
+                <BodySmallMedium>
+                  Interpretasi Masalah Teman Sebaya *
+                </BodySmallMedium>
               </label>
               <textarea
                 name="peerProblemInterpretation"
@@ -310,7 +308,7 @@ export default function CreatePretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -318,12 +316,12 @@ export default function CreatePretestPage() {
 
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Prosocial Behaviour
+            Perilaku Prososial
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Prosocial Behaviour Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Perilaku Prososial *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -333,13 +331,13 @@ export default function CreatePretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter prosocial behaviour score"
+                placeholder="Masukkan skor perilaku prososial"
               />
             </div>
             <div>
               <label className="block mb-2">
                 <BodySmallMedium>
-                  Prosocial Behaviour Interpretation *
+                  Interpretasi Perilaku Prososial *
                 </BodySmallMedium>
               </label>
               <textarea
@@ -349,7 +347,7 @@ export default function CreatePretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -357,12 +355,12 @@ export default function CreatePretestPage() {
 
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Total Difficulties Score
+            Total Skor Kesulitan
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Total Difficulties Score *</BodySmallMedium>
+                <BodySmallMedium>Total Skor Kesulitan *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -372,13 +370,13 @@ export default function CreatePretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter total difficulties score"
+                placeholder="Masukkan total skor kesulitan"
               />
             </div>
             <div>
               <label className="block mb-2">
                 <BodySmallMedium>
-                  Total Difficulties Interpretation *
+                  Interpretasi Total Kesulitan *
                 </BodySmallMedium>
               </label>
               <textarea
@@ -388,7 +386,7 @@ export default function CreatePretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -396,12 +394,12 @@ export default function CreatePretestPage() {
 
         <div>
           <Heading5 className="text-neutral-02 mb-4">
-            Total Pretest Assessment
+            Total Asesmen Pretest
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Total Pretest Score</BodySmallMedium>
+                <BodySmallMedium>Total Skor Pretest</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -409,17 +407,15 @@ export default function CreatePretestPage() {
                 value={formData.totalPretestScore}
                 readOnly
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg bg-grey-stroke/10 text-neutral-02 font-semibold"
-                placeholder="Auto calculated"
+                placeholder="Dihitung otomatis"
               />
               <p className="text-xs text-grey mt-1">
-                Auto-calculated from individual scores
+                Dihitung otomatis dari skor individu
               </p>
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>
-                  Total Pretest Interpretation *
-                </BodySmallMedium>
+                <BodySmallMedium>Total Interpretasi Pretest *</BodySmallMedium>
               </label>
               <textarea
                 name="totalPretestInterpretation"
@@ -428,7 +424,7 @@ export default function CreatePretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter overall interpretation"
+                placeholder="Masukkan interpretasi keseluruhan"
               />
             </div>
           </div>
@@ -441,11 +437,11 @@ export default function CreatePretestPage() {
             disabled={isPending}
             className="flex-1 px-4 py-2 border border-grey-stroke rounded-lg text-neutral-02 hover:bg-grey-stroke/10 transition-colors text-center disabled:opacity-50"
           >
-            Cancel
+            Batal
           </button>
           <SubmitButton
             variant="primary"
-            text={isPending ? "Creating..." : "Create Pretest"}
+            text={isPending ? "Membuat..." : "Buat Pretest"}
             className="flex-1 flex justify-center items-center"
             disabled={isPending || !selectedTherapyId}
           />

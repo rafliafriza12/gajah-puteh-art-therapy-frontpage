@@ -58,13 +58,13 @@ function ObservationRow({ therapy }: { therapy: any }) {
             {hasObservation ? (
               <>
                 <span className="px-3 py-1 bg-success/10 text-success text-xs font-medium rounded-full">
-                  Completed
+                  Selesai
                 </span>
                 <Link
                   href={`/counselor/therapy/${therapy._id}`}
                   className="text-sm text-moss-stone hover:text-moss-stone-dark font-medium"
                 >
-                  View
+                  Lihat
                 </Link>
               </>
             ) : (
@@ -72,7 +72,7 @@ function ObservationRow({ therapy }: { therapy: any }) {
                 href={`/counselor/assessments/observation/create?therapyId=${therapy._id}`}
                 className="px-4 py-2 text-center bg-moss-stone text-white text-sm rounded-lg hover:bg-moss-stone-dark transition-colors"
               >
-                Create Observation
+                Buat Observasi
               </Link>
             )}
           </div>
@@ -89,9 +89,9 @@ export default function ObservationAssessmentsPage() {
     <div className="">
       {/* Header */}
       <div className="mb-6">
-        <Heading3 className="text-neutral-02">Observation Assessments</Heading3>
+        <Heading3 className="text-neutral-02">Asesmen Observasi</Heading3>
         <p className="text-grey mt-2">
-          Record and track child behavior observations during therapy sessions
+          Catat dan pantau observasi perilaku anak selama sesi terapi
         </p>
       </div>
 
@@ -103,22 +103,22 @@ export default function ObservationAssessmentsPage() {
               <tr>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Therapy ID
+                    ID Terapi
                   </BodySmallMedium>
                 </th>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Parent Name
+                    Nama Orangtua
                   </BodySmallMedium>
                 </th>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Child Name
+                    Nama Anak
                   </BodySmallMedium>
                 </th>
                 <th className="px-6 py-4 text-left">
                   <BodySmallMedium className="text-neutral-02">
-                    Status / Actions
+                    Status / Aksi
                   </BodySmallMedium>
                 </th>
               </tr>
@@ -149,12 +149,14 @@ export default function ObservationAssessmentsPage() {
               ) : (
                 <tr>
                   <td colSpan={4} className="px-6 py-12 text-center">
-                    <p className="text-grey mb-4">No therapy sessions found</p>
+                    <p className="text-grey mb-4">
+                      Tidak ada sesi terapi ditemukan
+                    </p>
                     <Link
                       href="/counselor/therapy"
                       className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm"
                     >
-                      Create a therapy session first →
+                      Buat sesi terapi terlebih dahulu →
                     </Link>
                   </td>
                 </tr>

@@ -43,14 +43,14 @@ function DropdownItem({
               {child.fullname || `Child #${child.childOrder}`}
             </p>
             <span className="px-2 py-0.5 text-xs font-medium rounded bg-green-100 text-green-700 shrink-0">
-              Child
+              Anak
             </span>
             <span className="px-2 py-0.5 text-xs font-medium rounded bg-moss-stone/10 text-moss-stone shrink-0">
-              {child.age} years
+              {child.age} tahun
             </span>
           </div>
           <p className="text-xs text-grey truncate">
-            NIK: {child.nik.slice(0, 12)}... • {child.education.stage} - Class{" "}
+            NIK: {child.nik.slice(0, 12)}... • {child.education.stage} - Kelas{" "}
             {child.education.class}
           </p>
         </div>
@@ -89,7 +89,7 @@ function ParentGroupHeader({ parent }: { parent: any }) {
             {parent.fullname}
           </span>
           <span className="px-2 py-0.5 text-xs font-medium rounded bg-blue-100 text-blue-700">
-            Parent
+            Orangtua
           </span>
         </div>
       </div>
@@ -226,7 +226,7 @@ export default function CreateTherapyModal({
     e.preventDefault();
 
     if (!childId.trim()) {
-      toast.error("Please select a child");
+      toast.error("Silakan pilih anak");
       return;
     }
 
@@ -237,7 +237,7 @@ export default function CreateTherapyModal({
       },
       {
         onSuccess: () => {
-          toast.success("Therapy session created successfully!");
+          toast.success("Sesi terapi berhasil dibuat!");
           setChildId("");
           setSelectedChild(null);
           setSearchQuery("");
@@ -245,7 +245,7 @@ export default function CreateTherapyModal({
           onClose();
         },
         onError: (error: any) => {
-          toast.error(error?.message || "Failed to create therapy session");
+          toast.error(error?.message || "Gagal membuat sesi terapi");
         },
       }
     );
@@ -261,15 +261,11 @@ export default function CreateTherapyModal({
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={handleClose}
-      title="Create New Therapy Session"
-    >
+    <Modal isOpen={isOpen} onClose={handleClose} title="Buat Sesi Terapi Baru">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block mb-2">
-            <BodySmallMedium>Select Child *</BodySmallMedium>
+            <BodySmallMedium>Pilih Anak *</BodySmallMedium>
           </label>
 
           {/* Search Input with Dropdown */}
@@ -278,7 +274,7 @@ export default function CreateTherapyModal({
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Search child by name or NIK..."
+                placeholder="Cari anak berdasarkan nama atau NIK..."
                 value={searchQuery}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
@@ -347,7 +343,7 @@ export default function CreateTherapyModal({
                   ))
                 ) : (
                   <div className="p-4 text-center text-grey text-sm">
-                    No parents or children found
+                    Tidak ada orangtua atau anak ditemukan
                   </div>
                 )}
               </div>
@@ -355,7 +351,8 @@ export default function CreateTherapyModal({
           </div>
 
           <p className="text-xs text-grey mt-1">
-            Type to search children by name or NIK (max 5 results per parent)
+            Ketik untuk mencari anak berdasarkan nama atau NIK (maks 5 hasil per
+            orangtua)
           </p>
         </div>
 
@@ -366,11 +363,11 @@ export default function CreateTherapyModal({
             disabled={isPending}
             className="flex-1 px-4 py-2 border border-grey-stroke rounded-lg text-neutral-02 hover:bg-grey-stroke/10 transition-colors disabled:opacity-50"
           >
-            Cancel
+            Batal
           </button>
           <SubmitButton
             variant="primary"
-            text={isPending ? "Creating..." : "Create Session"}
+            text={isPending ? "Membuat..." : "Buat Sesi"}
             className="flex-1 flex justify-center items-center"
             disabled={isPending}
           />

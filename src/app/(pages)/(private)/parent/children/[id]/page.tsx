@@ -29,12 +29,12 @@ export default function ParentChildDetailPage() {
     return (
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Child not found</p>
+          <p className="text-grey">Anak tidak ditemukan</p>
           <Link
             href="/parent/children"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
           >
-            ← Back to Children List
+            ← Kembali ke Daftar Anak
           </Link>
         </div>
       </div>
@@ -49,10 +49,10 @@ export default function ParentChildDetailPage() {
           href="/parent/children"
           className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mb-4 inline-block"
         >
-          ← Back to Children List
+          ← Kembali ke Daftar Anak
         </Link>
         <div className="flex items-center justify-between">
-          <Heading3 className="text-neutral-02">Child Details</Heading3>
+          <Heading3 className="text-neutral-02">Detail Anak</Heading3>
           {child && (
             <Link
               href={`/parent/children?edit=${child._id}`}
@@ -71,7 +71,7 @@ export default function ParentChildDetailPage() {
                   d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                 />
               </svg>
-              <span className="hidden md:block">Edit Child</span>
+              <span className="hidden md:block">Edit Data Anak</span>
             </Link>
           )}
         </div>
@@ -112,12 +112,12 @@ export default function ParentChildDetailPage() {
               {/* Basic Info Card */}
               <div className="bg-white border border-grey-stroke rounded-xl p-6">
                 <Heading5 className="text-neutral-02 mb-4">
-                  Basic Information
+                  Informasi Dasar
                 </Heading5>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="md:col-span-2">
                     <BodySmallMedium className="text-grey mb-1">
-                      Full Name
+                      Nama Lengkap
                     </BodySmallMedium>
                     <p className="text-neutral-02">{child.fullname}</p>
                   </div>
@@ -129,13 +129,13 @@ export default function ParentChildDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Age
+                      Usia
                     </BodySmallMedium>
-                    <p className="text-neutral-02">{child.age} years</p>
+                    <p className="text-neutral-02">{child.age} tahun</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Date of Birth
+                      Tanggal Lahir
                     </BodySmallMedium>
                     <p className="text-neutral-02">
                       {new Date(child.birth).toLocaleDateString("id-ID")}
@@ -143,13 +143,13 @@ export default function ParentChildDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Child Order
+                      Anak Ke-
                     </BodySmallMedium>
-                    <p className="text-neutral-02">Child #{child.childOrder}</p>
+                    <p className="text-neutral-02">Anak #{child.childOrder}</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Biological Mother
+                      Ibu Kandung
                     </BodySmallMedium>
                     <p className="text-neutral-02">
                       {child.biologicalMotherName}
@@ -162,18 +162,18 @@ export default function ParentChildDetailPage() {
               {child.education && (
                 <div className="bg-white border border-grey-stroke rounded-xl p-6">
                   <Heading5 className="text-neutral-02 mb-4">
-                    Education Information
+                    Informasi Pendidikan
                   </Heading5>
                   <div className="space-y-3">
                     <div>
                       <BodySmallMedium className="text-grey mb-1">
-                        Education Stage
+                        Jenjang Pendidikan
                       </BodySmallMedium>
                       <p className="text-neutral-02">{child.education.stage}</p>
                     </div>
                     <div>
                       <BodySmallMedium className="text-grey mb-1">
-                        Class
+                        Kelas
                       </BodySmallMedium>
                       <p className="text-neutral-02">{child.education.class}</p>
                     </div>
@@ -201,9 +201,7 @@ export default function ParentChildDetailPage() {
             </div>
           ) : (
             <div className="bg-white border border-grey-stroke rounded-xl p-6 sticky top-6">
-              <Heading5 className="text-neutral-02 mb-4">
-                Therapy Sessions
-              </Heading5>
+              <Heading5 className="text-neutral-02 mb-4">Sesi Terapi</Heading5>
               {childTherapies && childTherapies.length > 0 ? (
                 <div className="space-y-4">
                   {childTherapies.map((therapy, index) => {
@@ -270,7 +268,7 @@ export default function ParentChildDetailPage() {
                       d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                     />
                   </svg>
-                  <p className="text-sm text-grey">No therapy sessions yet</p>
+                  <p className="text-sm text-grey">Belum ada sesi terapi</p>
                 </div>
               )}
 
@@ -281,7 +279,7 @@ export default function ParentChildDetailPage() {
                     href={`/parent/therapy?childId=${child._id}`}
                     className="block w-full text-center px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors"
                   >
-                    View All Therapy Progress
+                    Lihat Semua Progres Terapi
                   </Link>
                 </div>
               )}

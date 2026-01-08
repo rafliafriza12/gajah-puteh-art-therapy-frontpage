@@ -37,7 +37,7 @@ export default function EditObservationPage() {
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "You can only edit assessments for your own therapy sessions"
+        "Anda hanya dapat mengedit asesmen untuk sesi terapi Anda sendiri"
       );
       router.push(`/counselor/assessments/observation/${observationId}`);
     }
@@ -80,7 +80,7 @@ export default function EditObservationPage() {
     e.preventDefault();
 
     if (!formData.summary.trim()) {
-      toast.error("Observation summary is required");
+      toast.error("Ringkasan observasi wajib diisi");
       return;
     }
 
@@ -99,11 +99,11 @@ export default function EditObservationPage() {
       },
       {
         onSuccess: () => {
-          toast.success("Observation updated successfully!");
+          toast.success("Observasi berhasil diperbarui!");
           router.push(`/counselor/assessments/observation/${observationId}`);
         },
         onError: (error: any) => {
-          toast.error(error?.message || "Failed to update observation");
+          toast.error(error?.message || "Gagal memperbarui observasi");
         },
       }
     );
@@ -125,12 +125,12 @@ export default function EditObservationPage() {
     return (
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Observation not found</p>
+          <p className="text-grey">Observasi tidak ditemukan</p>
           <Link
             href="/counselor/assessments/observation"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
           >
-            ← Back to Observations
+            ← Kembali ke Daftar Observasi
           </Link>
         </div>
       </div>
@@ -158,14 +158,14 @@ export default function EditObservationPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back
+          Kembali
         </button>
-        <Heading3 className="text-neutral-02">Edit Observation</Heading3>
+        <Heading3 className="text-neutral-02">Edit Observasi</Heading3>
         {child && (
           <p className="text-grey mt-2">
-            For child:{" "}
+            Untuk anak:{" "}
             <span className="font-medium text-neutral-02">
-              {child.fullname || `Child #${child.childOrder}`}
+              {child.fullname || `Anak #${child.childOrder}`}
             </span>
           </p>
         )}
@@ -177,12 +177,12 @@ export default function EditObservationPage() {
       >
         {/* Session Notes */}
         <div>
-          <Heading5 className="text-neutral-02 mb-4">Session Notes</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Catatan Sesi</Heading5>
           <div className="space-y-4">
             {/* Session 1 */}
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Session 1 *</BodySmallMedium>
+                <BodySmallMedium>Sesi 1 *</BodySmallMedium>
               </label>
               <textarea
                 name="sessionOne"
@@ -191,14 +191,14 @@ export default function EditObservationPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter observations for session 1..."
+                placeholder="Masukkan catatan observasi untuk sesi 1..."
               />
             </div>
 
             {/* Session 2 */}
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Session 2 *</BodySmallMedium>
+                <BodySmallMedium>Sesi 2 *</BodySmallMedium>
               </label>
               <textarea
                 name="sessionTwo"
@@ -207,14 +207,14 @@ export default function EditObservationPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter observations for session 2..."
+                placeholder="Masukkan catatan observasi untuk sesi 2..."
               />
             </div>
 
             {/* Session 3 */}
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Session 3 *</BodySmallMedium>
+                <BodySmallMedium>Sesi 3 *</BodySmallMedium>
               </label>
               <textarea
                 name="sessionThree"
@@ -223,14 +223,14 @@ export default function EditObservationPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter observations for session 3..."
+                placeholder="Masukkan catatan observasi untuk sesi 3..."
               />
             </div>
 
             {/* Session 4 */}
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Session 4 *</BodySmallMedium>
+                <BodySmallMedium>Sesi 4 *</BodySmallMedium>
               </label>
               <textarea
                 name="sessionFour"
@@ -239,14 +239,14 @@ export default function EditObservationPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter observations for session 4..."
+                placeholder="Masukkan catatan observasi untuk sesi 4..."
               />
             </div>
 
             {/* Session 5 */}
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Session 5 *</BodySmallMedium>
+                <BodySmallMedium>Sesi 5 *</BodySmallMedium>
               </label>
               <textarea
                 name="sessionFive"
@@ -255,14 +255,14 @@ export default function EditObservationPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter observations for session 5..."
+                placeholder="Masukkan catatan observasi untuk sesi 5..."
               />
             </div>
 
             {/* Session 6 */}
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Session 6 *</BodySmallMedium>
+                <BodySmallMedium>Sesi 6 *</BodySmallMedium>
               </label>
               <textarea
                 name="sessionSix"
@@ -271,7 +271,7 @@ export default function EditObservationPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter observations for session 6..."
+                placeholder="Masukkan catatan observasi untuk sesi 6..."
               />
             </div>
           </div>
@@ -279,10 +279,12 @@ export default function EditObservationPage() {
 
         {/* Overall Summary */}
         <div>
-          <Heading5 className="text-neutral-02 mb-4">Overall Summary</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">
+            Ringkasan Keseluruhan
+          </Heading5>
           <div>
             <label className="block mb-2">
-              <BodySmallMedium>Summary *</BodySmallMedium>
+              <BodySmallMedium>Ringkasan *</BodySmallMedium>
             </label>
             <textarea
               name="summary"
@@ -291,11 +293,11 @@ export default function EditObservationPage() {
               required
               rows={6}
               className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-              placeholder="Enter comprehensive summary of all sessions...&#10;&#10;Include:&#10;- Overall progress throughout the sessions&#10;- Pattern of behaviors and responses&#10;- Major improvements or concerns&#10;- Recommendations for future therapy"
+              placeholder="Masukkan ringkasan komprehensif dari semua sesi...&#10;&#10;Sertakan:&#10;- Perkembangan keseluruhan selama sesi&#10;- Pola perilaku dan respons&#10;- Peningkatan utama atau hal yang perlu diperhatikan&#10;- Rekomendasi untuk terapi selanjutnya"
             />
             <p className="text-xs text-grey mt-2">
-              Provide a comprehensive summary that synthesizes observations from
-              all six sessions.
+              Berikan ringkasan komprehensif yang menyintesis observasi dari
+              semua enam sesi.
             </p>
           </div>
         </div>
@@ -303,15 +305,17 @@ export default function EditObservationPage() {
         {/* Guidelines */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <Heading5 className="text-blue-900 mb-2 text-sm">
-            Observation Guidelines
+            Panduan Observasi
           </Heading5>
           <ul className="text-xs text-blue-800 space-y-1 list-disc list-inside">
-            <li>Be objective and factual in your observations</li>
-            <li>Include specific examples of behaviors or responses</li>
-            <li>Note the context and situations when behaviors occurred</li>
-            <li>Document both positive progress and areas needing attention</li>
-            <li>Use clear, professional language</li>
-            <li>Maintain confidentiality and respect for the child</li>
+            <li>Bersikap objektif dan faktual dalam observasi Anda</li>
+            <li>Sertakan contoh spesifik dari perilaku atau respons</li>
+            <li>Catat konteks dan situasi ketika perilaku terjadi</li>
+            <li>
+              Dokumentasikan perkembangan positif dan area yang perlu perhatian
+            </li>
+            <li>Gunakan bahasa yang jelas dan profesional</li>
+            <li>Jaga kerahasiaan dan rasa hormat terhadap anak</li>
           </ul>
         </div>
 
@@ -319,29 +323,29 @@ export default function EditObservationPage() {
         {child && (
           <div className="bg-grey-stroke/5 border border-grey-stroke rounded-lg p-4">
             <Heading5 className="text-neutral-02 mb-3 text-sm">
-              Child Information
+              Informasi Anak
             </Heading5>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div>
                 <BodySmallMedium className="text-grey text-xs mb-1">
-                  Name
+                  Nama
                 </BodySmallMedium>
                 <p className="text-neutral-02">
-                  {child.fullname || `Child #${child.childOrder}`}
+                  {child.fullname || `Anak #${child.childOrder}`}
                 </p>
               </div>
               <div>
                 <BodySmallMedium className="text-grey text-xs mb-1">
-                  Age
+                  Usia
                 </BodySmallMedium>
-                <p className="text-neutral-02">{child.age} years old</p>
+                <p className="text-neutral-02">{child.age} tahun</p>
               </div>
               <div>
                 <BodySmallMedium className="text-grey text-xs mb-1">
-                  Education
+                  Pendidikan
                 </BodySmallMedium>
                 <p className="text-neutral-02">
-                  {child.education.stage} - Class {child.education.class}
+                  {child.education.stage} - Kelas {child.education.class}
                 </p>
               </div>
               <div>
@@ -362,11 +366,11 @@ export default function EditObservationPage() {
             href={`/counselor/assessments/observation/${observationId}`}
             className="flex-1 px-4 py-2 border border-grey-stroke rounded-lg text-neutral-02 hover:bg-grey-stroke/10 transition-colors text-center"
           >
-            Cancel
+            Batal
           </Link>
           <SubmitButton
             variant="primary"
-            text={isPending ? "Saving..." : "Save Changes"}
+            text={isPending ? "Menyimpan..." : "Simpan Perubahan"}
             className="flex-1 flex justify-center items-center"
             disabled={isPending}
           />

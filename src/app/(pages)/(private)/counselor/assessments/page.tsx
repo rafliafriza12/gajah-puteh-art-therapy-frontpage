@@ -167,9 +167,9 @@ export default function AllAssessmentsPage() {
     const labels = {
       screening: "Screening",
       pretest: "Pretest",
-      observation: "Observation",
+      observation: "Observasi",
       posttest: "Posttest",
-      therapy: "Therapy",
+      therapy: "Terapi",
     };
     return labels[type] || type;
   };
@@ -189,10 +189,10 @@ export default function AllAssessmentsPage() {
       {/* Header */}
       <div>
         <Heading3 className="text-neutral-02 text-xl sm:text-2xl lg:text-3xl">
-          All Assessments
+          Semua Asesmen
         </Heading3>
         <p className="text-grey mt-1 sm:mt-2 text-sm sm:text-base">
-          View and manage all therapy assessments
+          Lihat dan kelola semua asesmen terapi
         </p>
       </div>
 
@@ -207,7 +207,7 @@ export default function AllAssessmentsPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by child name..."
+                placeholder="Cari berdasarkan nama anak..."
                 className="w-full pl-10 pr-4 py-2.5 border border-grey-stroke rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-moss-stone"
               />
             </div>
@@ -222,10 +222,10 @@ export default function AllAssessmentsPage() {
               }
               className="w-full px-4 py-2.5 border border-grey-stroke rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-moss-stone"
             >
-              <option value="all">All Types</option>
+              <option value="all">Semua Tipe</option>
               <option value="screening">Screening</option>
               <option value="pretest">Pretest</option>
-              <option value="observation">Observation</option>
+              <option value="observation">Observasi</option>
               <option value="posttest">Posttest</option>
             </select>
           </div>
@@ -234,12 +234,11 @@ export default function AllAssessmentsPage() {
         {/* Results count */}
         <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-grey">
           {isLoading ? (
-            "Loading..."
+            "Memuat..."
           ) : (
             <>
-              Showing {paginatedActivities.length} of{" "}
-              {filteredActivities.length} assessment
-              {filteredActivities.length !== 1 ? "s" : ""}
+              Menampilkan {paginatedActivities.length} dari{" "}
+              {filteredActivities.length} asesmen
             </>
           )}
         </div>
@@ -286,12 +285,12 @@ export default function AllAssessmentsPage() {
             </svg>
           </div>
           <Heading5 className="text-neutral-02 mb-2 text-base sm:text-lg">
-            No assessments found
+            Tidak ada asesmen ditemukan
           </Heading5>
           <p className="text-grey text-xs sm:text-sm">
             {searchQuery || filterType !== "all"
-              ? "Try adjusting your filters or search query"
-              : "No assessments have been created yet"}
+              ? "Coba sesuaikan filter atau kata kunci pencarian Anda"
+              : "Belum ada asesmen yang dibuat"}
           </p>
         </div>
       )}
@@ -360,7 +359,7 @@ export default function AllAssessmentsPage() {
                     </span>
                   </div>
                   <span className="text-xs text-moss-stone font-medium group-hover:underline">
-                    View →
+                    Lihat →
                   </span>
                 </div>
               </Link>
@@ -375,7 +374,7 @@ export default function AllAssessmentsPage() {
                 disabled={currentPage === 1}
                 className="px-2 sm:px-4 py-2 border border-grey-stroke rounded-lg text-xs sm:text-sm font-medium text-neutral-02 hover:bg-grey-lightest disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
-                <span className="hidden sm:inline">Previous</span>
+                <span className="hidden sm:inline">Sebelumnya</span>
                 <span className="sm:hidden">←</span>
               </button>
 
@@ -413,7 +412,7 @@ export default function AllAssessmentsPage() {
                 disabled={currentPage === totalPages}
                 className="px-2 sm:px-4 py-2 border border-grey-stroke rounded-lg text-xs sm:text-sm font-medium text-neutral-02 hover:bg-grey-lightest disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
-                <span className="hidden sm:inline">Next</span>
+                <span className="hidden sm:inline">Selanjutnya</span>
                 <span className="sm:hidden">→</span>
               </button>
             </div>

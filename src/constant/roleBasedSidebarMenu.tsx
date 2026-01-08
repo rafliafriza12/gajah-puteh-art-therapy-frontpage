@@ -29,21 +29,21 @@ export const counselorSidebarMenu: ISidebarMenu[] = [
     roles: ["counselor"],
   },
   {
-    name: "Children",
+    name: "Manajemen Anak",
     url: "/counselor/children",
     icon: ThreeUserGroupIcon,
     subMenu: [],
     roles: ["counselor"],
   },
   {
-    name: "Therapy Sessions",
+    name: "Sesi Terapi",
     url: "/counselor/therapy",
     icon: NotebookIcon,
     subMenu: [],
     roles: ["counselor"],
   },
   {
-    name: "Assessments",
+    name: "Asesmen",
     url: "/counselor/assessments",
     icon: DocumentIcon,
     subMenu: [
@@ -60,7 +60,7 @@ export const counselorSidebarMenu: ISidebarMenu[] = [
         url: "/counselor/assessments/posttest",
       },
       {
-        name: "Observation",
+        name: "Observasi",
         url: "/counselor/assessments/observation",
       },
     ],
@@ -80,21 +80,21 @@ export const parentSidebarMenu: ISidebarMenu[] = [
     roles: ["parent"],
   },
   {
-    name: "My Children",
+    name: "Anak Saya",
     url: "/parent/children",
     icon: ThreeUserGroupIcon,
     subMenu: [],
     roles: ["parent"],
   },
   {
-    name: "Therapy Progress",
+    name: "Terapi",
     url: "/parent/therapy",
     icon: NotebookIcon,
     subMenu: [],
     roles: ["parent"],
   },
   {
-    name: "Reports",
+    name: "Laporan",
     url: "/parent/reports",
     icon: DocumentIcon,
     subMenu: [],

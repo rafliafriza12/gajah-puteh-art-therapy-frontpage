@@ -238,7 +238,7 @@ export const Sidebar = () => {
           </div>
           <div className="flex flex-col gap-5 pb-5">
             <p className="text-moss-stone font-medium text-xs shrink-0 px-5">
-              OTHERS
+              LAINNYA
             </p>
             <div className="px-5 flex flex-col gap-1.5">
               <button
@@ -246,7 +246,7 @@ export const Sidebar = () => {
                 className={`flex w-full gap-3 py-2.5 p-3 rounded-lg hover:bg-error/10 duration-200 text-xs items-center text-error`}
               >
                 <LogoutIcon className="w-5 h-5" />
-                <span>Logout</span>
+                <span>Keluar</span>
               </button>
             </div>
           </div>

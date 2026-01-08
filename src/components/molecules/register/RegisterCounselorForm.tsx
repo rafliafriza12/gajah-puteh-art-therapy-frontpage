@@ -86,14 +86,18 @@ const RegisterCounselorForm: React.FC = () => {
           className="w-4 h-4 rounded border-grey-stroke focus:ring-moss-stone"
         />
         <label htmlFor="isStudent" className="cursor-pointer">
-          <BodySmallMedium>I am currently a student</BodySmallMedium>
+          <BodySmallMedium>
+            Saat ini saya adalah seorang mahasiswa
+          </BodySmallMedium>
         </label>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-3">
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">Full Name *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">
+              Nama Lengkap *
+            </BodySmallMedium>
           </label>
           <ContentInput
             placeholder="John Doe"
@@ -115,9 +119,7 @@ const RegisterCounselorForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">
-              Phone Number *
-            </BodySmallMedium>
+            <BodySmallMedium className="text-sm">Nomor HP *</BodySmallMedium>
           </label>
           <ContentInput
             type="tel"
@@ -129,7 +131,7 @@ const RegisterCounselorForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">Address *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">Alamat *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="City, Street"
@@ -140,7 +142,7 @@ const RegisterCounselorForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">University *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">Universitas *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="University name"
@@ -154,7 +156,7 @@ const RegisterCounselorForm: React.FC = () => {
         <div>
           <label className="block mb-1">
             <BodySmallMedium className="text-sm">
-              Education Level *
+              Tingkat Pendidikan *
             </BodySmallMedium>
           </label>
           <select
@@ -172,7 +174,7 @@ const RegisterCounselorForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">Major *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">Jurusan *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="Psychology"
@@ -206,7 +208,7 @@ const RegisterCounselorForm: React.FC = () => {
             <div>
               <label className="block mb-1">
                 <BodySmallMedium className="text-sm">
-                  Practice License *
+                  Nomor Lisensi Praktik *
                 </BodySmallMedium>
               </label>
               <ContentInput
@@ -221,7 +223,7 @@ const RegisterCounselorForm: React.FC = () => {
             <div>
               <label className="block mb-1">
                 <BodySmallMedium className="text-sm">
-                  Workplace *
+                  Pekerjaan *
                 </BodySmallMedium>
               </label>
               <ContentInput
@@ -247,7 +249,7 @@ const RegisterCounselorForm: React.FC = () => {
         <div>
           <label className="block mb-1">
             <BodySmallMedium className="text-sm">
-              Confirm Password *
+              Konfirmasi Password *
             </BodySmallMedium>
           </label>
           <PasswordInput
@@ -267,7 +269,7 @@ const RegisterCounselorForm: React.FC = () => {
       <div className="mt-4 w-full flex justify-center">
         <SubmitButton
           variant="primary"
-          text={isPending ? "Creating account..." : "Create Account"}
+          text={isPending ? "Membuat akun..." : "Buat akun"}
           className="w-full sm:w-auto sm:px-12 flex justify-center items-center"
           disabled={isPending}
         />

@@ -59,7 +59,9 @@ const RegisterParentForm: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-3">
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">Full Name *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">
+              Nama Lengkap *
+            </BodySmallMedium>
           </label>
           <ContentInput
             placeholder="Jane Doe"
@@ -81,9 +83,7 @@ const RegisterParentForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">
-              Phone Number *
-            </BodySmallMedium>
+            <BodySmallMedium className="text-sm">Nomor HP *</BodySmallMedium>
           </label>
           <ContentInput
             type="tel"
@@ -95,7 +95,7 @@ const RegisterParentForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">Address *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">Alamat *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="Street address, City"
@@ -106,7 +106,7 @@ const RegisterParentForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">Age *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">Umur *</BodySmallMedium>
           </label>
           <ContentInput
             type="number"
@@ -118,7 +118,7 @@ const RegisterParentForm: React.FC = () => {
 
         <div>
           <label className="block mb-1">
-            <BodySmallMedium className="text-sm">Occupation *</BodySmallMedium>
+            <BodySmallMedium className="text-sm">Pekerjaan *</BodySmallMedium>
           </label>
           <ContentInput
             placeholder="e.g., Teacher"
@@ -141,7 +141,7 @@ const RegisterParentForm: React.FC = () => {
         <div>
           <label className="block mb-1">
             <BodySmallMedium className="text-sm">
-              Confirm Password *
+              Konfirmasi Password *
             </BodySmallMedium>
           </label>
           <PasswordInput

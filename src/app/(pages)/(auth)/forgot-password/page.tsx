@@ -112,7 +112,7 @@ export default function ForgotPasswordPage() {
                     : "bg-white/5 text-charcoal-green-dark border border-grey-stroke hover:bg-grey-light"
                 }`}
               >
-                Counselor
+                Konselor
               </button>
               <button
                 type="button"
@@ -123,7 +123,7 @@ export default function ForgotPasswordPage() {
                     : "bg-white/5 text-charcoal-green-dark border border-grey-stroke hover:bg-grey-light"
                 }`}
               >
-                Parent
+                Orangtua
               </button>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function ForgotPasswordPage() {
             type="submit"
             className="w-full flex justify-center items-center"
             disabled={forgotPassword.isPending}
-            text={forgotPassword.isPending ? "Mengirim..." : "Kirim Link Reset"}
+            text={forgotPassword.isPending ? "Mengirim..." : "Lanjut"}
           />
         </form>
 

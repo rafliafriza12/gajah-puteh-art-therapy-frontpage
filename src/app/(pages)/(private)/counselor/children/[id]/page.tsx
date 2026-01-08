@@ -30,12 +30,12 @@ export default function ChildDetailPage() {
     return (
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Child not found</p>
+          <p className="text-grey">Anak tidak ditemukan</p>
           <Link
             href="/counselor/children"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
           >
-            ← Back to Children List
+            ← Kembali ke Daftar Anak
           </Link>
         </div>
       </div>
@@ -50,9 +50,9 @@ export default function ChildDetailPage() {
           href="/counselor/children"
           className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mb-4 inline-block"
         >
-          ← Back to Children List
+          ← Kembali ke Daftar Anak
         </Link>
-        <Heading3 className="text-neutral-02">Child Details</Heading3>
+        <Heading3 className="text-neutral-02">Detail Anak</Heading3>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -90,12 +90,12 @@ export default function ChildDetailPage() {
               {/* Basic Info Card */}
               <div className="bg-white border border-grey-stroke rounded-xl p-6">
                 <Heading5 className="text-neutral-02 mb-4">
-                  Basic Information
+                  Informasi Dasar
                 </Heading5>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="md:col-span-2">
                     <BodySmallMedium className="text-grey mb-1">
-                      Full Name
+                      Nama Lengkap
                     </BodySmallMedium>
                     <p className="text-neutral-02">{child.fullname}</p>
                   </div>
@@ -107,13 +107,13 @@ export default function ChildDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Age
+                      Usia
                     </BodySmallMedium>
-                    <p className="text-neutral-02">{child.age} years</p>
+                    <p className="text-neutral-02">{child.age} tahun</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Date of Birth
+                      Tanggal Lahir
                     </BodySmallMedium>
                     <p className="text-neutral-02">
                       {new Date(child.birth).toLocaleDateString("id-ID")}
@@ -121,13 +121,15 @@ export default function ChildDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Child Order
+                      Urutan Anak
                     </BodySmallMedium>
-                    <p className="text-neutral-02">Child #{child.childOrder}</p>
+                    <p className="text-neutral-02">
+                      Anak ke-{child.childOrder}
+                    </p>
                   </div>
                   <div className="md:col-span-2">
                     <BodySmallMedium className="text-grey mb-1">
-                      Biological Mother
+                      Ibu Kandung
                     </BodySmallMedium>
                     <p className="text-neutral-02">
                       {child.biologicalMotherName}
@@ -140,21 +142,21 @@ export default function ChildDetailPage() {
               {child.education && (
                 <div className="bg-white border border-grey-stroke rounded-xl p-6">
                   <Heading5 className="text-neutral-02 mb-4">
-                    Education Information
+                    Informasi Pendidikan
                   </Heading5>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <BodySmallMedium className="text-grey mb-1">
-                        Education Stage
+                        Jenjang Pendidikan
                       </BodySmallMedium>
                       <p className="text-neutral-02">{child.education.stage}</p>
                     </div>
                     <div>
                       <BodySmallMedium className="text-grey mb-1">
-                        Class/Grade
+                        Kelas
                       </BodySmallMedium>
                       <p className="text-neutral-02">
-                        Class {child.education.class}
+                        Kelas {child.education.class}
                       </p>
                     </div>
                   </div>
@@ -164,14 +166,12 @@ export default function ChildDetailPage() {
               {/* Therapy Sessions */}
               <div className="bg-white border border-grey-stroke rounded-xl p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <Heading5 className="text-neutral-02">
-                    Therapy Sessions
-                  </Heading5>
+                  <Heading5 className="text-neutral-02">Sesi Terapi</Heading5>
                   <Link
                     href={`/counselor/therapy/create?childId=${child._id}`}
                     className="text-sm text-moss-stone hover:text-moss-stone-dark font-medium"
                   >
-                    + New Session
+                    + Sesi Baru
                   </Link>
                 </div>
                 {therapiesLoading ? (
@@ -221,7 +221,7 @@ export default function ChildDetailPage() {
                           href={`/counselor/therapy/${therapy._id}`}
                           className="px-4 py-2 text-sm text-moss-stone border border-moss-stone rounded-lg hover:bg-moss-stone hover:text-white transition-colors"
                         >
-                          View
+                          Lihat
                         </Link>
                       </div>
                     ))}
@@ -229,13 +229,13 @@ export default function ChildDetailPage() {
                 ) : (
                   <div className="text-center py-8">
                     <p className="text-grey text-sm mb-3">
-                      No therapy sessions yet for this child
+                      Belum ada sesi terapi untuk anak ini
                     </p>
                     <Link
                       href={`/counselor/therapy/create?childId=${child._id}`}
                       className="text-moss-stone hover:underline text-sm"
                     >
-                      Create first session →
+                      Buat sesi pertama →
                     </Link>
                   </div>
                 )}
@@ -266,13 +266,13 @@ export default function ChildDetailPage() {
           ) : (
             <div className="bg-white border border-grey-stroke rounded-xl p-6 sticky top-6">
               <Heading5 className="text-neutral-02 mb-4">
-                Parent Information
+                Informasi Orangtua
               </Heading5>
               {parent ? (
                 <div className="space-y-4">
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Full Name
+                      Nama Lengkap
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.fullname}</p>
                   </div>
@@ -284,32 +284,32 @@ export default function ChildDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Phone
+                      Telepon
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.phone}</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Address
+                      Alamat
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.address}</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Age
+                      Usia
                     </BodySmallMedium>
-                    <p className="text-neutral-02">{parent.age} years</p>
+                    <p className="text-neutral-02">{parent.age} tahun</p>
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Occupation
+                      Pekerjaan
                     </BodySmallMedium>
                     <p className="text-neutral-02">{parent.work}</p>
                   </div>
                 </div>
               ) : (
                 <p className="text-grey text-sm">
-                  Loading parent information...
+                  Memuat informasi orangtua...
                 </p>
               )}
             </div>

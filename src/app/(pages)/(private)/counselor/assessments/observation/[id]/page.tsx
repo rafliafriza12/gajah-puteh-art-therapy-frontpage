@@ -36,12 +36,12 @@ export default function ObservationDetailPage() {
   const handleDelete = () => {
     deleteObservation(observationId, {
       onSuccess: () => {
-        toast.success("Observation deleted successfully");
+        toast.success("Observasi berhasil dihapus");
         router.push("/counselor/assessments/observation");
       },
       onError: (error: any) => {
         toast.error(
-          error.response?.data?.message || "Failed to delete observation"
+          error.response?.data?.message || "Gagal menghapus observasi"
         );
       },
     });
@@ -63,12 +63,12 @@ export default function ObservationDetailPage() {
     return (
       <div className="">
         <div className="text-center py-12">
-          <p className="text-grey mb-4">Observation not found</p>
+          <p className="text-grey mb-4">Observasi tidak ditemukan</p>
           <Link
             href="/counselor/assessments/observation"
             className="text-moss-stone hover:text-moss-stone-dark font-medium"
           >
-            ← Back to Observations
+            ← Kembali ke Daftar Observasi
           </Link>
         </div>
       </div>
@@ -95,17 +95,17 @@ export default function ObservationDetailPage() {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back
+        Kembali
       </button>
 
       {/* Header */}
       <div className="flex items-center justify-between flex-col gap-4 md:flex-row mb-6 w-full md:w-auto">
         <div>
-          <Heading3 className="text-neutral-02">Observation Detail</Heading3>
+          <Heading3 className="text-neutral-02">Detail Observasi</Heading3>
           <p className="text-grey mt-2">
             {canEdit
-              ? "View and manage therapy observations"
-              : "View therapy observations (Read-only)"}
+              ? "Lihat dan kelola catatan observasi terapi"
+              : "Lihat catatan observasi terapi (Hanya baca)"}
           </p>
         </div>
         {canEdit && (
@@ -120,7 +120,7 @@ export default function ObservationDetailPage() {
               onClick={() => setIsDeleteModalOpen(true)}
               className="px-4 py-2 w-full md:w-auto bg-error text-white rounded-lg hover:bg-error/90 transition-colors"
             >
-              Delete
+              Hapus
             </button>
           </div>
         )}
@@ -130,12 +130,12 @@ export default function ObservationDetailPage() {
       <Modal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        title="Delete Observation"
+        title="Hapus Observasi"
       >
         <div className="space-y-4">
           <p className="text-grey">
-            Are you sure you want to delete this observation? This action cannot
-            be undone.
+            Apakah Anda yakin ingin menghapus observasi ini? Tindakan ini tidak
+            dapat dibatalkan.
           </p>
           <div className="flex justify-end gap-3 pt-4">
             <button
@@ -143,14 +143,14 @@ export default function ObservationDetailPage() {
               className="px-4 py-2 text-grey hover:text-neutral-02 transition-colors"
               disabled={isDeleting}
             >
-              Cancel
+              Batal
             </button>
             <button
               onClick={handleDelete}
               disabled={isDeleting}
               className="px-6 py-2 bg-error text-white rounded-lg hover:bg-error/90 transition-colors disabled:bg-grey disabled:cursor-not-allowed"
             >
-              {isDeleting ? "Deleting..." : "Delete"}
+              {isDeleting ? "Menghapus..." : "Hapus"}
             </button>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function ObservationDetailPage() {
       {child && (
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
           <p className="text-sm text-blue-900">
-            <strong>Child:</strong> {child.fullname}
+            <strong>Anak:</strong> {child.fullname}
           </p>
         </div>
       )}
@@ -169,7 +169,7 @@ export default function ObservationDetailPage() {
       <div className="space-y-6">
         {/* Session 1 */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Session 1</Heading5>
+          <Heading5 className="text-neutral-02 mb-3">Sesi 1</Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.sessionOne || "-"}
           </p>
@@ -177,7 +177,7 @@ export default function ObservationDetailPage() {
 
         {/* Session 2 */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Session 2</Heading5>
+          <Heading5 className="text-neutral-02 mb-3">Sesi 2</Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.sessionTwo || "-"}
           </p>
@@ -185,7 +185,7 @@ export default function ObservationDetailPage() {
 
         {/* Session 3 */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Session 3</Heading5>
+          <Heading5 className="text-neutral-02 mb-3">Sesi 3</Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.sessionThree || "-"}
           </p>
@@ -193,7 +193,7 @@ export default function ObservationDetailPage() {
 
         {/* Session 4 */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Session 4</Heading5>
+          <Heading5 className="text-neutral-02 mb-3">Sesi 4</Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.sessionFour || "-"}
           </p>
@@ -201,7 +201,7 @@ export default function ObservationDetailPage() {
 
         {/* Session 5 */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Session 5</Heading5>
+          <Heading5 className="text-neutral-02 mb-3">Sesi 5</Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.sessionFive || "-"}
           </p>
@@ -209,7 +209,7 @@ export default function ObservationDetailPage() {
 
         {/* Session 6 */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Session 6</Heading5>
+          <Heading5 className="text-neutral-02 mb-3">Sesi 6</Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.sessionSix || "-"}
           </p>
@@ -217,7 +217,9 @@ export default function ObservationDetailPage() {
 
         {/* Summary */}
         <div className="bg-moss-stone/5 border border-moss-stone/20 rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Overall Summary</Heading5>
+          <Heading5 className="text-neutral-02 mb-3">
+            Ringkasan Keseluruhan
+          </Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.summary || "-"}
           </p>
@@ -227,13 +229,13 @@ export default function ObservationDetailPage() {
         <div className="bg-grey-stroke/5 rounded-xl p-4">
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="text-grey">Created:</span>{" "}
+              <span className="text-grey">Dibuat:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(observation.createdAt).toLocaleString("id-ID")}
               </span>
             </div>
             <div>
-              <span className="text-grey">Last Updated:</span>{" "}
+              <span className="text-grey">Terakhir Diperbarui:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(observation.updatedAt).toLocaleString("id-ID")}
               </span>

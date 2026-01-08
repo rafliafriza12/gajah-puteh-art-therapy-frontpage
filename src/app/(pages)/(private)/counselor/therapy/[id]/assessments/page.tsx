@@ -64,7 +64,7 @@ export default function TherapyAssessmentsPage() {
       id: screening?._id || "screening",
       type: "screening",
       title: "Screening (DASS-21)",
-      description: "Depression, Anxiety, and Stress Scale",
+      description: "Skala Depresi, Kecemasan, dan Stres",
       status: screening ? "completed" : "pending",
       createdAt: screening?.createdAt,
       link: screening
@@ -74,35 +74,35 @@ export default function TherapyAssessmentsPage() {
       preview: screening
         ? [
             {
-              label: "Depression Score",
+              label: "Skor Depresi",
               value: `${screening.depressionScore}`,
             },
             {
-              label: "Depression Interpretation",
+              label: "Interpretasi Depresi",
               value: screening.depressionInterpretation,
             },
             {
-              label: "Anxiety Score",
+              label: "Skor Kecemasan",
               value: `${screening.anxietyScore}`,
             },
             {
-              label: "Anxiety Interpretation",
+              label: "Interpretasi Kecemasan",
               value: screening.anxietyInterpretation,
             },
             {
-              label: "Stress Score",
+              label: "Skor Stres",
               value: `${screening.stressScore}`,
             },
             {
-              label: "Stress Interpretation",
+              label: "Interpretasi Stres",
               value: screening.stressInterpretation,
             },
             {
-              label: "Total Screening Score",
+              label: "Total Skor Screening",
               value: `${screening.totalScreeningScore}`,
             },
             {
-              label: "Total Screening Interpretation",
+              label: "Interpretasi Total Screening",
               value: screening.totalScreeningInterpretation,
             },
           ]
@@ -112,7 +112,7 @@ export default function TherapyAssessmentsPage() {
       id: pretest?._id || "pretest",
       type: "pretest",
       title: "Pretest (SDQ)",
-      description: "Strengths and Difficulties Questionnaire",
+      description: "Kuesioner Kekuatan dan Kesulitan",
       status: pretest ? "completed" : "pending",
       createdAt: pretest?.createdAt,
       link: pretest
@@ -122,59 +122,59 @@ export default function TherapyAssessmentsPage() {
       preview: pretest
         ? [
             {
-              label: "Total Difficulties Score",
+              label: "Skor Total Kesulitan",
               value: `${pretest.totalDifficultiesScore}`,
             },
             {
-              label: "Total Difficulties Interpretation",
+              label: "Interpretasi Total Kesulitan",
               value: pretest.totalDifficultiesInterpretation,
             },
             {
-              label: "Emotional Symptoms Score",
+              label: "Skor Gejala Emosional",
               value: `${pretest.emotionalSymptomsScore}`,
             },
             {
-              label: "Emotional Symptoms Interpretation",
+              label: "Interpretasi Gejala Emosional",
               value: pretest.emotionalSymptomsInterpretation,
             },
             {
-              label: "Conduct Problem Score",
+              label: "Skor Masalah Perilaku",
               value: `${pretest.conductProblemScore}`,
             },
             {
-              label: "Conduct Problem Interpretation",
+              label: "Interpretasi Masalah Perilaku",
               value: pretest.conductProblemInterpretation,
             },
             {
-              label: "Hyperactivity Score",
+              label: "Skor Hiperaktivitas",
               value: `${pretest.hyperactivityScore}`,
             },
             {
-              label: "Hyperactivity Interpretation",
+              label: "Interpretasi Hiperaktivitas",
               value: pretest.hyperactivityInterpretation,
             },
             {
-              label: "Peer Problem Score",
+              label: "Skor Masalah Hubungan Sebaya",
               value: `${pretest.peerProblemScore}`,
             },
             {
-              label: "Peer Problem Interpretation",
+              label: "Interpretasi Masalah Hubungan Sebaya",
               value: pretest.peerProblemInterpretation,
             },
             {
-              label: "Prosocial Behaviour Score",
+              label: "Skor Perilaku Prososial",
               value: `${pretest.prosocialBehaviourScore}`,
             },
             {
-              label: "Prosocial Behaviour Interpretation",
+              label: "Interpretasi Perilaku Prososial",
               value: pretest.prosocialBehaviourInterpretation,
             },
             {
-              label: "Total Pretest Score",
+              label: "Total Skor Pretest",
               value: `${pretest.totalPretestScore}`,
             },
             {
-              label: "Total Pretest Interpretation",
+              label: "Interpretasi Total Pretest",
               value: pretest.totalPretestInterpretation,
             },
           ]
@@ -183,8 +183,8 @@ export default function TherapyAssessmentsPage() {
     {
       id: observation?._id || "observation",
       type: "observation",
-      title: "Observation",
-      description: "Therapy session observation notes",
+      title: "Observasi",
+      description: "Catatan observasi sesi terapi",
       status: observation ? "completed" : "pending",
       createdAt: observation?.createdAt,
       link: observation
@@ -194,43 +194,43 @@ export default function TherapyAssessmentsPage() {
       preview: observation
         ? [
             {
-              label: "Session 1",
+              label: "Sesi 1",
               value:
                 observation.sessionOne?.substring(0, 150) +
                 (observation.sessionOne?.length > 150 ? "..." : ""),
             },
             {
-              label: "Session 2",
+              label: "Sesi 2",
               value:
                 observation.sessionTwo?.substring(0, 150) +
                 (observation.sessionTwo?.length > 150 ? "..." : ""),
             },
             {
-              label: "Session 3",
+              label: "Sesi 3",
               value:
                 observation.sessionThree?.substring(0, 150) +
                 (observation.sessionThree?.length > 150 ? "..." : ""),
             },
             {
-              label: "Session 4",
+              label: "Sesi 4",
               value:
                 observation.sessionFour?.substring(0, 150) +
                 (observation.sessionFour?.length > 150 ? "..." : ""),
             },
             {
-              label: "Session 5",
+              label: "Sesi 5",
               value:
                 observation.sessionFive?.substring(0, 150) +
                 (observation.sessionFive?.length > 150 ? "..." : ""),
             },
             {
-              label: "Session 6",
+              label: "Sesi 6",
               value:
                 observation.sessionSix?.substring(0, 150) +
                 (observation.sessionSix?.length > 150 ? "..." : ""),
             },
             {
-              label: "Summary",
+              label: "Ringkasan",
               value:
                 observation.summary?.substring(0, 150) +
                 (observation.summary?.length > 150 ? "..." : ""),
@@ -242,7 +242,7 @@ export default function TherapyAssessmentsPage() {
       id: posttest?._id || "posttest",
       type: "posttest",
       title: "Posttest (SDQ)",
-      description: "Post-therapy assessment",
+      description: "Asesmen pasca terapi",
       status: posttest ? "completed" : "pending",
       createdAt: posttest?.createdAt,
       link: posttest
@@ -252,59 +252,59 @@ export default function TherapyAssessmentsPage() {
       preview: posttest
         ? [
             {
-              label: "Total Difficulties Score",
+              label: "Skor Total Kesulitan",
               value: `${posttest.totalDifficultiesScore}`,
             },
             {
-              label: "Total Difficulties Interpretation",
+              label: "Interpretasi Total Kesulitan",
               value: posttest.totalDifficultiesInterpretation,
             },
             {
-              label: "Emotional Symptoms Score",
+              label: "Skor Gejala Emosional",
               value: `${posttest.emotionalSymptomsScore}`,
             },
             {
-              label: "Emotional Symptoms Interpretation",
+              label: "Interpretasi Gejala Emosional",
               value: posttest.emotionalSymptomsInterpretation,
             },
             {
-              label: "Conduct Problem Score",
+              label: "Skor Masalah Perilaku",
               value: `${posttest.conductProblemScore}`,
             },
             {
-              label: "Conduct Problem Interpretation",
+              label: "Interpretasi Masalah Perilaku",
               value: posttest.conductProblemInterpretation,
             },
             {
-              label: "Hyperactivity Score",
+              label: "Skor Hiperaktivitas",
               value: `${posttest.hyperactivityScore}`,
             },
             {
-              label: "Hyperactivity Interpretation",
+              label: "Interpretasi Hiperaktivitas",
               value: posttest.hyperactivityInterpretation,
             },
             {
-              label: "Peer Problem Score",
+              label: "Skor Masalah Hubungan Sebaya",
               value: `${posttest.peerProblemScore}`,
             },
             {
-              label: "Peer Problem Interpretation",
+              label: "Interpretasi Masalah Hubungan Sebaya",
               value: posttest.peerProblemInterpretation,
             },
             {
-              label: "Prosocial Behaviour Score",
+              label: "Skor Perilaku Prososial",
               value: `${posttest.prosocialBehaviourScore}`,
             },
             {
-              label: "Prosocial Behaviour Interpretation",
+              label: "Interpretasi Perilaku Prososial",
               value: posttest.prosocialBehaviourInterpretation,
             },
             {
-              label: "Total Posttest Score",
+              label: "Total Skor Posttest",
               value: `${posttest.totalPosttestScore}`,
             },
             {
-              label: "Total Posttest Interpretation",
+              label: "Interpretasi Total Posttest",
               value: posttest.totalPosttestInterpretation,
             },
           ]
@@ -319,9 +319,9 @@ export default function TherapyAssessmentsPage() {
 
   // Format date
   const formatDate = (dateString?: string) => {
-    if (!dateString) return "Not completed";
+    if (!dateString) return "Belum selesai";
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
+    return date.toLocaleDateString("id-ID", {
       day: "numeric",
       month: "short",
       year: "numeric",
@@ -348,25 +348,25 @@ export default function TherapyAssessmentsPage() {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back to Therapy Session
+        Kembali ke Sesi Terapi
       </Link>
 
       {/* Header */}
       <div className="mb-6 sm:mb-8">
         <Heading3 className="text-neutral-02 mb-2 text-xl sm:text-2xl lg:text-3xl">
-          All Assessments
+          Semua Asesmen
         </Heading3>
         {childLoading ? (
           <div className="h-5 bg-gray-200 rounded w-48 animate-pulse"></div>
         ) : (
           <p className="text-grey text-sm sm:text-base">
-            Therapy session for{" "}
+            Sesi terapi untuk{" "}
             <span className="font-medium text-neutral-02">
-              {child?.fullname || "Child"}
+              {child?.fullname || "Anak"}
             </span>
             <span className="hidden sm:inline">{" • "}</span>
             <span className="block sm:inline text-sm mt-1 sm:mt-0">
-              {completedAssessments}/{totalAssessments} completed
+              {completedAssessments}/{totalAssessments} selesai
             </span>
           </p>
         )}
@@ -424,7 +424,7 @@ export default function TherapyAssessmentsPage() {
                             clipRule="evenodd"
                           />
                         </svg>
-                        Completed
+                        Selesai
                       </span>
                     )}
                   </div>
@@ -442,18 +442,18 @@ export default function TherapyAssessmentsPage() {
                     href={assessment.link}
                     className="w-full sm:w-auto shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-moss-stone text-neutral-01 hover:bg-moss-stone/90 text-center"
                   >
-                    View
+                    Lihat
                   </Link>
                 ) : canEdit ? (
                   <Link
                     href={assessment.link}
                     className="w-full sm:w-auto shrink-0 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-grey-stroke text-neutral-02 hover:border-moss-stone hover:text-moss-stone text-center"
                   >
-                    Create
+                    Buat
                   </Link>
                 ) : (
                   <span className="w-full sm:w-auto shrink-0 px-4 py-2 rounded-lg text-sm font-medium text-grey bg-grey-stroke/30 cursor-not-allowed text-center">
-                    Not Available
+                    Tidak Tersedia
                   </span>
                 )}
               </div>
@@ -483,7 +483,7 @@ export default function TherapyAssessmentsPage() {
               {assessment.status === "pending" && (
                 <div className="border-t border-grey-stroke pt-4 pl-0 sm:pl-8">
                   <p className="text-sm text-grey italic">
-                    Assessment not yet completed
+                    Asesmen belum selesai
                   </p>
                 </div>
               )}
@@ -510,11 +510,11 @@ export default function TherapyAssessmentsPage() {
           </svg>
           <div className="flex-1">
             <p className="text-sm text-neutral-02 font-medium mb-1">
-              Assessment Order
+              Urutan Asesmen
             </p>
             <p className="text-xs sm:text-sm text-grey">
-              Complete assessments in sequence: Screening → Pretest →
-              Observation → Posttest
+              Selesaikan asesmen secara berurutan: Screening → Pretest →
+              Observasi → Posttest
             </p>
           </div>
         </div>

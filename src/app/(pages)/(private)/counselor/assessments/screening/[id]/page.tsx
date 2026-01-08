@@ -40,12 +40,12 @@ export default function ScreeningDetailPage() {
   const handleDelete = () => {
     deleteScreening(screeningId, {
       onSuccess: () => {
-        toast.success("Screening assessment deleted successfully");
+        toast.success("Asesmen screening berhasil dihapus");
         router.push("/counselor/assessments/screening");
       },
       onError: (error: any) => {
         toast.error(
-          error.response?.data?.message || "Failed to delete screening"
+          error.response?.data?.message || "Gagal menghapus screening"
         );
       },
     });
@@ -67,7 +67,7 @@ export default function ScreeningDetailPage() {
     return (
       <div className="">
         <div className="text-center py-12">
-          <p className="text-grey mb-4">Screening assessment not found</p>
+          <p className="text-grey mb-4">Asesmen screening tidak ditemukan</p>
           <button
             onClick={() => router.back()}
             className="text-moss-stone hover:text-moss-stone-dark font-medium"
@@ -85,7 +85,7 @@ export default function ScreeningDetailPage() {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            Back
+            Kembali
           </button>
         </div>
       </div>
@@ -112,19 +112,19 @@ export default function ScreeningDetailPage() {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back
+        Kembali
       </button>
 
       {/* Header */}
       <div className="flex items-center justify-between mb-6 flex-col gap-4 md:flex-row  w-full md:w-auto">
         <div>
           <Heading3 className="text-neutral-02">
-            Screening Assessment Detail (DASS)
+            Detail Asesmen Screening (DASS)
           </Heading3>
           <p className="text-grey mt-2">
             {canEdit
-              ? "View and manage screening assessment"
-              : "View screening assessment (Read-only)"}
+              ? "Lihat dan kelola asesmen screening"
+              : "Lihat asesmen screening (Hanya baca)"}
           </p>
         </div>
         {canEdit && (
@@ -139,7 +139,7 @@ export default function ScreeningDetailPage() {
               onClick={() => setIsDeleteModalOpen(true)}
               className="w-full md:w-auto text-center px-4 py-2 bg-error text-white rounded-lg hover:bg-error/90 transition-colors"
             >
-              Delete
+              Hapus
             </button>
           </div>
         )}
@@ -149,12 +149,12 @@ export default function ScreeningDetailPage() {
       <Modal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        title="Delete Screening Assessment"
+        title="Hapus Asesmen Screening"
       >
         <div className="space-y-4">
           <p className="text-grey">
-            Are you sure you want to delete this screening assessment? This
-            action cannot be undone.
+            Apakah Anda yakin ingin menghapus asesmen screening ini? Tindakan
+            ini tidak dapat dibatalkan.
           </p>
           <div className="flex justify-end gap-3 pt-4">
             <button
@@ -162,14 +162,14 @@ export default function ScreeningDetailPage() {
               className="px-4 py-2 text-grey hover:text-neutral-02 transition-colors"
               disabled={isDeleting}
             >
-              Cancel
+              Batal
             </button>
             <button
               onClick={handleDelete}
               disabled={isDeleting}
               className="px-6 py-2 bg-error text-white rounded-lg hover:bg-error/90 transition-colors disabled:bg-grey disabled:cursor-not-allowed"
             >
-              {isDeleting ? "Deleting..." : "Delete"}
+              {isDeleting ? "Menghapus..." : "Hapus"}
             </button>
           </div>
         </div>
@@ -179,7 +179,7 @@ export default function ScreeningDetailPage() {
       {child && (
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
           <p className="text-sm text-blue-900">
-            <strong>Child:</strong> {child.fullname}
+            <strong>Anak:</strong> {child.fullname}
           </p>
         </div>
       )}
@@ -188,11 +188,11 @@ export default function ScreeningDetailPage() {
       <div className="space-y-6">
         {/* Depression */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">Depression</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Depresi</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {screening.depressionScore}
@@ -200,7 +200,7 @@ export default function ScreeningDetailPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
                 {screening.depressionInterpretation || "-"}
@@ -211,11 +211,11 @@ export default function ScreeningDetailPage() {
 
         {/* Anxiety */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">Anxiety</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Kecemasan</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {screening.anxietyScore}
@@ -223,7 +223,7 @@ export default function ScreeningDetailPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
                 {screening.anxietyInterpretation || "-"}
@@ -234,11 +234,11 @@ export default function ScreeningDetailPage() {
 
         {/* Stress */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">Stress</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Stres</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {screening.stressScore}
@@ -246,7 +246,7 @@ export default function ScreeningDetailPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
                 {screening.stressInterpretation || "-"}
@@ -258,12 +258,12 @@ export default function ScreeningDetailPage() {
         {/* Total Score */}
         <div className="bg-moss-stone/5 border border-moss-stone/20 rounded-xl p-6">
           <Heading5 className="text-neutral-02 mb-4">
-            Total Screening Score
+            Total Skor Screening
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Total Score
+                Total Skor
               </label>
               <p className="text-2xl font-bold text-moss-stone">
                 {screening.totalScreeningScore}
@@ -271,7 +271,7 @@ export default function ScreeningDetailPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Overall Interpretation
+                Interpretasi Keseluruhan
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
                 {screening.totalScreeningInterpretation || "-"}
@@ -284,13 +284,13 @@ export default function ScreeningDetailPage() {
         <div className="bg-grey-stroke/5 rounded-xl p-4">
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="text-grey">Created:</span>{" "}
+              <span className="text-grey">Dibuat:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(screening.createdAt).toLocaleString("id-ID")}
               </span>
             </div>
             <div>
-              <span className="text-grey">Last Updated:</span>{" "}
+              <span className="text-grey">Terakhir Diperbarui:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(screening.updatedAt).toLocaleString("id-ID")}
               </span>

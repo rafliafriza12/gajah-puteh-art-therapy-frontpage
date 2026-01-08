@@ -39,9 +39,9 @@ export default function ParentReportsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <Heading3 className="text-neutral-02">Assessment Reports</Heading3>
+          <Heading3 className="text-neutral-02">Laporan Asesmen</Heading3>
           <p className="text-grey mt-2">
-            View all assessment results and progress reports
+            Lihat semua hasil asesmen dan laporan perkembangan
           </p>
         </div>
       </div>
@@ -50,14 +50,14 @@ export default function ParentReportsPage() {
       {!isLoading && children && children.length > 1 && (
         <div className="mb-6">
           <label className="block text-sm font-medium text-neutral-02 mb-2">
-            Filter by Child
+            Filter berdasarkan Anak
           </label>
           <select
             value={selectedChild}
             onChange={(e) => setSelectedChild(e.target.value)}
             className="px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone"
           >
-            <option value="all">All Children</option>
+            <option value="all">Semua Anak</option>
             {children.map((child) => (
               <option key={child._id} value={child._id}>
                 {child.fullname} (NIK: {child.nik.slice(0, 8)}...)
@@ -70,23 +70,23 @@ export default function ParentReportsPage() {
       {/* Info Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-          <h4 className="font-semibold text-blue-900 mb-1">DASS Screening</h4>
+          <h4 className="font-semibold text-blue-900 mb-1">Skrining DASS</h4>
           <p className="text-sm text-blue-800">
-            Depression, Anxiety, and Stress Scale assessment
+            Asesmen Skala Depresi, Kecemasan, dan Stres
           </p>
         </div>
         <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-          <h4 className="font-semibold text-green-900 mb-1">Observations</h4>
+          <h4 className="font-semibold text-green-900 mb-1">Observasi</h4>
           <p className="text-sm text-green-800">
-            Counselor notes and session summaries
+            Catatan konselor dan ringkasan sesi
           </p>
         </div>
         <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
           <h4 className="font-semibold text-purple-900 mb-1">
-            Progress Tracking
+            Pemantauan Perkembangan
           </h4>
           <p className="text-sm text-purple-800">
-            Monitor improvements over time
+            Pantau peningkatan dari waktu ke waktu
           </p>
         </div>
       </div>
@@ -142,9 +142,9 @@ export default function ParentReportsPage() {
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            <p className="text-grey mb-2">No assessment reports yet</p>
+            <p className="text-grey mb-2">Belum ada laporan asesmen</p>
             <p className="text-sm text-grey">
-              Assessment reports will appear here after therapy sessions
+              Laporan asesmen akan muncul di sini setelah sesi terapi
             </p>
           </div>
         )}
@@ -175,10 +175,10 @@ function TherapyReportCard({ therapy, child }: { therapy: any; child: any }) {
         </div>
         <div className="flex-1">
           <h4 className="font-medium text-neutral-02 mb-1">
-            {child?.fullname || "Unknown Child"}
+            {child?.fullname || "Anak Tidak Diketahui"}
           </h4>
           <p className="text-sm text-grey">
-            Therapy Session -{" "}
+            Sesi Terapi -{" "}
             {new Date(therapy.createdAt).toLocaleDateString("id-ID", {
               day: "2-digit",
               month: "long",
@@ -191,7 +191,7 @@ function TherapyReportCard({ therapy, child }: { therapy: any; child: any }) {
           href={`/parent/therapy/${therapy._id}`}
           className="px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors text-sm font-medium"
         >
-          View
+          Lihat
         </Link>
       </div>
     </div>

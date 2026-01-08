@@ -37,7 +37,7 @@ export default function EditPretestPage() {
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "You can only edit assessments for your own therapy sessions"
+        "Anda hanya dapat mengedit asesmen untuk sesi terapi Anda sendiri"
       );
       router.push(`/counselor/assessments/pretest/${pretestId}`);
     }
@@ -153,11 +153,11 @@ export default function EditPretestPage() {
       },
       {
         onSuccess: () => {
-          toast.success("Pretest assessment updated successfully!");
+          toast.success("Asesmen pretest berhasil diperbarui!");
           router.push(`/counselor/assessments/pretest/${pretestId}`);
         },
         onError: (error: any) => {
-          toast.error(error?.message || "Failed to update pretest assessment");
+          toast.error(error?.message || "Gagal memperbarui asesmen pretest");
         },
       }
     );
@@ -179,12 +179,12 @@ export default function EditPretestPage() {
     return (
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Pretest not found</p>
+          <p className="text-grey">Pretest tidak ditemukan</p>
           <Link
             href="/counselor/assessments/pretest"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
           >
-            ← Back to Pretest List
+            ← Kembali ke Daftar Pretest
           </Link>
         </div>
       </div>
@@ -212,16 +212,16 @@ export default function EditPretestPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back
+          Kembali
         </button>
         <Heading3 className="text-neutral-02">
-          Edit Pretest Assessment (SDQ)
+          Edit Asesmen Pretest (SDQ)
         </Heading3>
         {child && (
           <p className="text-grey mt-2">
-            For child:{" "}
+            Untuk anak:{" "}
             <span className="font-medium text-neutral-02">
-              {child.fullname || `Child #${child.childOrder}`}
+              {child.fullname || `Anak #${child.childOrder}`}
             </span>
           </p>
         )}
@@ -233,13 +233,11 @@ export default function EditPretestPage() {
       >
         {/* Emotional Symptoms */}
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">
-            Emotional Symptoms
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Gejala Emosional</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Score *</BodySmallMedium>
+                <BodySmallMedium>Skor *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -249,12 +247,12 @@ export default function EditPretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter score"
+                placeholder="Masukkan skor"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi *</BodySmallMedium>
               </label>
               <textarea
                 name="emotionalSymptomsInterpretation"
@@ -263,7 +261,7 @@ export default function EditPretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -271,11 +269,11 @@ export default function EditPretestPage() {
 
         {/* Conduct Problems */}
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">Conduct Problems</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Masalah Perilaku</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Score *</BodySmallMedium>
+                <BodySmallMedium>Skor *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -285,12 +283,12 @@ export default function EditPretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter score"
+                placeholder="Masukkan skor"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi *</BodySmallMedium>
               </label>
               <textarea
                 name="conductProblemInterpretation"
@@ -299,7 +297,7 @@ export default function EditPretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -308,12 +306,12 @@ export default function EditPretestPage() {
         {/* Hyperactivity */}
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Hyperactivity / Inattention
+            Hiperaktivitas / Kurang Perhatian
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Score *</BodySmallMedium>
+                <BodySmallMedium>Skor *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -323,12 +321,12 @@ export default function EditPretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter score"
+                placeholder="Masukkan skor"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi *</BodySmallMedium>
               </label>
               <textarea
                 name="hyperactivityInterpretation"
@@ -337,7 +335,7 @@ export default function EditPretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -346,12 +344,12 @@ export default function EditPretestPage() {
         {/* Peer Problems */}
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Peer Relationship Problems
+            Masalah Hubungan Sebaya
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Score *</BodySmallMedium>
+                <BodySmallMedium>Skor *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -361,12 +359,12 @@ export default function EditPretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter score"
+                placeholder="Masukkan skor"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi *</BodySmallMedium>
               </label>
               <textarea
                 name="peerProblemInterpretation"
@@ -375,7 +373,7 @@ export default function EditPretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -384,12 +382,12 @@ export default function EditPretestPage() {
         {/* Prosocial Behaviour */}
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Prosocial Behaviour
+            Perilaku Prososial
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Score *</BodySmallMedium>
+                <BodySmallMedium>Skor *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -399,12 +397,12 @@ export default function EditPretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter score"
+                placeholder="Masukkan skor"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi *</BodySmallMedium>
               </label>
               <textarea
                 name="prosocialBehaviourInterpretation"
@@ -413,7 +411,7 @@ export default function EditPretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -421,13 +419,11 @@ export default function EditPretestPage() {
 
         {/* Total Difficulties */}
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">
-            Total Difficulties
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Total Kesulitan</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Score *</BodySmallMedium>
+                <BodySmallMedium>Skor *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -437,12 +433,12 @@ export default function EditPretestPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter score"
+                placeholder="Masukkan skor"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi *</BodySmallMedium>
               </label>
               <textarea
                 name="totalDifficultiesInterpretation"
@@ -451,7 +447,7 @@ export default function EditPretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -460,12 +456,12 @@ export default function EditPretestPage() {
         {/* Total Pretest Score */}
         <div>
           <Heading5 className="text-neutral-02 mb-4">
-            Total Pretest Score
+            Total Skor Pretest
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Total Pretest Score</BodySmallMedium>
+                <BodySmallMedium>Total Skor Pretest</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -473,17 +469,15 @@ export default function EditPretestPage() {
                 value={formData.totalPretestScore}
                 readOnly
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg bg-grey-stroke/10 text-neutral-02 font-semibold"
-                placeholder="Auto calculated"
+                placeholder="Dihitung otomatis"
               />
               <p className="text-xs text-grey mt-1">
-                Includes all scores (difficulties + prosocial)
+                Termasuk semua skor (kesulitan + prososial)
               </p>
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>
-                  Total Pretest Interpretation *
-                </BodySmallMedium>
+                <BodySmallMedium>Interpretasi Total Pretest *</BodySmallMedium>
               </label>
               <textarea
                 name="totalPretestInterpretation"
@@ -492,7 +486,7 @@ export default function EditPretestPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter overall interpretation"
+                placeholder="Masukkan interpretasi keseluruhan"
               />
             </div>
           </div>
@@ -504,11 +498,11 @@ export default function EditPretestPage() {
             href={`/counselor/assessments/pretest/${pretestId}`}
             className="flex-1 px-4 py-2 border border-grey-stroke rounded-lg text-neutral-02 hover:bg-grey-stroke/10 transition-colors text-center"
           >
-            Cancel
+            Batal
           </Link>
           <SubmitButton
             variant="primary"
-            text={isPending ? "Saving..." : "Save Changes"}
+            text={isPending ? "Menyimpan..." : "Simpan Perubahan"}
             className="flex-1 flex justify-center items-center"
             disabled={isPending}
           />

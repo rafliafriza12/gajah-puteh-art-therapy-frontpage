@@ -55,10 +55,10 @@ export default function CounselorDashboardPage() {
   // Helper function to get activity type label
   const getActivityLabel = (type: Activity["type"]) => {
     const labels = {
-      therapy: "Therapy",
+      therapy: "Terapi",
       screening: "Screening",
       pretest: "Pretest",
-      observation: "Observation",
+      observation: "Observasi",
       posttest: "Posttest",
     };
     return labels[type] || type;
@@ -69,11 +69,11 @@ export default function CounselorDashboardPage() {
       {/* Header */}
       <div className="mb-4 sm:mb-6">
         <Heading3 className="text-neutral-02 text-xl sm:text-2xl lg:text-3xl">
-          Welcome back,{" "}
+          Selamat datang,{" "}
           {user && isCounselor(user) ? user.fullname : "Counselor"}!
         </Heading3>
         <p className="text-grey mt-2 text-xs sm:text-sm">
-          Here's what's happening with your therapy sessions today.
+          Berikut adalah jadwal sesi terapi Anda hari ini.
         </p>
       </div>
 
@@ -99,26 +99,26 @@ export default function CounselorDashboardPage() {
         ) : (
           <>
             <StatsCard
-              title="Total Parents"
+              title="Total Orangtua"
               value={stats.totalParents.toString()}
-              subtitle="Active parents"
+              subtitle="Aktif"
               icon={<ThreeUserGroupIcon className="w-6 h-6" />}
-              trend={
-                stats.totalParents > 0
-                  ? { value: stats.totalParents, isPositive: true }
-                  : undefined
-              }
+              // trend={
+              //   stats.totalParents > 0
+              //     ? { value: stats.totalParents, isPositive: true }
+              //     : undefined
+              // }
             />
             <StatsCard
-              title="Therapy Sessions"
+              title="Sesi Terapi"
               value={stats.totalTherapies.toString()}
-              subtitle="Total sessions"
+              subtitle="Total sesi"
               icon={<NotebookIcon className="w-6 h-6" />}
             />
             <StatsCard
-              title="Total Children"
+              title="Total Anak"
               value={stats.totalChildren.toString()}
-              subtitle="Under therapy"
+              subtitle="Sedang dalam terapi"
               icon={<DocumentIcon className="w-6 h-6" />}
             />
           </>
@@ -321,7 +321,7 @@ export default function CounselorDashboardPage() {
             </svg>
             <div className="flex-1 min-w-0">
               <p className="font-semibold text-moss-stone text-xs sm:text-sm mb-2">
-                💡 Tips Penting:
+                Tips Penting:
               </p>
               <ul className="text-grey text-xs sm:text-sm space-y-1 list-disc list-inside">
                 <li>Pastikan semua asesmen dilakukan secara berurutan</li>
@@ -339,17 +339,17 @@ export default function CounselorDashboardPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-3">
           <div>
             <Heading5 className="text-neutral-02 mb-1 text-base sm:text-lg">
-              Recent Activities
+              Aktifitas Terkini
             </Heading5>
             <p className="text-grey text-xs sm:text-sm">
-              Your latest therapy sessions and assessments
+              Sesi terapi dan penilaian terbaru Anda
             </p>
           </div>
           <Link
             href="/counselor/assessments"
             className="w-full sm:w-auto text-center px-4 py-2 border border-moss-stone text-moss-stone rounded-lg text-xs sm:text-sm font-medium hover:bg-moss-stone hover:text-neutral-01 transition-colors"
           >
-            View All
+            Lihat Semua
           </Link>
         </div>
 
@@ -379,13 +379,13 @@ export default function CounselorDashboardPage() {
               <DocumentIcon className="w-6 h-6 sm:w-8 sm:h-8 text-grey" />
             </div>
             <p className="text-grey mb-4 text-xs sm:text-sm">
-              No recent activities yet
+              Belum ada aktivitas terkini
             </p>
             <Link
               href="/counselor/therapy/create"
               className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors text-xs sm:text-sm font-medium"
             >
-              Create First Therapy Session
+              Buat Sesi Terapi Pertama
             </Link>
           </div>
         ) : (

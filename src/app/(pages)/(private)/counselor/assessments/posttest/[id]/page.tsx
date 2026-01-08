@@ -35,12 +35,12 @@ export default function PosttestDetailPage() {
   const handleDelete = () => {
     deletePosttest(posttestId, {
       onSuccess: () => {
-        toast.success("Posttest assessment deleted successfully");
+        toast.success("Asesmen posttest berhasil dihapus");
         router.push("/counselor/assessments/posttest");
       },
       onError: (error: any) => {
         toast.error(
-          error.response?.data?.message || "Failed to delete posttest"
+          error.response?.data?.message || "Gagal menghapus posttest"
         );
       },
     });
@@ -62,12 +62,12 @@ export default function PosttestDetailPage() {
     return (
       <div className="">
         <div className="text-center py-12">
-          <p className="text-grey mb-4">Posttest assessment not found</p>
+          <p className="text-grey mb-4">Asesmen posttest tidak ditemukan</p>
           <Link
             href="/counselor/assessments/posttest"
             className="text-moss-stone hover:text-moss-stone-dark font-medium"
           >
-            ← Back to Posttests
+            ← Kembali ke Posttest
           </Link>
         </div>
       </div>
@@ -94,19 +94,19 @@ export default function PosttestDetailPage() {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back
+        Kembali
       </button>
 
       {/* Header */}
       <div className="flex items-center justify-between flex-col gap-4 md:flex-row mb-6 w-full md:w-auto">
         <div>
           <Heading3 className="text-neutral-02">
-            Posttest Assessment Detail (SDQ)
+            Detail Asesmen Posttest (SDQ)
           </Heading3>
           <p className="text-grey mt-2">
             {canEdit
-              ? "View and manage posttest assessment"
-              : "View posttest assessment (Read-only)"}
+              ? "Lihat dan kelola asesmen posttest"
+              : "Lihat asesmen posttest (Hanya baca)"}
           </p>
         </div>
         {canEdit && (
@@ -121,7 +121,7 @@ export default function PosttestDetailPage() {
               onClick={() => setIsDeleteModalOpen(true)}
               className="px-4 py-2 bg-error text-white w-full md:w-auto text-center rounded-lg hover:bg-error/90 transition-colors"
             >
-              Delete
+              Hapus
             </button>
           </div>
         )}
@@ -131,12 +131,12 @@ export default function PosttestDetailPage() {
       <Modal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        title="Delete Posttest Assessment"
+        title="Hapus Asesmen Posttest"
       >
         <div className="space-y-4">
           <p className="text-grey">
-            Are you sure you want to delete this posttest assessment? This
-            action cannot be undone.
+            Apakah Anda yakin ingin menghapus asesmen posttest ini? Tindakan ini
+            tidak dapat dibatalkan.
           </p>
           <div className="flex justify-end gap-3 pt-4">
             <button
@@ -144,14 +144,14 @@ export default function PosttestDetailPage() {
               className="px-4 py-2 text-grey hover:text-neutral-02 transition-colors"
               disabled={isDeleting}
             >
-              Cancel
+              Batal
             </button>
             <button
               onClick={handleDelete}
               disabled={isDeleting}
               className="px-6 py-2 bg-error text-white rounded-lg hover:bg-error/90 transition-colors disabled:bg-grey disabled:cursor-not-allowed"
             >
-              {isDeleting ? "Deleting..." : "Delete"}
+              {isDeleting ? "Menghapus..." : "Hapus"}
             </button>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function PosttestDetailPage() {
       {child && (
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
           <p className="text-sm text-blue-900">
-            <strong>Child:</strong> {child.fullname}
+            <strong>Anak:</strong> {child.fullname}
           </p>
         </div>
       )}
@@ -170,13 +170,11 @@ export default function PosttestDetailPage() {
       <div className="space-y-6">
         {/* Emotional Symptoms */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">
-            Emotional Symptoms
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Gejala Emosional</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {posttest.emotionalSymptomsScore}
@@ -184,7 +182,7 @@ export default function PosttestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {posttest.emotionalSymptomsInterpretation || "-"}
@@ -195,11 +193,11 @@ export default function PosttestDetailPage() {
 
         {/* Conduct Problems */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">Conduct Problems</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Masalah Perilaku</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {posttest.conductProblemScore}
@@ -207,7 +205,7 @@ export default function PosttestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word ">
                 {posttest.conductProblemInterpretation || "-"}
@@ -219,12 +217,12 @@ export default function PosttestDetailPage() {
         {/* Hyperactivity/Inattention */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
           <Heading5 className="text-neutral-02 mb-4">
-            Hyperactivity / Inattention
+            Hiperaktivitas / Kurang Perhatian
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {posttest.hyperactivityScore}
@@ -232,7 +230,7 @@ export default function PosttestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {posttest.hyperactivityInterpretation || "-"}
@@ -244,12 +242,12 @@ export default function PosttestDetailPage() {
         {/* Peer Relationship Problems */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
           <Heading5 className="text-neutral-02 mb-4">
-            Peer Relationship Problems
+            Masalah Hubungan Sebaya
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {posttest.peerProblemScore}
@@ -257,7 +255,7 @@ export default function PosttestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {posttest.peerProblemInterpretation || "-"}
@@ -269,12 +267,12 @@ export default function PosttestDetailPage() {
         {/* Prosocial Behaviour */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
           <Heading5 className="text-neutral-02 mb-4">
-            Prosocial Behaviour
+            Perilaku Prososial
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {posttest.prosocialBehaviourScore}
@@ -282,7 +280,7 @@ export default function PosttestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {posttest.prosocialBehaviourInterpretation || "-"}
@@ -293,13 +291,11 @@ export default function PosttestDetailPage() {
 
         {/* Total Difficulties */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">
-            Total Difficulties
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Total Kesulitan</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {posttest.totalDifficultiesScore}
@@ -307,7 +303,7 @@ export default function PosttestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {posttest.totalDifficultiesInterpretation || "-"}
@@ -319,12 +315,12 @@ export default function PosttestDetailPage() {
         {/* Total Posttest Score */}
         <div className="bg-moss-stone/5 border border-moss-stone/20 rounded-xl p-6">
           <Heading5 className="text-neutral-02 mb-4">
-            Total Posttest Score
+            Total Skor Posttest
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Total Score
+                Total Skor
               </label>
               <p className="text-2xl font-bold text-moss-stone">
                 {posttest.totalPosttestScore}
@@ -332,7 +328,7 @@ export default function PosttestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Overall Interpretation
+                Interpretasi Keseluruhan
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {posttest.totalPosttestInterpretation || "-"}
@@ -345,13 +341,13 @@ export default function PosttestDetailPage() {
         <div className="bg-grey-stroke/5 rounded-xl p-4">
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="text-grey">Created:</span>{" "}
+              <span className="text-grey">Dibuat:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(posttest.createdAt).toLocaleString("id-ID")}
               </span>
             </div>
             <div>
-              <span className="text-grey">Last Updated:</span>{" "}
+              <span className="text-grey">Terakhir Diperbarui:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(posttest.updatedAt).toLocaleString("id-ID")}
               </span>

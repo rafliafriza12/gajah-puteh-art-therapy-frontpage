@@ -88,13 +88,13 @@ export default function TherapyDetailPage() {
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-6 sm:p-8 lg:p-12 text-center">
           <p className="text-grey text-sm sm:text-base">
-            Therapy session not found
+            Sesi terapi tidak ditemukan
           </p>
           <Link
             href="/counselor/therapy"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
           >
-            ← Back to Therapy Sessions
+            ← Kembali ke Sesi Terapi
           </Link>
         </div>
       </div>
@@ -121,16 +121,16 @@ export default function TherapyDetailPage() {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back to Therapy Sessions
+        Kembali ke Sesi Terapi
       </Link>
 
       {/* Header */}
       <div className="mb-4 sm:mb-6">
         <Heading3 className="text-neutral-02 text-xl sm:text-2xl lg:text-3xl">
-          Therapy Session Details
+          Detail Sesi Terapi
         </Heading3>
         <p className="text-grey mt-2 text-xs sm:text-sm">
-          Created on{" "}
+          Dibuat pada{" "}
           {new Date(therapy.createdAt).toLocaleDateString("id-ID", {
             day: "2-digit",
             month: "long",
@@ -145,7 +145,7 @@ export default function TherapyDetailPage() {
           {/* Counselor & Child Information */}
           <div className="bg-white border border-grey-stroke rounded-xl p-4 sm:p-6">
             <Heading5 className="text-neutral-02 mb-4 text-base sm:text-lg">
-              Session Overview
+              Ringkasan Sesi
             </Heading5>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Counselor Info */}
@@ -168,7 +168,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey text-xs">
-                      Counselor
+                      Konselor
                     </BodySmallMedium>
                     <p className="text-sm font-semibold text-neutral-02">
                       {counselorLoading ? (
@@ -176,7 +176,7 @@ export default function TherapyDetailPage() {
                       ) : counselor ? (
                         counselor.fullname
                       ) : (
-                        "Unknown Counselor"
+                        "Konselor Tidak Diketahui"
                       )}
                     </p>
                   </div>
@@ -193,7 +193,7 @@ export default function TherapyDetailPage() {
                     </div>
                     <div>
                       <BodySmallMedium className="text-grey text-xs">
-                        Phone
+                        Telepon
                       </BodySmallMedium>
                       <p className="text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                         {counselor.phone}
@@ -213,15 +213,15 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey text-xs">
-                      Child
+                      Anak
                     </BodySmallMedium>
                     <p className="text-sm font-semibold text-neutral-02">
                       {childLoading ? (
                         <span className="inline-block h-4 w-32 bg-grey-stroke/20 rounded animate-pulse"></span>
                       ) : child ? (
-                        child.fullname || `Child #${child.childOrder}`
+                        child.fullname || `Anak #${child.childOrder}`
                       ) : (
-                        "Unknown Child"
+                        "Anak Tidak Diketahui"
                       )}
                     </p>
                   </div>
@@ -230,10 +230,10 @@ export default function TherapyDetailPage() {
                   <div className="space-y-2 pl-12">
                     <div>
                       <BodySmallMedium className="text-grey text-xs">
-                        Age
+                        Usia
                       </BodySmallMedium>
                       <p className="text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
-                        {child.age} years old
+                        {child.age} tahun
                       </p>
                     </div>
                     <div>
@@ -248,7 +248,7 @@ export default function TherapyDetailPage() {
                       href={`/counselor/children/${child._id}`}
                       className="inline-block text-xs text-moss-stone hover:text-moss-stone-dark font-medium"
                     >
-                      View Full Profile →
+                      Lihat Profil Lengkap →
                     </Link>
                   </div>
                 )}
@@ -260,13 +260,13 @@ export default function TherapyDetailPage() {
           <div className="bg-white border border-grey-stroke rounded-xl p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
               <Heading5 className="text-neutral-02 text-base sm:text-lg">
-                Assessment Progress
+                Progres Asesmen
               </Heading5>
               <Link
                 href={`/counselor/therapy/${therapyId}/assessments`}
                 className="w-full sm:w-auto text-center px-4 py-2 border border-topaz text-topaz-dark rounded-lg text-sm font-medium hover:bg-topaz-light transition-colors"
               >
-                View All
+                Lihat Semua
               </Link>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -316,7 +316,7 @@ export default function TherapyDetailPage() {
                       screening ? "text-jade-dark" : "text-topaz-dark"
                     }`}
                   >
-                    {screening ? "Completed" : "Pending"}
+                    {screening ? "Selesai" : "Tertunda"}
                   </p>
                 </div>
               </div>
@@ -367,7 +367,7 @@ export default function TherapyDetailPage() {
                       pretest ? "text-jade-dark" : "text-topaz-dark"
                     }`}
                   >
-                    {pretest ? "Completed" : "Pending"}
+                    {pretest ? "Selesai" : "Tertunda"}
                   </p>
                 </div>
               </div>
@@ -383,7 +383,7 @@ export default function TherapyDetailPage() {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <BodySmallMedium className="text-grey text-xs">
-                      Observation
+                      Observasi
                     </BodySmallMedium>
                     {observation ? (
                       <svg
@@ -418,7 +418,7 @@ export default function TherapyDetailPage() {
                       observation ? "text-jade-dark" : "text-topaz-dark"
                     }`}
                   >
-                    {observation ? "Completed" : "Pending"}
+                    {observation ? "Selesai" : "Tertunda"}
                   </p>
                 </div>
               </div>
@@ -469,7 +469,7 @@ export default function TherapyDetailPage() {
                       posttest ? "text-jade-dark" : "text-topaz-dark"
                     }`}
                   >
-                    {posttest ? "Completed" : "Pending"}
+                    {posttest ? "Selesai" : "Tertunda"}
                   </p>
                 </div>
               </div>
@@ -480,14 +480,14 @@ export default function TherapyDetailPage() {
           <div className="bg-white border border-grey-stroke rounded-xl p-4 sm:p-6 overflow-hidden">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
               <Heading5 className="text-neutral-02 text-base sm:text-lg">
-                Observation Details
+                Detail Observasi
               </Heading5>
               {!observation && canEdit && (
                 <Link
                   href={`/counselor/assessments/observation/create?therapyId=${therapyId}`}
                   className="text-xs sm:text-sm text-moss-stone hover:text-moss-stone-dark font-medium text-center sm:text-left"
                 >
-                  + Add Observation
+                  + Tambah Observasi
                 </Link>
               )}
             </div>
@@ -501,7 +501,7 @@ export default function TherapyDetailPage() {
               <div className="space-y-4">
                 <div className="min-w-0">
                   <BodySmallMedium className="text-grey mb-2 text-xs sm:text-sm">
-                    Summary
+                    Ringkasan
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 leading-relaxed wrap-break-word whitespace-pre-wrap">
                     {observation.summary}
@@ -510,7 +510,7 @@ export default function TherapyDetailPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-grey-stroke">
                   <div className="min-w-0">
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Observation ID
+                      ID Observasi
                     </BodySmallMedium>
                     <p className="text-xs text-neutral-02 font-mono truncate">
                       {observation._id}
@@ -518,7 +518,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div className="min-w-0">
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Created Date
+                      Tanggal Dibuat
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02">
                       {new Date(observation.createdAt).toLocaleDateString(
@@ -531,7 +531,7 @@ export default function TherapyDetailPage() {
                   href={`/counselor/assessments/observation/${observation._id}`}
                   className="inline-block mt-2 text-xs sm:text-sm text-moss-stone hover:text-moss-stone-dark font-medium"
                 >
-                  View Full Observation →
+                  Lihat Observasi Lengkap →
                 </Link>
               </div>
             ) : (
@@ -550,14 +550,14 @@ export default function TherapyDetailPage() {
                   />
                 </svg>
                 <p className="text-grey text-xs sm:text-sm mb-4">
-                  No observation recorded for this therapy session yet
+                  Belum ada observasi tercatat untuk sesi terapi ini
                 </p>
                 {canEdit && (
                   <Link
                     href={`/counselor/assessments/observation/create?therapyId=${therapyId}`}
                     className="inline-block w-full sm:w-auto px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors text-xs sm:text-sm"
                   >
-                    Add Observation
+                    Tambah Observasi
                   </Link>
                 )}
               </div>
@@ -575,7 +575,7 @@ export default function TherapyDetailPage() {
                   href={`/counselor/assessments/pretest/create?therapyId=${therapyId}`}
                   className="text-xs sm:text-sm text-moss-stone hover:text-moss-stone-dark font-medium text-center sm:text-left"
                 >
-                  + Add Pretest
+                  + Tambah Pretest
                 </Link>
               )}
             </div>
@@ -590,7 +590,7 @@ export default function TherapyDetailPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Emotional Symptoms
+                      Gejala Emosional
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {pretest.emotionalSymptomsScore}
@@ -598,7 +598,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Conduct Problems
+                      Masalah Perilaku
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {pretest.conductProblemScore}
@@ -606,7 +606,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Hyperactivity
+                      Hiperaktivitas
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {pretest.hyperactivityScore}
@@ -614,7 +614,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Peer Problems
+                      Masalah Sebaya
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {pretest.peerProblemScore}
@@ -622,7 +622,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Prosocial Behaviour
+                      Perilaku Prososial
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {pretest.prosocialBehaviourScore}
@@ -630,7 +630,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Total Difficulties
+                      Total Kesulitan
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm font-semibold text-neutral-02">
                       {pretest.totalDifficultiesScore}
@@ -639,7 +639,7 @@ export default function TherapyDetailPage() {
                 </div>
                 <div className="pt-4 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Interpretation
+                    Interpretasi
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                     {pretest.totalPretestInterpretation}
@@ -649,7 +649,7 @@ export default function TherapyDetailPage() {
                   href={`/counselor/assessments/pretest/${pretest._id}`}
                   className="inline-block mt-2 text-xs sm:text-sm text-moss-stone hover:text-moss-stone-dark font-medium"
                 >
-                  View Full Pretest →
+                  Lihat Pretest Lengkap →
                 </Link>
               </div>
             ) : (
@@ -668,14 +668,14 @@ export default function TherapyDetailPage() {
                   />
                 </svg>
                 <p className="text-grey text-xs sm:text-sm mb-4">
-                  No pretest assessment available yet
+                  Belum ada asesmen pretest tersedia
                 </p>
                 {canEdit && (
                   <Link
                     href={`/counselor/assessments/pretest/create?therapyId=${therapyId}`}
                     className="inline-block w-full sm:w-auto px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors text-xs sm:text-sm"
                   >
-                    Add Pretest
+                    Tambah Pretest
                   </Link>
                 )}
               </div>
@@ -693,7 +693,7 @@ export default function TherapyDetailPage() {
                   href={`/counselor/assessments/posttest/create?therapyId=${therapyId}`}
                   className="text-xs sm:text-sm text-moss-stone hover:text-moss-stone-dark font-medium text-center sm:text-left"
                 >
-                  + Add Posttest
+                  + Tambah Posttest
                 </Link>
               )}
             </div>
@@ -708,7 +708,7 @@ export default function TherapyDetailPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Emotional Symptoms
+                      Gejala Emosional
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {posttest.emotionalSymptomsScore}
@@ -716,7 +716,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Conduct Problems
+                      Masalah Perilaku
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {posttest.conductProblemScore}
@@ -724,7 +724,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Hyperactivity
+                      Hiperaktivitas
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {posttest.hyperactivityScore}
@@ -732,7 +732,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Peer Problems
+                      Masalah Sebaya
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {posttest.peerProblemScore}
@@ -740,7 +740,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Prosocial Behaviour
+                      Perilaku Prososial
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                       {posttest.prosocialBehaviourScore}
@@ -748,7 +748,7 @@ export default function TherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1 text-xs">
-                      Total Difficulties
+                      Total Kesulitan
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm font-semibold text-neutral-02">
                       {posttest.totalDifficultiesScore}
@@ -757,7 +757,7 @@ export default function TherapyDetailPage() {
                 </div>
                 <div className="pt-4 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Interpretation
+                    Interpretasi
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                     {posttest.totalPosttestInterpretation}
@@ -766,11 +766,11 @@ export default function TherapyDetailPage() {
                 {pretest && (
                   <div className="pt-4 border-t border-grey-stroke">
                     <BodySmallMedium className="text-grey mb-2 text-xs">
-                      Progress Comparison
+                      Perbandingan Progres
                     </BodySmallMedium>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
                       <span className="text-xs sm:text-sm text-neutral-02">
-                        Total Difficulties:
+                        Total Kesulitan:
                       </span>
                       <span
                         className={`text-xs sm:text-sm font-semibold ${
@@ -801,7 +801,7 @@ export default function TherapyDetailPage() {
                   href={`/counselor/assessments/posttest/${posttest._id}`}
                   className="inline-block mt-2 text-xs sm:text-sm text-moss-stone hover:text-moss-stone-dark font-medium"
                 >
-                  View Full Posttest →
+                  Lihat Posttest Lengkap →
                 </Link>
               </div>
             ) : (
@@ -820,14 +820,14 @@ export default function TherapyDetailPage() {
                   />
                 </svg>
                 <p className="text-grey text-xs sm:text-sm mb-4">
-                  No posttest assessment available yet
+                  Belum ada asesmen posttest tersedia
                 </p>
                 {canEdit && (
                   <Link
                     href={`/counselor/assessments/posttest/create?therapyId=${therapyId}`}
                     className="inline-block w-full sm:w-auto px-4 py-2 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors text-xs sm:text-sm"
                   >
-                    Add Posttest
+                    Tambah Posttest
                   </Link>
                 )}
               </div>
@@ -854,7 +854,7 @@ export default function TherapyDetailPage() {
               <div className="space-y-3">
                 <div>
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Depression
+                    Depresi
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                     {screening.depressionScore} -{" "}
@@ -863,7 +863,7 @@ export default function TherapyDetailPage() {
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Anxiety
+                    Kecemasan
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                     {screening.anxietyScore} - {screening.anxietyInterpretation}
@@ -871,7 +871,7 @@ export default function TherapyDetailPage() {
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Stress
+                    Stres
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                     {screening.stressScore} - {screening.stressInterpretation}
@@ -879,7 +879,7 @@ export default function TherapyDetailPage() {
                 </div>
                 <div className="pt-3 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Total Score
+                    Skor Total
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm font-semibold text-neutral-02 wrap-break-word overflow-wrap-anywhere min-w-0">
                     {screening.totalScreeningScore} -{" "}
@@ -890,7 +890,7 @@ export default function TherapyDetailPage() {
                   href={`/counselor/assessments/screening/${screening._id}`}
                   className="inline-block mt-2 text-xs text-moss-stone hover:text-moss-stone-dark font-medium"
                 >
-                  View Details →
+                  Lihat Detail →
                 </Link>
               </div>
             ) : (
@@ -908,13 +908,13 @@ export default function TherapyDetailPage() {
                     d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                   />
                 </svg>
-                <p className="text-grey text-xs mb-3">No screening yet</p>
+                <p className="text-grey text-xs mb-3">Belum ada screening</p>
                 {canEdit && (
                   <Link
                     href={`/counselor/assessments/screening/create?therapyId=${therapyId}`}
                     className="inline-block w-full sm:w-auto px-3 py-1.5 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors text-xs text-center"
                   >
-                    Add Screening
+                    Tambah Screening
                   </Link>
                 )}
               </div>
@@ -924,7 +924,7 @@ export default function TherapyDetailPage() {
           {/* Quick Actions */}
           <div className="bg-white border border-grey-stroke rounded-xl p-4 sm:p-6">
             <Heading5 className="text-neutral-02 mb-4 text-base sm:text-lg">
-              Quick Actions
+              Aksi Cepat
             </Heading5>
             {canEdit ? (
               <div className="space-y-2">
@@ -947,7 +947,7 @@ export default function TherapyDetailPage() {
                         d="M12 4v16m8-8H4"
                       />
                     </svg>
-                    <span>Add Screening (DASS)</span>
+                    <span>Tambah Screening (DASS)</span>
                   </Link>
                 )}
 
@@ -970,7 +970,7 @@ export default function TherapyDetailPage() {
                         d="M12 4v16m8-8H4"
                       />
                     </svg>
-                    <span>Add Pretest (SDQ)</span>
+                    <span>Tambah Pretest (SDQ)</span>
                   </Link>
                 )}
 
@@ -993,7 +993,7 @@ export default function TherapyDetailPage() {
                         d="M12 4v16m8-8H4"
                       />
                     </svg>
-                    <span>Add Observation</span>
+                    <span>Tambah Observasi</span>
                   </Link>
                 )}
 
@@ -1016,7 +1016,7 @@ export default function TherapyDetailPage() {
                         d="M12 4v16m8-8H4"
                       />
                     </svg>
-                    <span>Add Posttest (SDQ)</span>
+                    <span>Tambah Posttest (SDQ)</span>
                   </Link>
                 )}
 
@@ -1043,7 +1043,7 @@ export default function TherapyDetailPage() {
                       d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                     />
                   </svg>
-                  <span>View All Assessments</span>
+                  <span>Lihat Semua Asesmen</span>
                 </Link>
               </div>
             ) : (
@@ -1068,11 +1068,11 @@ export default function TherapyDetailPage() {
                   />
                 </svg>
                 <p className="text-grey text-xs sm:text-sm mb-2">
-                  View Only Mode
+                  Mode Hanya Lihat
                 </p>
                 <p className="text-grey text-xs">
-                  Only the counselor who created this session can add
-                  assessments
+                  Hanya konselor yang membuat sesi ini yang dapat menambah
+                  asesmen
                 </p>
               </div>
             )}
@@ -1081,12 +1081,12 @@ export default function TherapyDetailPage() {
           {/* Session Info */}
           <div className="bg-white border border-grey-stroke rounded-xl p-4 sm:p-6">
             <Heading5 className="text-neutral-02 mb-4 text-base sm:text-lg">
-              Session Info
+              Info Sesi
             </Heading5>
             <div className="space-y-3">
               <div>
                 <BodySmallMedium className="text-grey mb-1 text-xs">
-                  Session ID
+                  ID Sesi
                 </BodySmallMedium>
                 <p className="text-xs text-neutral-02 font-mono truncate">
                   {therapy._id}
@@ -1094,7 +1094,7 @@ export default function TherapyDetailPage() {
               </div>
               <div>
                 <BodySmallMedium className="text-grey mb-1 text-xs">
-                  Created At
+                  Dibuat Pada
                 </BodySmallMedium>
                 <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                   {new Date(therapy.createdAt).toLocaleDateString("id-ID", {
@@ -1106,7 +1106,7 @@ export default function TherapyDetailPage() {
               </div>
               <div>
                 <BodySmallMedium className="text-grey mb-1 text-xs">
-                  Last Updated
+                  Terakhir Diperbarui
                 </BodySmallMedium>
                 <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
                   {new Date(therapy.updatedAt).toLocaleDateString("id-ID", {

@@ -23,10 +23,10 @@ export default function CounselorChildrenPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
         <div>
           <Heading3 className="text-neutral-02 text-xl sm:text-2xl lg:text-3xl">
-            Children Management
+            Manajemen Anak
           </Heading3>
           <p className="text-grey mt-1 sm:mt-2 text-sm sm:text-base">
-            View all children organized by their parents
+            Lihat semua anak berdasarkan orangtua mereka
           </p>
         </div>
       </div>
@@ -78,7 +78,7 @@ export default function CounselorChildrenPage() {
                           {parent.fullname}
                         </h4>
                         <span className="px-2 py-0.5 text-xs font-medium rounded bg-blue-100 text-blue-700">
-                          Parent
+                          Orangtua
                         </span>
                       </div>
                       <p className="text-xs sm:text-sm text-grey truncate">
@@ -95,7 +95,7 @@ export default function CounselorChildrenPage() {
                       onClick={(e) => e.stopPropagation()}
                       className="text-xs sm:text-sm text-moss-stone hover:text-moss-stone-dark font-medium"
                     >
-                      View Profile
+                      Lihat Profil
                     </Link>
                     <svg
                       className={`w-5 h-5 text-grey transition-transform ${
@@ -126,7 +126,9 @@ export default function CounselorChildrenPage() {
           ))
         ) : (
           <div className="bg-white border border-grey-stroke rounded-xl p-8 sm:p-12 text-center">
-            <p className="text-grey text-sm sm:text-base">No parents found</p>
+            <p className="text-grey text-sm sm:text-base">
+              Tidak ada orangtua ditemukan
+            </p>
           </div>
         )}
       </div>
@@ -153,7 +155,7 @@ function ChildrenList({ parentId }: { parentId: string }) {
   if (!children || children.length === 0) {
     return (
       <div className="p-4 sm:p-6 text-center">
-        <p className="text-sm text-grey">No children registered yet</p>
+        <p className="text-sm text-grey">Belum ada anak terdaftar</p>
       </div>
     );
   }
@@ -173,10 +175,10 @@ function ChildrenList({ parentId }: { parentId: string }) {
                   {child.fullname || `Child #${child.childOrder}`}
                 </h5>
                 <span className="px-2 py-0.5 text-xs font-medium rounded bg-green-100 text-green-700">
-                  Child
+                  Anak
                 </span>
                 <span className="px-2 py-0.5 sm:py-1 text-xs font-medium rounded bg-moss-stone/10 text-moss-stone">
-                  {child.age} years
+                  {child.age} tahun
                 </span>
               </div>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-grey">
@@ -192,7 +194,7 @@ function ChildrenList({ parentId }: { parentId: string }) {
               </div>
             </div>
             <span className="text-moss-stone font-medium text-xs sm:text-sm self-end sm:self-auto shrink-0">
-              View Details →
+              Lihat Detail →
             </span>
           </div>
         </Link>

@@ -69,7 +69,7 @@ function TherapyRow({ session }: { session: any }) {
       <td className="px-4 lg:px-6 py-4">
         <Link href={`/counselor/therapy/${session._id}`}>
           <button className="text-xs lg:text-sm text-moss-stone hover:text-moss-stone-dark font-medium">
-            View
+            Lihat
           </button>
         </Link>
       </td>
@@ -122,7 +122,7 @@ function TherapyCard({ session }: { session: any }) {
       </div>
       <div className="space-y-1.5 text-xs text-grey">
         <div className="flex justify-between">
-          <span>Parent:</span>
+          <span>Orangtua:</span>
           {parentLoading ? (
             <div className="h-3 bg-gray-200 rounded w-20 animate-pulse"></div>
           ) : (
@@ -130,7 +130,7 @@ function TherapyCard({ session }: { session: any }) {
           )}
         </div>
         <div className="flex justify-between">
-          <span>Counselor:</span>
+          <span>Konselor:</span>
           {counselorLoading ? (
             <div className="h-3 bg-gray-200 rounded w-20 animate-pulse"></div>
           ) : (
@@ -142,7 +142,7 @@ function TherapyCard({ session }: { session: any }) {
       </div>
       <div className="mt-3 pt-3 border-t border-grey-stroke flex justify-end">
         <span className="text-xs text-moss-stone font-medium">
-          View Details →
+          Lihat Detail →
         </span>
       </div>
     </Link>
@@ -177,17 +177,17 @@ export default function TherapySessionsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
         <div>
           <Heading3 className="text-neutral-02 text-xl sm:text-2xl lg:text-3xl">
-            Therapy Sessions
+            Sesi Terapi
           </Heading3>
           <p className="text-grey mt-1 sm:mt-2 text-sm sm:text-base">
-            Manage and track all therapy sessions
+            Kelola dan pantau semua sesi terapi
           </p>
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
           className="px-4 py-2.5 bg-moss-stone text-white rounded-lg hover:bg-moss-stone-dark transition-colors text-sm sm:text-base w-full sm:w-auto"
         >
-          + New Session
+          + Sesi Baru
         </button>
       </div>
 
@@ -227,12 +227,12 @@ export default function TherapySessionsPage() {
           ))
         ) : (
           <div className="bg-white border border-grey-stroke rounded-xl p-8 text-center">
-            <p className="text-grey text-sm">No therapy sessions found</p>
+            <p className="text-grey text-sm">Tidak ada sesi terapi ditemukan</p>
             <button
               onClick={() => setIsModalOpen(true)}
               className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-2 inline-block"
             >
-              Create your first session
+              Buat sesi pertama Anda
             </button>
           </div>
         )}
@@ -246,32 +246,32 @@ export default function TherapySessionsPage() {
               <tr>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 text-left">
                   <BodySmallMedium className="text-neutral-02 text-xs lg:text-sm">
-                    Date
+                    Tanggal
                   </BodySmallMedium>
                 </th>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 text-left">
                   <BodySmallMedium className="text-neutral-02 text-xs lg:text-sm">
-                    Parent
+                    Orangtua
                   </BodySmallMedium>
                 </th>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 text-left">
                   <BodySmallMedium className="text-neutral-02 text-xs lg:text-sm">
-                    Child
+                    Anak
                   </BodySmallMedium>
                 </th>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 text-left hidden xl:table-cell">
                   <BodySmallMedium className="text-neutral-02 text-xs lg:text-sm">
-                    Counselor
+                    Konselor
                   </BodySmallMedium>
                 </th>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 text-left hidden lg:table-cell">
                   <BodySmallMedium className="text-neutral-02 text-xs lg:text-sm">
-                    Created
+                    Dibuat
                   </BodySmallMedium>
                 </th>
                 <th className="px-4 lg:px-6 py-3 lg:py-4 text-left">
                   <BodySmallMedium className="text-neutral-02 text-xs lg:text-sm">
-                    Actions
+                    Aksi
                   </BodySmallMedium>
                 </th>
               </tr>
@@ -307,12 +307,12 @@ export default function TherapySessionsPage() {
               ) : (
                 <tr>
                   <td colSpan={6} className="px-6 py-12 text-center">
-                    <p className="text-grey">No therapy sessions found</p>
+                    <p className="text-grey">Tidak ada sesi terapi ditemukan</p>
                     <button
                       onClick={() => setIsModalOpen(true)}
                       className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-2 inline-block"
                     >
-                      Create your first session
+                      Buat sesi pertama Anda
                     </button>
                   </td>
                 </tr>

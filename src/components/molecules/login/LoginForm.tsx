@@ -42,7 +42,7 @@ const LoginForm: React.FC = () => {
       {/* Role Selection */}
       <div>
         <label className="block mb-2">
-          <BodySmallMedium>Login as</BodySmallMedium>
+          <BodySmallMedium>Masuk sebagai</BodySmallMedium>
         </label>
         <div className="grid grid-cols-2 gap-3">
           <button
@@ -54,7 +54,7 @@ const LoginForm: React.FC = () => {
                 : "bg-white/5 text-charcoal-green-dark border border-grey-stroke hover:bg-grey-light"
             }`}
           >
-            Counselor
+            Konselor
           </button>
           <button
             type="button"
@@ -65,7 +65,7 @@ const LoginForm: React.FC = () => {
                 : "bg-white/5 text-charcoal-green-dark border border-grey-stroke hover:bg-grey-light"
             }`}
           >
-            Parent
+            Orangtua
           </button>
         </div>
       </div>
@@ -73,7 +73,7 @@ const LoginForm: React.FC = () => {
       {/* Email */}
       <div>
         <label htmlFor="email" className="block">
-          <BodySmallMedium>Email address</BodySmallMedium>
+          <BodySmallMedium>Email</BodySmallMedium>
         </label>
         <div className="mt-2">
           <EmailInput
@@ -96,7 +96,7 @@ const LoginForm: React.FC = () => {
           <div className="text-sm">
             <Link href="/forgot-password">
               <BodySmallMedium className="text-moss-stone hover:text-charcoal-green transition-colors">
-                Forgot password?
+                Lupa password?
               </BodySmallMedium>
             </Link>
           </div>
@@ -124,7 +124,7 @@ const LoginForm: React.FC = () => {
       <div>
         <SubmitButton
           variant="primary"
-          text={isLoading ? "Signing in..." : "Sign in"}
+          text={isLoading ? "Sedang masuk..." : "Masuk"}
           className="w-full flex justify-center items-center"
           disabled={isLoading}
         />
@@ -133,12 +133,12 @@ const LoginForm: React.FC = () => {
       {/* Register Link */}
       <div className="text-center">
         <BodySmallMedium className="text-grey">
-          Don't have an account?{" "}
+          Belum punya akun?{" "}
           <Link
             href={`/register/${role}`}
             className="text-moss-stone hover:text-charcoal-green transition-colors font-medium"
           >
-            Sign up
+            Daftar
           </Link>
         </BodySmallMedium>
       </div>

@@ -37,7 +37,7 @@ export default function EditScreeningPage() {
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "You can only edit assessments for your own therapy sessions"
+        "Anda hanya dapat mengedit asesmen untuk sesi terapi Anda sendiri"
       );
       router.push(`/counselor/assessments/screening/${screeningId}`);
     }
@@ -114,13 +114,11 @@ export default function EditScreeningPage() {
       },
       {
         onSuccess: () => {
-          toast.success("Screening assessment updated successfully!");
+          toast.success("Asesmen screening berhasil diperbarui!");
           router.push(`/counselor/assessments/screening/${screeningId}`);
         },
         onError: (error: any) => {
-          toast.error(
-            error?.message || "Failed to update screening assessment"
-          );
+          toast.error(error?.message || "Gagal memperbarui asesmen screening");
         },
       }
     );
@@ -142,7 +140,7 @@ export default function EditScreeningPage() {
     return (
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Screening not found</p>
+          <p className="text-grey">Screening tidak ditemukan</p>
           <Link
             href="/counselor/assessments/screening"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
@@ -160,7 +158,7 @@ export default function EditScreeningPage() {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            Back
+            Kembali
           </Link>
         </div>
       </div>
@@ -188,16 +186,16 @@ export default function EditScreeningPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back
+          Kembali
         </button>
         <Heading3 className="text-neutral-02">
-          Edit Screening Assessment (DASS)
+          Edit Asesmen Screening (DASS)
         </Heading3>
         {child && (
           <p className="text-grey mt-2">
-            For child:{" "}
+            Untuk anak:{" "}
             <span className="font-medium text-neutral-02">
-              {child.fullname || `Child #${child.childOrder}`}
+              {child.fullname || `Anak #${child.childOrder}`}
             </span>
           </p>
         )}
@@ -209,13 +207,11 @@ export default function EditScreeningPage() {
       >
         {/* Depression Section */}
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">
-            Depression Assessment
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Asesmen Depresi</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Depression Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Depresi *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -225,12 +221,12 @@ export default function EditScreeningPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter depression score"
+                placeholder="Masukkan skor depresi"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Depression Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi Depresi *</BodySmallMedium>
               </label>
               <textarea
                 name="depressionInterpretation"
@@ -239,7 +235,7 @@ export default function EditScreeningPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -248,12 +244,12 @@ export default function EditScreeningPage() {
         {/* Anxiety Section */}
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Anxiety Assessment
+            Asesmen Kecemasan
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Anxiety Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Kecemasan *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -263,12 +259,12 @@ export default function EditScreeningPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter anxiety score"
+                placeholder="Masukkan skor kecemasan"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Anxiety Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi Kecemasan *</BodySmallMedium>
               </label>
               <textarea
                 name="anxietyInterpretation"
@@ -277,7 +273,7 @@ export default function EditScreeningPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -285,13 +281,11 @@ export default function EditScreeningPage() {
 
         {/* Stress Section */}
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">
-            Stress Assessment
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Asesmen Stres</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Stress Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Stres *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -301,12 +295,12 @@ export default function EditScreeningPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter stress score"
+                placeholder="Masukkan skor stres"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Stress Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi Stres *</BodySmallMedium>
               </label>
               <textarea
                 name="stressInterpretation"
@@ -315,7 +309,7 @@ export default function EditScreeningPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation"
+                placeholder="Masukkan interpretasi"
               />
             </div>
           </div>
@@ -323,11 +317,11 @@ export default function EditScreeningPage() {
 
         {/* Total Score Section */}
         <div>
-          <Heading5 className="text-neutral-02 mb-4">Total Assessment</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Total Asesmen</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Total Score</BodySmallMedium>
+                <BodySmallMedium>Total Skor</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -335,15 +329,15 @@ export default function EditScreeningPage() {
                 value={formData.totalScreeningScore}
                 readOnly
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg bg-grey-stroke/10 text-neutral-02 font-semibold"
-                placeholder="Auto calculated"
+                placeholder="Dihitung otomatis"
               />
               <p className="text-xs text-grey mt-1">
-                Auto-calculated from individual scores
+                Dihitung otomatis dari skor individu
               </p>
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Total Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi Total *</BodySmallMedium>
               </label>
               <textarea
                 name="totalScreeningInterpretation"
@@ -352,7 +346,7 @@ export default function EditScreeningPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter overall interpretation"
+                placeholder="Masukkan interpretasi keseluruhan"
               />
             </div>
           </div>
@@ -364,11 +358,11 @@ export default function EditScreeningPage() {
             href={`/counselor/assessments/screening/${screeningId}`}
             className="flex-1 px-4 py-2 border border-grey-stroke rounded-lg text-neutral-02 hover:bg-grey-stroke/10 transition-colors text-center"
           >
-            Cancel
+            Batal
           </Link>
           <SubmitButton
             variant="primary"
-            text={isPending ? "Updating..." : "Update Screening"}
+            text={isPending ? "Memperbarui..." : "Perbarui Screening"}
             className="flex-1 flex justify-center items-center"
             disabled={isPending}
           />

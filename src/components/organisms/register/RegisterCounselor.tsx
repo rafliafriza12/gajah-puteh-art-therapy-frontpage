@@ -21,10 +21,10 @@ const RegisterCounselor: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                   <h2 className="text-xl sm:text-2xl font-medium text-charcoal-green-dark mb-1">
-                    Create Your Account
+                    Buat Akun Mu
                   </h2>
                   <p className="text-xs sm:text-sm text-grey">
-                    Fill in your details to get started
+                    Isi detail Anda untuk memulai.
                   </p>
                 </div>
 
@@ -38,7 +38,7 @@ const RegisterCounselor: React.FC = () => {
                         : "text-grey hover:text-charcoal-green"
                     }`}
                   >
-                    Parent
+                    Orangtua
                   </button>
                   <button
                     onClick={() => setRegisterType("counselor")}
@@ -48,7 +48,7 @@ const RegisterCounselor: React.FC = () => {
                         : "text-grey hover:text-charcoal-green"
                     }`}
                   >
-                    Counselor
+                    Konselor
                   </button>
                 </div>
               </div>
@@ -65,12 +65,12 @@ const RegisterCounselor: React.FC = () => {
               {/* Login Link */}
               <div className="mt-4 pt-4 border-t border-grey-stroke text-center">
                 <p className="text-xs sm:text-sm text-grey">
-                  Already have an account?{" "}
+                  Sudah punya akun?{" "}
                   <Link
                     href="/login"
                     className="font-medium text-charcoal-green hover:text-moss-stone transition-colors"
                   >
-                    Login here
+                    Masuk
                   </Link>
                 </p>
               </div>

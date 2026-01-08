@@ -31,7 +31,7 @@ export default function CreateScreeningPage() {
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "You can only create assessments for your own therapy sessions"
+        "Anda hanya dapat membuat asesmen untuk sesi terapi Anda sendiri"
       );
       router.push("/counselor/assessments/screening");
     }
@@ -77,7 +77,7 @@ export default function CreateScreeningPage() {
     e.preventDefault();
 
     if (!selectedTherapyId) {
-      toast.error("Please select a therapy session");
+      toast.error("Silakan pilih sesi terapi");
       return;
     }
 
@@ -95,13 +95,11 @@ export default function CreateScreeningPage() {
       },
       {
         onSuccess: () => {
-          toast.success("Screening assessment created successfully!");
+          toast.success("Asesmen screening berhasil dibuat!");
           router.push(`/counselor/therapy/${selectedTherapyId}`);
         },
         onError: (error: any) => {
-          toast.error(
-            error?.message || "Failed to create screening assessment"
-          );
+          toast.error(error?.message || "Gagal membuat asesmen screening");
         },
       }
     );
@@ -128,13 +126,13 @@ export default function CreateScreeningPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back
+          Kembali
         </button>
         <Heading3 className="text-neutral-02">
-          Create Screening Assessment (DASS-21)
+          Buat Asesmen Screening (DASS-21)
         </Heading3>
         <p className="text-grey mt-2">
-          Depression, Anxiety, and Stress Scale - 21 items
+          Skala Depresi, Kecemasan, dan Stres - 21 item
         </p>
       </div>
 
@@ -144,13 +142,11 @@ export default function CreateScreeningPage() {
       >
         {/* Depression Section */}
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">
-            Depression Assessment
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Asesmen Depresi</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Depression Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Depresi *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -160,12 +156,12 @@ export default function CreateScreeningPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter depression score"
+                placeholder="Masukkan skor depresi"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Depression Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi Depresi *</BodySmallMedium>
               </label>
               <textarea
                 name="depressionInterpretation"
@@ -174,7 +170,7 @@ export default function CreateScreeningPage() {
                 required
                 rows={3}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation (e.g., Normal, Mild, Moderate, Severe, Extremely Severe)"
+                placeholder="Masukkan interpretasi (mis. Normal, Ringan, Sedang, Berat, Sangat Berat)"
               />
             </div>
           </div>
@@ -183,12 +179,12 @@ export default function CreateScreeningPage() {
         {/* Anxiety Section */}
         <div className="pb-6 border-b border-grey-stroke">
           <Heading5 className="text-neutral-02 mb-4">
-            Anxiety Assessment
+            Asesmen Kecemasan
           </Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Anxiety Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Kecemasan *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -198,12 +194,12 @@ export default function CreateScreeningPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter anxiety score"
+                placeholder="Masukkan skor kecemasan"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Anxiety Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi Kecemasan *</BodySmallMedium>
               </label>
               <textarea
                 name="anxietyInterpretation"
@@ -212,7 +208,7 @@ export default function CreateScreeningPage() {
                 required
                 rows={2}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation (e.g., Normal, Mild, Moderate, Severe, Extremely Severe)"
+                placeholder="Masukkan interpretasi (mis. Normal, Ringan, Sedang, Berat, Sangat Berat)"
               />
             </div>
           </div>
@@ -220,13 +216,11 @@ export default function CreateScreeningPage() {
 
         {/* Stress Section */}
         <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">
-            Stress Assessment
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Asesmen Stres</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Stress Score *</BodySmallMedium>
+                <BodySmallMedium>Skor Stres *</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -236,12 +230,12 @@ export default function CreateScreeningPage() {
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Enter stress score"
+                placeholder="Masukkan skor stres"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Stress Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi Stres *</BodySmallMedium>
               </label>
               <textarea
                 name="stressInterpretation"
@@ -250,7 +244,7 @@ export default function CreateScreeningPage() {
                 required
                 rows={2}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter interpretation (e.g., Normal, Mild, Moderate, Severe, Extremely Severe)"
+                placeholder="Masukkan interpretasi (mis. Normal, Ringan, Sedang, Berat, Sangat Berat)"
               />
             </div>
           </div>
@@ -258,11 +252,11 @@ export default function CreateScreeningPage() {
 
         {/* Total Score Section */}
         <div>
-          <Heading5 className="text-neutral-02 mb-4">Total Assessment</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Total Asesmen</Heading5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Total Score</BodySmallMedium>
+                <BodySmallMedium>Total Skor</BodySmallMedium>
               </label>
               <input
                 type="number"
@@ -270,15 +264,15 @@ export default function CreateScreeningPage() {
                 value={formData.totalScreeningScore}
                 readOnly
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg bg-grey-stroke/10 text-neutral-02 font-semibold"
-                placeholder="Auto calculated"
+                placeholder="Dihitung otomatis"
               />
               <p className="text-xs text-grey mt-1">
-                Auto-calculated from individual scores
+                Dihitung otomatis dari skor individu
               </p>
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Total Interpretation *</BodySmallMedium>
+                <BodySmallMedium>Total Interpretasi *</BodySmallMedium>
               </label>
               <textarea
                 name="totalScreeningInterpretation"
@@ -287,7 +281,7 @@ export default function CreateScreeningPage() {
                 required
                 rows={2}
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Enter overall interpretation"
+                placeholder="Masukkan interpretasi keseluruhan"
               />
             </div>
           </div>
@@ -301,11 +295,11 @@ export default function CreateScreeningPage() {
             disabled={isPending}
             className="flex-1 px-4 py-2 border border-grey-stroke rounded-lg text-neutral-02 hover:bg-grey-stroke/10 transition-colors text-center disabled:opacity-50"
           >
-            Cancel
+            Batal
           </button>
           <SubmitButton
             variant="primary"
-            text={isPending ? "Creating..." : "Create Screening"}
+            text={isPending ? "Membuat..." : "Buat Screening"}
             className="flex-1 flex justify-center items-center"
             disabled={isPending || !selectedTherapyId}
           />

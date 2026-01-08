@@ -72,12 +72,12 @@ export default function ParentTherapyDetailPage() {
     return (
       <div className="">
         <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Therapy session not found</p>
+          <p className="text-grey">Sesi terapi tidak ditemukan</p>
           <Link
             href="/parent/therapy"
             className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
           >
-            ← Back to Therapy Sessions
+            ← Kembali ke Sesi Terapi
           </Link>
         </div>
       </div>
@@ -104,26 +104,22 @@ export default function ParentTherapyDetailPage() {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back to Therapy Sessions
+        Kembali ke Sesi Terapi
       </Link>
 
       {/* Header */}
-      <Heading3 className="text-neutral-02 mb-6">
-        Therapy Session Details
-      </Heading3>
+      <Heading3 className="text-neutral-02 mb-6">Detail Sesi Terapi</Heading3>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Therapy Information */}
           <div className="bg-white border border-grey-stroke rounded-xl p-6">
-            <Heading5 className="text-neutral-02 mb-4">
-              Session Information
-            </Heading5>
+            <Heading5 className="text-neutral-02 mb-4">Informasi Sesi</Heading5>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <BodySmallMedium className="text-grey mb-1">
-                  Session ID
+                  ID Sesi
                 </BodySmallMedium>
                 <p className="text-sm text-neutral-02 font-mono">
                   {therapy._id}
@@ -131,7 +127,7 @@ export default function ParentTherapyDetailPage() {
               </div>
               <div>
                 <BodySmallMedium className="text-grey mb-1">
-                  Created Date
+                  Tanggal Dibuat
                 </BodySmallMedium>
                 <p className="text-sm text-neutral-02">
                   {new Date(therapy.createdAt).toLocaleDateString("id-ID", {
@@ -143,7 +139,7 @@ export default function ParentTherapyDetailPage() {
               </div>
               <div>
                 <BodySmallMedium className="text-grey mb-1">
-                  Counselor
+                  Konselor
                 </BodySmallMedium>
                 {counselorLoading ? (
                   <div className="h-4 bg-gray-200 rounded w-32 animate-pulse"></div>
@@ -158,7 +154,7 @@ export default function ParentTherapyDetailPage() {
               </div>
               <div>
                 <BodySmallMedium className="text-grey mb-1">
-                  Last Updated
+                  Terakhir Diperbarui
                 </BodySmallMedium>
                 <p className="text-sm text-neutral-02">
                   {new Date(therapy.updatedAt).toLocaleDateString("id-ID")}
@@ -171,20 +167,18 @@ export default function ParentTherapyDetailPage() {
           {child && (
             <div className="bg-white border border-grey-stroke rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <Heading5 className="text-neutral-02">
-                  Child Information
-                </Heading5>
+                <Heading5 className="text-neutral-02">Informasi Anak</Heading5>
                 <Link
                   href={`/parent/children/${child._id}`}
                   className="text-sm text-moss-stone hover:text-moss-stone-dark font-medium"
                 >
-                  View Profile →
+                  Lihat Profil →
                 </Link>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="md:col-span-2">
                   <BodySmallMedium className="text-grey mb-1">
-                    Full Name
+                    Nama Lengkap
                   </BodySmallMedium>
                   <p className="text-sm text-neutral-02">{child.fullname}</p>
                 </div>
@@ -196,13 +190,13 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Age
+                    Usia
                   </BodySmallMedium>
-                  <p className="text-sm text-neutral-02">{child.age} years</p>
+                  <p className="text-sm text-neutral-02">{child.age} tahun</p>
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Date of Birth
+                    Tanggal Lahir
                   </BodySmallMedium>
                   <p className="text-sm text-neutral-02">
                     {new Date(child.birth).toLocaleDateString("id-ID")}
@@ -210,10 +204,10 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Child Order
+                    Anak Ke-
                   </BodySmallMedium>
                   <p className="text-sm text-neutral-02">
-                    Child #{child.childOrder}
+                    Anak #{child.childOrder}
                   </p>
                 </div>
               </div>
@@ -222,7 +216,7 @@ export default function ParentTherapyDetailPage() {
 
           {/* Observations */}
           <div className="bg-white border border-grey-stroke rounded-xl p-6">
-            <Heading5 className="text-neutral-02 mb-4">Observations</Heading5>
+            <Heading5 className="text-neutral-02 mb-4">Observasi</Heading5>
             {observationLoading ? (
               <div className="animate-pulse space-y-3">
                 <div className="h-4 bg-gray-200 rounded w-full"></div>
@@ -233,16 +227,16 @@ export default function ParentTherapyDetailPage() {
               <div className="space-y-4">
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Summary
+                    Ringkasan
                   </BodySmallMedium>
                   <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
-                    {observation.summary || "No summary available"}
+                    {observation.summary || "Tidak ada ringkasan"}
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-grey-stroke">
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Session 1
+                      Sesi 1
                     </BodySmallMedium>
                     <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
                       {observation.sessionOne || "-"}
@@ -250,7 +244,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Session 2
+                      Sesi 2
                     </BodySmallMedium>
                     <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
                       {observation.sessionTwo || "-"}
@@ -258,7 +252,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Session 3
+                      Sesi 3
                     </BodySmallMedium>
                     <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
                       {observation.sessionThree || "-"}
@@ -266,7 +260,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Session 4
+                      Sesi 4
                     </BodySmallMedium>
                     <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
                       {observation.sessionFour || "-"}
@@ -274,7 +268,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Session 5
+                      Sesi 5
                     </BodySmallMedium>
                     <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
                       {observation.sessionFive || "-"}
@@ -282,7 +276,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Session 6
+                      Sesi 6
                     </BodySmallMedium>
                     <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
                       {observation.sessionSix || "-"}
@@ -291,7 +285,7 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div className="pt-4 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1">
-                    Created Date
+                    Tanggal Dibuat
                   </BodySmallMedium>
                   <p className="text-sm text-neutral-02">
                     {new Date(observation.createdAt).toLocaleDateString(
@@ -303,7 +297,7 @@ export default function ParentTherapyDetailPage() {
             ) : (
               <div className="text-center py-8">
                 <p className="text-grey text-sm">
-                  No observations recorded yet
+                  Belum ada observasi yang tercatat
                 </p>
               </div>
             )}
@@ -312,7 +306,7 @@ export default function ParentTherapyDetailPage() {
           {/* Pretest Results */}
           <div className="bg-white border border-grey-stroke rounded-xl p-6">
             <Heading5 className="text-neutral-02 mb-4">
-              Pretest Results (SDQ)
+              Hasil Pretest (SDQ)
             </Heading5>
             {pretestLoading ? (
               <div className="animate-pulse space-y-3">
@@ -324,7 +318,7 @@ export default function ParentTherapyDetailPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Emotional Symptoms
+                      Gejala Emosional
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {pretest.emotionalSymptomsScore}
@@ -335,7 +329,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Conduct Problems
+                      Masalah Perilaku
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {pretest.conductProblemScore}
@@ -346,7 +340,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Hyperactivity
+                      Hiperaktivitas
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {pretest.hyperactivityScore}
@@ -357,7 +351,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Peer Problems
+                      Masalah Teman Sebaya
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {pretest.peerProblemScore}
@@ -368,7 +362,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Prosocial Behaviour
+                      Perilaku Prososial
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {pretest.prosocialBehaviourScore}
@@ -379,7 +373,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Total Difficulties
+                      Total Kesulitan
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {pretest.totalDifficultiesScore}
@@ -391,7 +385,7 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div className="pt-4 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1">
-                    Total Pretest Score
+                    Total Skor Pretest
                   </BodySmallMedium>
                   <p className="text-xl font-bold text-neutral-02">
                     {pretest.totalPretestScore}
@@ -403,7 +397,9 @@ export default function ParentTherapyDetailPage() {
               </div>
             ) : (
               <div className="text-center py-8">
-                <p className="text-grey text-sm">No pretest recorded yet</p>
+                <p className="text-grey text-sm">
+                  Belum ada pretest yang tercatat
+                </p>
               </div>
             )}
           </div>
@@ -411,7 +407,7 @@ export default function ParentTherapyDetailPage() {
           {/* Posttest Results */}
           <div className="bg-white border border-grey-stroke rounded-xl p-6">
             <Heading5 className="text-neutral-02 mb-4">
-              Posttest Results (SDQ)
+              Hasil Posttest (SDQ)
             </Heading5>
             {posttestLoading ? (
               <div className="animate-pulse space-y-3">
@@ -423,7 +419,7 @@ export default function ParentTherapyDetailPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Emotional Symptoms
+                      Gejala Emosional
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {posttest.emotionalSymptomsScore}
@@ -434,7 +430,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Conduct Problems
+                      Masalah Perilaku
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {posttest.conductProblemScore}
@@ -445,7 +441,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Hyperactivity
+                      Hiperaktivitas
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {posttest.hyperactivityScore}
@@ -456,7 +452,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Peer Problems
+                      Masalah Teman Sebaya
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {posttest.peerProblemScore}
@@ -467,7 +463,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Prosocial Behaviour
+                      Perilaku Prososial
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {posttest.prosocialBehaviourScore}
@@ -478,7 +474,7 @@ export default function ParentTherapyDetailPage() {
                   </div>
                   <div>
                     <BodySmallMedium className="text-grey mb-1">
-                      Total Difficulties
+                      Total Kesulitan
                     </BodySmallMedium>
                     <p className="text-lg font-semibold text-neutral-02">
                       {posttest.totalDifficultiesScore}
@@ -490,7 +486,7 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div className="pt-4 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1">
-                    Total Posttest Score
+                    Total Skor Posttest
                   </BodySmallMedium>
                   <p className="text-xl font-bold text-neutral-02">
                     {posttest.totalPosttestScore}
@@ -502,7 +498,9 @@ export default function ParentTherapyDetailPage() {
               </div>
             ) : (
               <div className="text-center py-8">
-                <p className="text-grey text-sm">No posttest recorded yet</p>
+                <p className="text-grey text-sm">
+                  Belum ada posttest yang tercatat
+                </p>
               </div>
             )}
           </div>
@@ -512,7 +510,7 @@ export default function ParentTherapyDetailPage() {
         <div className="space-y-6">
           {/* Screening (DASS) Results */}
           <div className="bg-white border border-grey-stroke rounded-xl p-6 sticky top-6">
-            <Heading5 className="text-neutral-02 mb-4">DASS Screening</Heading5>
+            <Heading5 className="text-neutral-02 mb-4">Skrining DASS</Heading5>
             {screeningLoading ? (
               <div className="animate-pulse space-y-4">
                 {[1, 2, 3, 4].map((i) => (
@@ -526,7 +524,7 @@ export default function ParentTherapyDetailPage() {
               <div className="space-y-4">
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Depression
+                    Depresi
                   </BodySmallMedium>
                   <p className="text-lg font-semibold text-neutral-02">
                     {screening.depressionScore}
@@ -537,7 +535,7 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Anxiety
+                    Kecemasan
                   </BodySmallMedium>
                   <p className="text-lg font-semibold text-neutral-02">
                     {screening.anxietyScore}
@@ -548,7 +546,7 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Stress
+                    Stres
                   </BodySmallMedium>
                   <p className="text-lg font-semibold text-neutral-02">
                     {screening.stressScore}
@@ -559,7 +557,7 @@ export default function ParentTherapyDetailPage() {
                 </div>
                 <div className="pt-4 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1">
-                    Total Score
+                    Total Skor
                   </BodySmallMedium>
                   <p className="text-xl font-bold text-neutral-02">
                     {screening.totalScreeningScore}
@@ -571,7 +569,9 @@ export default function ParentTherapyDetailPage() {
               </div>
             ) : (
               <div className="text-center py-8">
-                <p className="text-grey text-sm">No screening recorded yet</p>
+                <p className="text-grey text-sm">
+                  Belum ada skrining yang tercatat
+                </p>
               </div>
             )}
           </div>

@@ -34,13 +34,11 @@ export default function PretestDetailPage() {
   const handleDelete = () => {
     deletePretest(pretestId, {
       onSuccess: () => {
-        toast.success("Pretest assessment deleted successfully");
+        toast.success("Asesmen pretest berhasil dihapus");
         router.push("/counselor/assessments/pretest");
       },
       onError: (error: any) => {
-        toast.error(
-          error.response?.data?.message || "Failed to delete pretest"
-        );
+        toast.error(error.response?.data?.message || "Gagal menghapus pretest");
       },
     });
   };
@@ -61,12 +59,12 @@ export default function PretestDetailPage() {
     return (
       <div className="">
         <div className="text-center py-12">
-          <p className="text-grey mb-4">Pretest assessment not found</p>
+          <p className="text-grey mb-4">Asesmen pretest tidak ditemukan</p>
           <Link
             href="/counselor/assessments/pretest"
             className="text-moss-stone hover:text-moss-stone-dark font-medium"
           >
-            ← Back to Pretests
+            ← Kembali ke Pretest
           </Link>
         </div>
       </div>
@@ -93,19 +91,19 @@ export default function PretestDetailPage() {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Back
+        Kembali
       </button>
 
       {/* Header */}
       <div className="flex items-center justify-between mb-6 flex-col gap-4 md:flex-row  w-full md:w-auto">
         <div>
           <Heading3 className="text-neutral-02">
-            Pretest Assessment Detail (SDQ)
+            Detail Asesmen Pretest (SDQ)
           </Heading3>
           <p className="text-grey mt-2">
             {canEdit
-              ? "View and manage pretest assessment"
-              : "View pretest assessment (Read-only)"}
+              ? "Lihat dan kelola asesmen pretest"
+              : "Lihat asesmen pretest (Hanya baca)"}
           </p>
         </div>
         {canEdit && (
@@ -120,7 +118,7 @@ export default function PretestDetailPage() {
               onClick={() => setIsDeleteModalOpen(true)}
               className="px-4 py-2 w-full md:w-auto text-center bg-error text-white rounded-lg hover:bg-error/90 transition-colors"
             >
-              Delete
+              Hapus
             </button>
           </div>
         )}
@@ -130,12 +128,12 @@ export default function PretestDetailPage() {
       <Modal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        title="Delete Pretest Assessment"
+        title="Hapus Asesmen Pretest"
       >
         <div className="space-y-4">
           <p className="text-grey">
-            Are you sure you want to delete this pretest assessment? This action
-            cannot be undone.
+            Apakah Anda yakin ingin menghapus asesmen pretest ini? Tindakan ini
+            tidak dapat dibatalkan.
           </p>
           <div className="flex justify-end gap-3 pt-4">
             <button
@@ -143,14 +141,14 @@ export default function PretestDetailPage() {
               className="px-4 py-2 text-grey hover:text-neutral-02 transition-colors"
               disabled={isDeleting}
             >
-              Cancel
+              Batal
             </button>
             <button
               onClick={handleDelete}
               disabled={isDeleting}
               className="px-6 py-2 bg-error text-white rounded-lg hover:bg-error/90 transition-colors disabled:bg-grey disabled:cursor-not-allowed"
             >
-              {isDeleting ? "Deleting..." : "Delete"}
+              {isDeleting ? "Menghapus..." : "Hapus"}
             </button>
           </div>
         </div>
@@ -160,7 +158,7 @@ export default function PretestDetailPage() {
       {child && (
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
           <p className="text-sm text-blue-900">
-            <strong>Child:</strong> {child.fullname}
+            <strong>Anak:</strong> {child.fullname}
           </p>
         </div>
       )}
@@ -169,13 +167,11 @@ export default function PretestDetailPage() {
       <div className="space-y-6">
         {/* Emotional Symptoms */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6 overflow-hidden">
-          <Heading5 className="text-neutral-02 mb-4">
-            Emotional Symptoms
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Gejala Emosional</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {pretest.emotionalSymptomsScore}
@@ -183,7 +179,7 @@ export default function PretestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {pretest.emotionalSymptomsInterpretation || "-"}
@@ -194,11 +190,11 @@ export default function PretestDetailPage() {
 
         {/* Conduct Problems */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6 overflow-hidden">
-          <Heading5 className="text-neutral-02 mb-4">Conduct Problems</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Masalah Perilaku</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {pretest.conductProblemScore}
@@ -206,7 +202,7 @@ export default function PretestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {pretest.conductProblemInterpretation || "-"}
@@ -218,12 +214,12 @@ export default function PretestDetailPage() {
         {/* Hyperactivity/Inattention */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6 overflow-hidden">
           <Heading5 className="text-neutral-02 mb-4">
-            Hyperactivity / Inattention
+            Hiperaktivitas / Kurang Perhatian
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {pretest.hyperactivityScore}
@@ -231,7 +227,7 @@ export default function PretestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {pretest.hyperactivityInterpretation || "-"}
@@ -243,12 +239,12 @@ export default function PretestDetailPage() {
         {/* Peer Relationship Problems */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6 overflow-hidden">
           <Heading5 className="text-neutral-02 mb-4">
-            Peer Relationship Problems
+            Masalah Hubungan Sebaya
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {pretest.peerProblemScore}
@@ -256,7 +252,7 @@ export default function PretestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {pretest.peerProblemInterpretation || "-"}
@@ -268,12 +264,12 @@ export default function PretestDetailPage() {
         {/* Prosocial Behaviour */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6 overflow-hidden">
           <Heading5 className="text-neutral-02 mb-4">
-            Prosocial Behaviour
+            Perilaku Prososial
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {pretest.prosocialBehaviourScore}
@@ -281,7 +277,7 @@ export default function PretestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {pretest.prosocialBehaviourInterpretation || "-"}
@@ -292,13 +288,11 @@ export default function PretestDetailPage() {
 
         {/* Total Difficulties */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6 overflow-hidden">
-          <Heading5 className="text-neutral-02 mb-4">
-            Total Difficulties
-          </Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Total Kesulitan</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Score
+                Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
                 {pretest.totalDifficultiesScore}
@@ -306,7 +300,7 @@ export default function PretestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Interpretation
+                Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {pretest.totalDifficultiesInterpretation || "-"}
@@ -318,12 +312,12 @@ export default function PretestDetailPage() {
         {/* Total Pretest Score */}
         <div className="bg-moss-stone/5 border border-moss-stone/20 rounded-xl p-6 overflow-hidden">
           <Heading5 className="text-neutral-02 mb-4">
-            Total Pretest Score
+            Total Skor Pretest
           </Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
-                Total Score
+                Total Skor
               </label>
               <p className="text-2xl font-bold text-moss-stone">
                 {pretest.totalPretestScore}
@@ -331,7 +325,7 @@ export default function PretestDetailPage() {
             </div>
             <div className="min-w-0">
               <label className="block text-sm font-medium text-grey mb-1">
-                Overall Interpretation
+                Interpretasi Keseluruhan
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word">
                 {pretest.totalPretestInterpretation || "-"}
@@ -344,13 +338,13 @@ export default function PretestDetailPage() {
         <div className="bg-grey-stroke/5 rounded-xl p-4">
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="text-grey">Created:</span>{" "}
+              <span className="text-grey">Dibuat:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(pretest.createdAt).toLocaleString("id-ID")}
               </span>
             </div>
             <div>
-              <span className="text-grey">Last Updated:</span>{" "}
+              <span className="text-grey">Terakhir Diperbarui:</span>{" "}
               <span className="text-neutral-02">
                 {new Date(pretest.updatedAt).toLocaleString("id-ID")}
               </span>

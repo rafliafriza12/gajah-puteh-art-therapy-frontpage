@@ -50,10 +50,11 @@ export default function ParentDashboardPage() {
       {/* Header */}
       <div>
         <Heading3 className="text-neutral-02 text-xl sm:text-2xl lg:text-3xl">
-          Welcome back, {user && isParent(user) ? user.fullname : "Parent"}! 👋
+          Selamat datang, {user && isParent(user) ? user.fullname : "Orang Tua"}
+          ! 👋
         </Heading3>
         <p className="text-grey mt-1 sm:mt-2 text-sm sm:text-base">
-          Here's an overview of your children's therapy progress.
+          Berikut ringkasan perkembangan terapi anak-anak Anda.
         </p>
       </div>
 
@@ -78,26 +79,26 @@ export default function ParentDashboardPage() {
         ) : (
           <>
             <StatsCard
-              title="My Children"
+              title="Anak Saya"
               value={stats.totalChildren.toString()}
-              subtitle="Registered children"
+              subtitle="Anak terdaftar"
               icon={<ThreeUserGroupIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
-              trend={
-                stats.totalChildren > 0
-                  ? { value: stats.totalChildren, isPositive: true }
-                  : undefined
-              }
+              // trend={
+              //   stats.totalChildren > 0
+              //     ? { value: stats.totalChildren, isPositive: true }
+              //     : undefined
+              // }
             />
             <StatsCard
-              title="Therapy Sessions"
+              title="Sesi Terapi"
               value={stats.totalTherapies.toString()}
-              subtitle="Total sessions"
+              subtitle="Total sesi"
               icon={<NotebookIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
             />
             <StatsCard
-              title="Active Therapies"
+              title="Terapi Aktif"
               value={stats.activeTherapies.toString()}
-              subtitle="Last 30 days"
+              subtitle="30 hari terakhir"
               icon={<DocumentIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
             />
           </>
@@ -107,7 +108,7 @@ export default function ParentDashboardPage() {
       {/* Quick Actions */}
       <div>
         <h4 className="text-base sm:text-lg font-medium text-neutral-02 mb-3 sm:mb-4">
-          Quick Actions
+          Aksi Cepat
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           <Link
@@ -120,11 +121,9 @@ export default function ParentDashboardPage() {
               </div>
               <div>
                 <h5 className="font-medium text-neutral-02 text-sm sm:text-base">
-                  My Children
+                  Anak Saya
                 </h5>
-                <p className="text-xs sm:text-sm text-grey">
-                  View all children
-                </p>
+                <p className="text-xs sm:text-sm text-grey">Lihat semua anak</p>
               </div>
             </div>
           </Link>
@@ -139,9 +138,11 @@ export default function ParentDashboardPage() {
               </div>
               <div>
                 <h5 className="font-medium text-neutral-02 text-sm sm:text-base">
-                  Therapy Progress
+                  Progres Terapi
                 </h5>
-                <p className="text-xs sm:text-sm text-grey">Track progress</p>
+                <p className="text-xs sm:text-sm text-grey">
+                  Pantau perkembangan
+                </p>
               </div>
             </div>
           </Link>
@@ -156,9 +157,9 @@ export default function ParentDashboardPage() {
               </div>
               <div>
                 <h5 className="font-medium text-neutral-02 text-sm sm:text-base">
-                  Reports
+                  Laporan
                 </h5>
-                <p className="text-xs sm:text-sm text-grey">View assessments</p>
+                <p className="text-xs sm:text-sm text-grey">Lihat asesmen</p>
               </div>
             </div>
           </Link>
@@ -377,7 +378,7 @@ export default function ParentDashboardPage() {
       {/* Recent Activity */}
       <div className="bg-white border border-grey-stroke rounded-xl p-4 sm:p-6">
         <h4 className="text-base sm:text-lg font-medium text-neutral-02 mb-3 sm:mb-4">
-          Recent Therapy Sessions
+          Sesi Terapi Terbaru
         </h4>
         {isLoading ? (
           <div className="space-y-3 sm:space-y-4 animate-pulse">
@@ -415,8 +416,8 @@ export default function ParentDashboardPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs sm:text-sm font-medium text-neutral-02 truncate">
-                        Therapy for{" "}
-                        {child?.fullname || `child (NIK: ${child?.nik})`}
+                        Terapi untuk{" "}
+                        {child?.fullname || `anak (NIK: ${child?.nik})`}
                       </p>
                       <p className="text-xs text-grey truncate">
                         ID: {therapy._id.slice(0, 8)}...
@@ -434,12 +435,12 @@ export default function ParentDashboardPage() {
           </div>
         ) : (
           <div className="text-center py-6 sm:py-8">
-            <p className="text-grey text-sm">No therapy sessions yet</p>
+            <p className="text-grey text-sm">Belum ada sesi terapi</p>
             <Link
               href="/parent/children"
               className="text-moss-stone hover:text-moss-stone-dark font-medium text-xs sm:text-sm mt-2 inline-block"
             >
-              View Your Children →
+              Lihat Anak Anda →
             </Link>
           </div>
         )}
