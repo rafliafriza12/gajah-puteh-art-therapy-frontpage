@@ -8,8 +8,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
-  title: "BUMI Resource CMS",
-  description: "BUMI Resource Content Management System",
+  title: "Gajah Puteh Art Therapy",
+  description: "Gajah Puteh Art Therapy Management System",
 };
 
 export default function RootLayout({
