@@ -51,7 +51,7 @@ export default function ParentDashboardPage() {
       <div>
         <Heading3 className="text-neutral-02 text-xl sm:text-2xl lg:text-3xl">
           Selamat datang, {user && isParent(user) ? user.fullname : "Orang Tua"}
-          ! 👋
+          !
         </Heading3>
         <p className="text-grey mt-1 sm:mt-2 text-sm sm:text-base">
           Berikut ringkasan perkembangan terapi anak-anak Anda.
@@ -206,7 +206,7 @@ export default function ParentDashboardPage() {
                   Lihat Data Anak
                 </h6>
                 <p className="text-grey text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
-                  Klik menu <strong>"My Children"</strong> di sidebar atau card
+                  Klik menu <strong>"Anak Saya"</strong> di sidebar atau card
                   Quick Actions untuk melihat daftar anak Anda yang terdaftar
                   dalam terapi seni.
                 </p>
@@ -244,8 +244,8 @@ export default function ParentDashboardPage() {
                   Monitor Progres Terapi
                 </h6>
                 <p className="text-grey text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
-                  Klik menu <strong>"Therapy Progress"</strong> untuk melihat
-                  semua sesi terapi yang telah dilakukan oleh anak-anak Anda.
+                  Klik menu <strong>"Terapi"</strong> untuk melihat semua sesi
+                  terapi yang telah dilakukan oleh anak-anak Anda.
                 </p>
                 <Link
                   href="/parent/therapy"
@@ -297,17 +297,17 @@ export default function ParentDashboardPage() {
               </div>
               <div className="flex-1">
                 <h6 className="font-semibold text-neutral-02 mb-1 sm:mb-2 text-xs sm:text-sm">
-                  Akses Reports
+                  Akses Laporan
                 </h6>
                 <p className="text-grey text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
-                  Klik menu <strong>"Reports"</strong> untuk melihat ringkasan
+                  Klik menu <strong>"Laporan"</strong> untuk melihat ringkasan
                   semua assessment.
                 </p>
                 <Link
                   href="/parent/reports"
                   className="inline-flex items-center text-moss-stone hover:text-moss-stone-dark font-medium text-xs sm:text-sm"
                 >
-                  Lihat Reports
+                  Lihat Laporan
                   <svg
                     className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1"
                     fill="none"
@@ -338,8 +338,8 @@ export default function ParentDashboardPage() {
                 </h6>
                 <p className="text-grey text-xs sm:text-sm leading-relaxed">
                   Di dashboard ini, Anda dapat langsung mengklik daftar{" "}
-                  <strong>"Recent Therapy Sessions"</strong> di bawah untuk
-                  langsung melihat detail terapi terbaru.
+                  <strong>"Sesi Terapi Terbaru"</strong> di bawah untuk langsung
+                  melihat detail terapi terbaru.
                 </p>
               </div>
             </div>
