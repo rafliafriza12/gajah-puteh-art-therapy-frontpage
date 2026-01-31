@@ -35,7 +35,7 @@ export default function TherapyAssessmentsPage() {
 
   const { data: therapy, isLoading: therapyLoading } = useTherapy(therapyId);
   const { data: child, isLoading: childLoading } = useChild(
-    therapy?.childId || ""
+    therapy?.childId || "",
   );
   const { data: currentUser } = useCurrentUser();
   const { data: observation, isLoading: observationLoading } =
@@ -74,36 +74,12 @@ export default function TherapyAssessmentsPage() {
       preview: screening
         ? [
             {
-              label: "Skor Depresi",
-              value: `${screening.depressionScore}`,
+              label: "Skor Screening",
+              value: `${screening.screeningScore}`,
             },
             {
-              label: "Interpretasi Depresi",
-              value: screening.depressionInterpretation,
-            },
-            {
-              label: "Skor Kecemasan",
-              value: `${screening.anxietyScore}`,
-            },
-            {
-              label: "Interpretasi Kecemasan",
-              value: screening.anxietyInterpretation,
-            },
-            {
-              label: "Skor Stres",
-              value: `${screening.stressScore}`,
-            },
-            {
-              label: "Interpretasi Stres",
-              value: screening.stressInterpretation,
-            },
-            {
-              label: "Total Skor Screening",
-              value: `${screening.totalScreeningScore}`,
-            },
-            {
-              label: "Interpretasi Total Screening",
-              value: screening.totalScreeningInterpretation,
+              label: "Interpretasi Screening",
+              value: screening.counselorInterpretation,
             },
           ]
         : undefined,
@@ -313,7 +289,7 @@ export default function TherapyAssessmentsPage() {
   ];
 
   const completedAssessments = assessments.filter(
-    (a) => a.status === "completed"
+    (a) => a.status === "completed",
   ).length;
   const totalAssessments = assessments.length;
 

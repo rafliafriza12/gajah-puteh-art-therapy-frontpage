@@ -23,10 +23,10 @@ export default function ParentTherapyDetailPage() {
 
   const { data: therapy, isLoading: therapyLoading } = useTherapy(therapyId);
   const { data: child, isLoading: childLoading } = useChild(
-    therapy?.childId || ""
+    therapy?.childId || "",
   );
   const { data: counselor, isLoading: counselorLoading } = useCounselor(
-    therapy?.counselorId || ""
+    therapy?.counselorId || "",
   );
   const { data: observation, isLoading: observationLoading } =
     useObservationByTherapy(therapyId);
@@ -289,7 +289,7 @@ export default function ParentTherapyDetailPage() {
                   </BodySmallMedium>
                   <p className="text-sm text-neutral-02">
                     {new Date(observation.createdAt).toLocaleDateString(
-                      "id-ID"
+                      "id-ID",
                     )}
                   </p>
                 </div>
@@ -524,46 +524,18 @@ export default function ParentTherapyDetailPage() {
               <div className="space-y-4">
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Depresi
+                    Skor
                   </BodySmallMedium>
                   <p className="text-lg font-semibold text-neutral-02">
-                    {screening.depressionScore}
-                  </p>
-                  <p className="text-sm text-grey whitespace-pre-wrap wrap-break-word">
-                    {screening.depressionInterpretation}
+                    {screening.screeningScore}
                   </p>
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1">
-                    Kecemasan
+                    Interpretasi
                   </BodySmallMedium>
-                  <p className="text-lg font-semibold text-neutral-02">
-                    {screening.anxietyScore}
-                  </p>
                   <p className="text-sm text-grey whitespace-pre-wrap wrap-break-word">
-                    {screening.anxietyInterpretation}
-                  </p>
-                </div>
-                <div>
-                  <BodySmallMedium className="text-grey mb-1">
-                    Stres
-                  </BodySmallMedium>
-                  <p className="text-lg font-semibold text-neutral-02">
-                    {screening.stressScore}
-                  </p>
-                  <p className="text-sm text-grey whitespace-pre-wrap wrap-break-word">
-                    {screening.stressInterpretation}
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-grey-stroke">
-                  <BodySmallMedium className="text-grey mb-1">
-                    Total Skor
-                  </BodySmallMedium>
-                  <p className="text-xl font-bold text-neutral-02">
-                    {screening.totalScreeningScore}
-                  </p>
-                  <p className="text-sm text-grey whitespace-pre-wrap wrap-break-word">
-                    {screening.totalScreeningInterpretation}
+                    {screening.parentInterpretation}
                   </p>
                 </div>
               </div>

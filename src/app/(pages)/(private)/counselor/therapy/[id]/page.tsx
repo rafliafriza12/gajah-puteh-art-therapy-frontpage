@@ -25,10 +25,10 @@ export default function TherapyDetailPage() {
 
   const { data: therapy, isLoading: therapyLoading } = useTherapy(therapyId);
   const { data: child, isLoading: childLoading } = useChild(
-    therapy?.childId || ""
+    therapy?.childId || "",
   );
   const { data: counselor, isLoading: counselorLoading } = useCounselor(
-    therapy?.counselorId || ""
+    therapy?.counselorId || "",
   );
   const { data: currentUser } = useCurrentUser();
   const { data: observation, isLoading: observationLoading } =
@@ -522,7 +522,7 @@ export default function TherapyDetailPage() {
                     </BodySmallMedium>
                     <p className="text-xs sm:text-sm text-neutral-02">
                       {new Date(observation.createdAt).toLocaleDateString(
-                        "id-ID"
+                        "id-ID",
                       )}
                     </p>
                   </div>
@@ -778,9 +778,9 @@ export default function TherapyDetailPage() {
                           pretest.totalDifficultiesScore
                             ? "text-green-600"
                             : posttest.totalDifficultiesScore >
-                              pretest.totalDifficultiesScore
-                            ? "text-red-600"
-                            : "text-grey"
+                                pretest.totalDifficultiesScore
+                              ? "text-red-600"
+                              : "text-grey"
                         }`}
                       >
                         {pretest.totalDifficultiesScore} →{" "}
@@ -854,38 +854,21 @@ export default function TherapyDetailPage() {
               <div className="space-y-3">
                 <div>
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Depresi
+                    Skor
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
-                    {screening.depressionScore} -{" "}
-                    {screening.depressionInterpretation}
+                    {screening.screeningScore}
                   </p>
                 </div>
                 <div>
                   <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Kecemasan
+                    Interpretasi
                   </BodySmallMedium>
                   <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
-                    {screening.anxietyScore} - {screening.anxietyInterpretation}
+                    {screening.counselorInterpretation}
                   </p>
                 </div>
-                <div>
-                  <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Stres
-                  </BodySmallMedium>
-                  <p className="text-xs sm:text-sm text-neutral-02 wrap-break-word overflow-wrap-anywhere">
-                    {screening.stressScore} - {screening.stressInterpretation}
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-grey-stroke">
-                  <BodySmallMedium className="text-grey mb-1 text-xs">
-                    Skor Total
-                  </BodySmallMedium>
-                  <p className="text-xs sm:text-sm font-semibold text-neutral-02 wrap-break-word overflow-wrap-anywhere min-w-0">
-                    {screening.totalScreeningScore} -{" "}
-                    {screening.totalScreeningInterpretation}
-                  </p>
-                </div>
+
                 <Link
                   href={`/counselor/assessments/screening/${screening._id}`}
                   className="inline-block mt-2 text-xs text-moss-stone hover:text-moss-stone-dark font-medium"

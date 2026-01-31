@@ -45,7 +45,7 @@ export default function ScreeningDetailPage() {
       },
       onError: (error: any) => {
         toast.error(
-          error.response?.data?.message || "Gagal menghapus screening"
+          error.response?.data?.message || "Gagal menghapus screening",
         );
       },
     });
@@ -188,14 +188,14 @@ export default function ScreeningDetailPage() {
       <div className="space-y-6">
         {/* Depression */}
         <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">Depresi</Heading5>
+          <Heading5 className="text-neutral-02 mb-4">Screening</Heading5>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-grey mb-1">
                 Skor
               </label>
               <p className="text-lg font-semibold text-neutral-02">
-                {screening.depressionScore}
+                {screening.screeningScore}
               </p>
             </div>
             <div>
@@ -203,78 +203,7 @@ export default function ScreeningDetailPage() {
                 Interpretasi
               </label>
               <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
-                {screening.depressionInterpretation || "-"}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Anxiety */}
-        <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">Kecemasan</Heading5>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-grey mb-1">
-                Skor
-              </label>
-              <p className="text-lg font-semibold text-neutral-02">
-                {screening.anxietyScore}
-              </p>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-grey mb-1">
-                Interpretasi
-              </label>
-              <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
-                {screening.anxietyInterpretation || "-"}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Stress */}
-        <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">Stres</Heading5>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-grey mb-1">
-                Skor
-              </label>
-              <p className="text-lg font-semibold text-neutral-02">
-                {screening.stressScore}
-              </p>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-grey mb-1">
-                Interpretasi
-              </label>
-              <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
-                {screening.stressInterpretation || "-"}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Total Score */}
-        <div className="bg-moss-stone/5 border border-moss-stone/20 rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-4">
-            Total Skor Screening
-          </Heading5>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-grey mb-1">
-                Total Skor
-              </label>
-              <p className="text-2xl font-bold text-moss-stone">
-                {screening.totalScreeningScore}
-              </p>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-grey mb-1">
-                Interpretasi Keseluruhan
-              </label>
-              <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
-                {screening.totalScreeningInterpretation || "-"}
+                {screening.counselorInterpretation || "-"}
               </p>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import {
   Heading3,
@@ -30,69 +30,57 @@ export default function EditScreeningPage() {
   const { data: currentUser } = useCurrentUser();
   const { mutate: updateScreening, isPending } = useUpdateScreening();
 
+  const [formData, setFormData] = useState({
+    screeningScore: "",
+  });
+  const [interpretation, setInterpretation] = useState("");
+
+  // Fungsi logika interpretasi (Disamakan dengan Create)
+  const generateInterpretation = useCallback((score: number) => {
+    if (score <= 4) {
+      setInterpretation(
+        "Tidak terindikasi risiko PTSD berdasarkan hasil skrining awal. Anak berada dalam rentang respons stres yang masih adaptif pasca kejadian traumatis.",
+      );
+    } else {
+      setInterpretation(
+        "Hasil skrining menunjukkan bahwa anak menunjukkan tanda-tanda risiko reaksi stres pasca kejadian traumatis. Hasil ini bukan diagnosis, namun menjadi gambaran bahwa anak membutuhkan perhatian dan pendampingan emosional lebih lanjut. Melalui terapi, anak akan mengikuti pendampingan psikososial sebagai bagian dari proses pemulihan. Jika selama pendampingan terdapat kebutuhan tambahan, anak dapat dirujuk untuk mendapatkan asesmen lanjutan dari psikolog atau psikiater anak.Anak teridentifikasi berisiko mengalami gejala PTSD.",
+      );
+    }
+  }, []);
+
+  // Load existing data
+  useEffect(() => {
+    if (screening) {
+      const score = screening.screeningScore;
+      setFormData({
+        screeningScore: score.toString(),
+      });
+      generateInterpretation(score);
+    }
+  }, [screening, generateInterpretation]);
+
   // Check authorization
   const canEdit = canEditTherapyAssessment(therapy, currentUser);
 
-  // Redirect if user cannot edit
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "Anda hanya dapat mengedit asesmen untuk sesi terapi Anda sendiri"
+        "Anda hanya dapat mengedit asesmen untuk sesi terapi Anda sendiri",
       );
       router.push(`/counselor/assessments/screening/${screeningId}`);
     }
   }, [therapy, currentUser, canEdit, router, screeningId]);
 
-  const [formData, setFormData] = useState({
-    depressionScore: "",
-    depressionInterpretation: "",
-    anxietyScore: "",
-    anxietyInterpretation: "",
-    stressScore: "",
-    stressInterpretation: "",
-    totalScreeningScore: "",
-    totalScreeningInterpretation: "",
-  });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFormData({ screeningScore: value });
 
-  // Load existing data
-  useEffect(() => {
-    if (screening) {
-      setFormData({
-        depressionScore: screening.depressionScore.toString(),
-        depressionInterpretation: screening.depressionInterpretation,
-        anxietyScore: screening.anxietyScore.toString(),
-        anxietyInterpretation: screening.anxietyInterpretation,
-        stressScore: screening.stressScore.toString(),
-        stressInterpretation: screening.stressInterpretation,
-        totalScreeningScore: screening.totalScreeningScore.toString(),
-        totalScreeningInterpretation: screening.totalScreeningInterpretation,
-      });
+    // Auto generate saat input berubah
+    if (value !== "") {
+      generateInterpretation(parseInt(value));
+    } else {
+      setInterpretation("");
     }
-  }, [screening]);
-
-  // Calculate total score when individual scores change
-  useEffect(() => {
-    const depression = parseInt(formData.depressionScore) || 0;
-    const anxiety = parseInt(formData.anxietyScore) || 0;
-    const stress = parseInt(formData.stressScore) || 0;
-    const total = depression + anxiety + stress;
-
-    setFormData((prev) => ({
-      ...prev,
-      totalScreeningScore: total.toString(),
-    }));
-  }, [formData.depressionScore, formData.anxietyScore, formData.stressScore]);
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -102,14 +90,9 @@ export default function EditScreeningPage() {
       {
         id: screeningId,
         data: {
-          depressionScore: parseInt(formData.depressionScore),
-          depressionInterpretation: formData.depressionInterpretation,
-          anxietyScore: parseInt(formData.anxietyScore),
-          anxietyInterpretation: formData.anxietyInterpretation,
-          stressScore: parseInt(formData.stressScore),
-          stressInterpretation: formData.stressInterpretation,
-          totalScreeningScore: parseInt(formData.totalScreeningScore),
-          totalScreeningInterpretation: formData.totalScreeningInterpretation,
+          screeningScore: parseInt(formData.screeningScore),
+          // Backend akan mengurus counselorInterpretation & parentInterpretation
+          // berdasarkan screeningScore di service layer yang sudah kita buat sebelumnya.
         },
       },
       {
@@ -120,46 +103,16 @@ export default function EditScreeningPage() {
         onError: (error: any) => {
           toast.error(error?.message || "Gagal memperbarui asesmen screening");
         },
-      }
+      },
     );
   };
 
   if (isLoading) {
     return (
-      <div className="">
-        <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded w-32 mb-4"></div>
-          <div className="h-8 bg-gray-200 rounded w-64 mb-6"></div>
-          <div className="h-96 bg-gray-200 rounded-xl"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!screening) {
-    return (
-      <div className="">
-        <div className="bg-white border border-grey-stroke rounded-xl p-12 text-center">
-          <p className="text-grey">Screening tidak ditemukan</p>
-          <Link
-            href="/counselor/assessments/screening"
-            className="text-moss-stone hover:text-moss-stone-dark font-medium text-sm mt-4 inline-block"
-          >
-            <svg
-              className="w-4 h-4 mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Kembali
-          </Link>
+      <div className="p-8">
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 bg-gray-200 rounded w-1/4"></div>
+          <div className="h-64 bg-gray-200 rounded-xl"></div>
         </div>
       </div>
     );
@@ -188,14 +141,12 @@ export default function EditScreeningPage() {
           </svg>
           Kembali
         </button>
-        <Heading3 className="text-neutral-02">
-          Edit Asesmen Screening (DASS)
-        </Heading3>
+        <Heading3 className="text-neutral-02">Edit Asesmen Screening</Heading3>
         {child && (
           <p className="text-grey mt-2">
             Untuk anak:{" "}
             <span className="font-medium text-neutral-02">
-              {child.fullname || `Anak #${child.childOrder}`}
+              {child.fullname}
             </span>
           </p>
         )}
@@ -203,157 +154,44 @@ export default function EditScreeningPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="bg-white border border-grey-stroke rounded-xl p-6 lg:p-8 space-y-6 overflow-x-hidden"
+        className="bg-white border border-grey-stroke rounded-xl p-6 lg:p-8 space-y-6"
       >
-        {/* Depression Section */}
-        <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">Asesmen Depresi</Heading5>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Skor Depresi *</BodySmallMedium>
-              </label>
-              <input
-                type="number"
-                name="depressionScore"
-                value={formData.depressionScore}
-                onChange={handleChange}
-                required
-                min="0"
-                className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Masukkan skor depresi"
-              />
-            </div>
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Interpretasi Depresi *</BodySmallMedium>
-              </label>
-              <textarea
-                name="depressionInterpretation"
-                value={formData.depressionInterpretation}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan interpretasi"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Anxiety Section */}
-        <div className="pb-6 border-b border-grey-stroke">
+        <div className="pb-6">
           <Heading5 className="text-neutral-02 mb-4">
-            Asesmen Kecemasan
+            Input Skor Terbaru
           </Heading5>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Skor Kecemasan *</BodySmallMedium>
+                <BodySmallMedium>Skor Screening *</BodySmallMedium>
               </label>
               <input
                 type="number"
-                name="anxietyScore"
-                value={formData.anxietyScore}
+                name="screeningScore"
+                value={formData.screeningScore}
                 onChange={handleChange}
                 required
                 min="0"
                 className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Masukkan skor kecemasan"
+                placeholder="Masukkan skor"
               />
             </div>
             <div>
               <label className="block mb-2">
-                <BodySmallMedium>Interpretasi Kecemasan *</BodySmallMedium>
+                <BodySmallMedium>Interpretasi (Auto-generated)</BodySmallMedium>
               </label>
               <textarea
-                name="anxietyInterpretation"
-                value={formData.anxietyInterpretation}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan interpretasi"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Stress Section */}
-        <div className="pb-6 border-b border-grey-stroke">
-          <Heading5 className="text-neutral-02 mb-4">Asesmen Stres</Heading5>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Skor Stres *</BodySmallMedium>
-              </label>
-              <input
-                type="number"
-                name="stressScore"
-                value={formData.stressScore}
-                onChange={handleChange}
-                required
-                min="0"
-                className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent"
-                placeholder="Masukkan skor stres"
-              />
-            </div>
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Interpretasi Stres *</BodySmallMedium>
-              </label>
-              <textarea
-                name="stressInterpretation"
-                value={formData.stressInterpretation}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan interpretasi"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Total Score Section */}
-        <div>
-          <Heading5 className="text-neutral-02 mb-4">Total Asesmen</Heading5>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Total Skor</BodySmallMedium>
-              </label>
-              <input
-                type="number"
-                name="totalScreeningScore"
-                value={formData.totalScreeningScore}
-                readOnly
-                className="w-full px-4 py-2 border border-grey-stroke rounded-lg bg-grey-stroke/10 text-neutral-02 font-semibold"
-                placeholder="Dihitung otomatis"
-              />
-              <p className="text-xs text-grey mt-1">
-                Dihitung otomatis dari skor individu
-              </p>
-            </div>
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Interpretasi Total *</BodySmallMedium>
-              </label>
-              <textarea
-                name="totalScreeningInterpretation"
-                value={formData.totalScreeningInterpretation}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-2 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan interpretasi keseluruhan"
+                value={interpretation}
+                disabled
+                rows={6}
+                className="w-full px-4 py-2 border border-grey-stroke rounded-lg bg-gray-50 text-gray-600 resize-none italic"
               />
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3 pt-4">
+        <div className="flex gap-3 pt-4 border-t border-grey-stroke">
           <Link
             href={`/counselor/assessments/screening/${screeningId}`}
             className="flex-1 px-4 py-2 border border-grey-stroke rounded-lg text-neutral-02 hover:bg-grey-stroke/10 transition-colors text-center"
@@ -362,7 +200,7 @@ export default function EditScreeningPage() {
           </Link>
           <SubmitButton
             variant="primary"
-            text={isPending ? "Memperbarui..." : "Perbarui Screening"}
+            text={isPending ? "Memperbarui..." : "Simpan Perubahan"}
             className="flex-1 flex justify-center items-center"
             disabled={isPending}
           />
