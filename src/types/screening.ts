@@ -1,5 +1,5 @@
 /**
- * Screening Types (DASS - Depression, Anxiety, Stress Scale)
+ * Screening Types (CSTQ - Child Screening Trauma Questionnaire)
  * Sesuai dengan backend screening model
  */
 

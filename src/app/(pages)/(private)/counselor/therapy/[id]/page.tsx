@@ -837,11 +837,11 @@ export default function TherapyDetailPage() {
 
         {/* Sidebar */}
         <div className="space-y-4 sm:space-y-6">
-          {/* Screening (DASS) */}
+          {/* Screening (CSTQ) */}
           <div className="bg-white border border-grey-stroke rounded-xl p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
               <Heading5 className="text-neutral-02 text-base sm:text-lg">
-                Screening (DASS)
+                Screening (CSTQ)
               </Heading5>
             </div>
             {screeningLoading ? (
@@ -930,7 +930,7 @@ export default function TherapyDetailPage() {
                         d="M12 4v16m8-8H4"
                       />
                     </svg>
-                    <span>Tambah Screening (DASS)</span>
+                    <span>Tambah Screening (CSTQ)</span>
                   </Link>
                 )}
 

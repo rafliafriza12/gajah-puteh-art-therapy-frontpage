@@ -14,10 +14,10 @@ import {
 function ScreeningRow({ therapy }: { therapy: any }) {
   const { data: child, isLoading: childLoading } = useChild(therapy.childId);
   const { data: counselor, isLoading: counselorLoading } = useCounselor(
-    therapy.counselorId
+    therapy.counselorId,
   );
   const { data: parent, isLoading: parentLoading } = useParent(
-    child?.parentId || ""
+    child?.parentId || "",
   );
   const { data: screening, isLoading: screeningLoading } =
     useScreeningByTherapy(therapy._id);
@@ -89,10 +89,11 @@ export default function ScreeningAssessmentsPage() {
       {/* Header */}
       <div className="mb-6">
         <Heading3 className="text-neutral-02">
-          Asesmen Screening (DASS)
+          Asesmen Screening (CSTQ)
         </Heading3>
         <p className="text-grey mt-2">
-          Lihat asesmen screening DASS berdasarkan sesi terapi
+          Lihat asesmen Child Screening Trauma Questionnaire (CSTQ) berdasarkan
+          sesi terapi
         </p>
       </div>
 

@@ -76,7 +76,7 @@ async function fetchActivities(therapies: any[]): Promise<ActivitiesData> {
           therapyId: therapy._id,
           childId: therapy.childId,
           childName,
-          description: "Screening (DASS-21) completed",
+          description: "Screening (CSTQ) selesai",
           createdAt: screening.createdAt,
           link: `/counselor/assessments/screening/${screening._id}`,
         });
@@ -131,7 +131,7 @@ async function fetchActivities(therapies: any[]): Promise<ActivitiesData> {
 
   // Sort by date (most recent first)
   activities.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
   );
 
   return {

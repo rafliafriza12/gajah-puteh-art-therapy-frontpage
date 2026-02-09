@@ -117,11 +117,9 @@ export default function CreateScreeningPage() {
           Kembali
         </button>
         <Heading3 className="text-neutral-02">
-          Buat Asesmen Screening (DASS-21)
+          Buat Asesmen Screening (CSTQ)
         </Heading3>
-        <p className="text-grey mt-2">
-          Skala Depresi, Kecemasan, dan Stres - 21 item
-        </p>
+        <p className="text-grey mt-2">Child Screening Trauma Questionnaire</p>
       </div>
 
       <form

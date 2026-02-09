@@ -119,7 +119,7 @@ export default function ScreeningDetailPage() {
       <div className="flex items-center justify-between mb-6 flex-col gap-4 md:flex-row  w-full md:w-auto">
         <div>
           <Heading3 className="text-neutral-02">
-            Detail Asesmen Screening (DASS)
+            Detail Asesmen Screening (CSTQ)
           </Heading3>
           <p className="text-grey mt-2">
             {canEdit

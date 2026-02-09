@@ -63,8 +63,8 @@ export default function TherapyAssessmentsPage() {
     {
       id: screening?._id || "screening",
       type: "screening",
-      title: "Screening (DASS-21)",
-      description: "Skala Depresi, Kecemasan, dan Stres",
+      title: "Screening (CSTQ)",
+      description: "Child Screening Trauma Questionnaire",
       status: screening ? "completed" : "pending",
       createdAt: screening?.createdAt,
       link: screening

@@ -508,9 +508,11 @@ export default function ParentTherapyDetailPage() {
 
         {/* Sidebar */}
         <div className="space-y-6">
-          {/* Screening (DASS) Results */}
+          {/* Screening (CSTQ) Results */}
           <div className="bg-white border border-grey-stroke rounded-xl p-6 sticky top-6">
-            <Heading5 className="text-neutral-02 mb-4">Skrining DASS</Heading5>
+            <Heading5 className="text-neutral-02 mb-4">
+              Screening (CSTQ)
+            </Heading5>
             {screeningLoading ? (
               <div className="animate-pulse space-y-4">
                 {[1, 2, 3, 4].map((i) => (

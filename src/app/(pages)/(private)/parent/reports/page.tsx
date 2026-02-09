@@ -70,9 +70,9 @@ export default function ParentReportsPage() {
       {/* Info Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-          <h4 className="font-semibold text-blue-900 mb-1">Skrining DASS</h4>
+          <h4 className="font-semibold text-blue-900 mb-1">Screening (CSTQ)</h4>
           <p className="text-sm text-blue-800">
-            Asesmen Skala Depresi, Kecemasan, dan Stres
+            Child Screening Trauma Questionnaire
           </p>
         </div>
         <div className="bg-green-50 border border-green-200 rounded-xl p-4">

@@ -238,11 +238,11 @@ export default function CounselorDashboardPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <h6 className="font-semibold text-neutral-02 mb-2 text-xs sm:text-sm">
-                  Lakukan Screening (DASS-21)
+                  Lakukan Screening (CSTQ)
                 </h6>
                 <p className="text-grey text-xs sm:text-sm mb-3 leading-relaxed">
-                  Mulai dengan screening menggunakan DASS-21 untuk mengukur
-                  tingkat depresi, kecemasan, dan stres anak.
+                  Mulai dengan screening menggunakan Child Screening Trauma
+                  Questionnaire (CSTQ) untuk mengukur tingkat trauma anak.
                 </p>
               </div>
             </div>
@@ -412,7 +412,7 @@ export default function CounselorDashboardPage() {
                   <div className="flex flex-col items-end gap-1 sm:gap-2 shrink-0">
                     <span
                       className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium ${getActivityColor(
-                        activity.type
+                        activity.type,
                       )}`}
                     >
                       {getActivityLabel(activity.type)}
@@ -424,7 +424,7 @@ export default function CounselorDashboardPage() {
                           day: "numeric",
                           month: "short",
                           year: "numeric",
-                        }
+                        },
                       )}
                     </span>
                   </div>

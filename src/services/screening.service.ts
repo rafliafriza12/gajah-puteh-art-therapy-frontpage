@@ -1,7 +1,7 @@
 /**
  * Screening Service
  *
- * Service untuk operasi CRUD Screening (DASS)
+ * Service untuk operasi CRUD Screening (CSTQ - Child Screening Trauma Questionnaire)
  */
 
 import { get, post, put, del } from "@/libs/api";
@@ -17,7 +17,7 @@ import {
  * Create screening (Counselor only)
  */
 async function createScreening(
-  data: ICreateScreeningInput
+  data: ICreateScreeningInput,
 ): Promise<IScreening> {
   return await post<IScreening>("/screening", data);
 }
@@ -41,7 +41,7 @@ async function getScreeningById(id: string): Promise<IScreening> {
  */
 async function updateScreening(
   id: string,
-  data: IUpdateScreeningInput
+  data: IUpdateScreeningInput,
 ): Promise<IScreening> {
   return await put<IScreening>(`/screening/${id}`, data);
 }

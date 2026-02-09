@@ -282,7 +282,7 @@ export default function ParentDashboardPage() {
                 </h6>
                 <p className="text-grey text-xs sm:text-sm leading-relaxed">
                   Klik pada salah satu sesi terapi untuk melihat detail lengkap,
-                  termasuk hasil DASS Screening, Observations per sesi, dan
+                  termasuk hasil Screening (CSTQ), Observations per sesi, dan
                   hasil Pretest & Posttest (SDQ).
                 </p>
               </div>
@@ -400,7 +400,7 @@ export default function ParentDashboardPage() {
           <div className="space-y-3 sm:space-y-4">
             {therapies
               ?.filter((therapy) =>
-                children.some((child) => child._id === therapy.childId)
+                children.some((child) => child._id === therapy.childId),
               )
               .slice(0, 6)
               .map((therapy) => {

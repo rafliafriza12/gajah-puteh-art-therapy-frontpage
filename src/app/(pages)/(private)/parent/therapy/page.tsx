@@ -92,10 +92,10 @@ export default function ParentTherapyPage() {
               ) : therapies && therapies.length > 0 ? (
                 therapies.map((therapy) => {
                   const child = children?.find(
-                    (c) => c._id === therapy.childId
+                    (c) => c._id === therapy.childId,
                   );
                   const counselor = counselors?.find(
-                    (c) => c._id === therapy.counselorId
+                    (c) => c._id === therapy.counselorId,
                   );
                   return (
                     <tr
@@ -137,7 +137,7 @@ export default function ParentTherapyPage() {
                               day: "2-digit",
                               month: "short",
                               year: "numeric",
-                            }
+                            },
                           )}
                         </p>
                       </td>
@@ -186,7 +186,7 @@ export default function ParentTherapyPage() {
             Tentang Sesi Terapi
           </h4>
           <p className="text-sm text-blue-800">
-            Setiap sesi terapi mencakup observasi, asesmen (skrining DASS), dan
+            Setiap sesi terapi mencakup observasi, asesmen (Screening CSTQ), dan
             pemantauan perkembangan. Klik "Lihat Detail" untuk melihat informasi
             lengkap tentang setiap sesi.
           </p>
