@@ -31,7 +31,7 @@ export default function CreateObservationPage() {
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "Anda hanya dapat membuat asesmen untuk sesi terapi Anda sendiri"
+        "Anda hanya dapat membuat asesmen untuk sesi terapi Anda sendiri",
       );
       router.push("/counselor/assessments/observation");
     }
@@ -41,9 +41,6 @@ export default function CreateObservationPage() {
     sessionOne: "",
     sessionTwo: "",
     sessionThree: "",
-    sessionFour: "",
-    sessionFive: "",
-    sessionSix: "",
     summary: "",
   });
 
@@ -74,9 +71,6 @@ export default function CreateObservationPage() {
         sessionOne: formData.sessionOne.trim(),
         sessionTwo: formData.sessionTwo.trim(),
         sessionThree: formData.sessionThree.trim(),
-        sessionFour: formData.sessionFour.trim(),
-        sessionFive: formData.sessionFive.trim(),
-        sessionSix: formData.sessionSix.trim(),
         summary: formData.summary.trim(),
       },
       {
@@ -87,7 +81,7 @@ export default function CreateObservationPage() {
         onError: (error: any) => {
           toast.error(error?.message || "Gagal membuat observasi");
         },
-      }
+      },
     );
   };
 
@@ -175,54 +169,6 @@ export default function CreateObservationPage() {
                 placeholder="Masukkan observasi untuk sesi 3..."
               />
             </div>
-
-            {/* Session 4 */}
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Sesi 4 *</BodySmallMedium>
-              </label>
-              <textarea
-                name="sessionFour"
-                value={formData.sessionFour}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan observasi untuk sesi 4..."
-              />
-            </div>
-
-            {/* Session 5 */}
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Sesi 5 *</BodySmallMedium>
-              </label>
-              <textarea
-                name="sessionFive"
-                value={formData.sessionFive}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan observasi untuk sesi 5..."
-              />
-            </div>
-
-            {/* Session 6 */}
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Sesi 6 *</BodySmallMedium>
-              </label>
-              <textarea
-                name="sessionSix"
-                value={formData.sessionSix}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan observasi untuk sesi 6..."
-              />
-            </div>
           </div>
         </div>
 
@@ -246,7 +192,7 @@ export default function CreateObservationPage() {
             />
             <p className="text-xs text-grey mt-2">
               Berikan ringkasan komprehensif yang menyintesis observasi dari
-              semua enam sesi.
+              semua tiga sesi.
             </p>
           </div>
         </div>

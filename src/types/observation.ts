@@ -9,9 +9,6 @@ export interface IObservation {
   sessionOne: string;
   sessionTwo: string;
   sessionThree: string;
-  sessionFour: string;
-  sessionFive: string;
-  sessionSix: string;
   summary: string;
   createdAt: string;
   updatedAt: string;
@@ -22,9 +19,6 @@ export interface ICreateObservationInput {
   sessionOne: string;
   sessionTwo: string;
   sessionThree: string;
-  sessionFour: string;
-  sessionFive: string;
-  sessionSix: string;
   summary: string;
 }
 
@@ -33,8 +27,5 @@ export interface IUpdateObservationInput {
   sessionOne?: string;
   sessionTwo?: string;
   sessionThree?: string;
-  sessionFour?: string;
-  sessionFive?: string;
-  sessionSix?: string;
   summary?: string;
 }

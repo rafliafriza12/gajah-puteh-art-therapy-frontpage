@@ -188,24 +188,6 @@ export default function TherapyAssessmentsPage() {
                 (observation.sessionThree?.length > 150 ? "..." : ""),
             },
             {
-              label: "Sesi 4",
-              value:
-                observation.sessionFour?.substring(0, 150) +
-                (observation.sessionFour?.length > 150 ? "..." : ""),
-            },
-            {
-              label: "Sesi 5",
-              value:
-                observation.sessionFive?.substring(0, 150) +
-                (observation.sessionFive?.length > 150 ? "..." : ""),
-            },
-            {
-              label: "Sesi 6",
-              value:
-                observation.sessionSix?.substring(0, 150) +
-                (observation.sessionSix?.length > 150 ? "..." : ""),
-            },
-            {
               label: "Ringkasan",
               value:
                 observation.summary?.substring(0, 150) +

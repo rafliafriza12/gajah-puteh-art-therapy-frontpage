@@ -37,7 +37,7 @@ export default function EditObservationPage() {
   useEffect(() => {
     if (therapy && currentUser && !canEdit) {
       toast.error(
-        "Anda hanya dapat mengedit asesmen untuk sesi terapi Anda sendiri"
+        "Anda hanya dapat mengedit asesmen untuk sesi terapi Anda sendiri",
       );
       router.push(`/counselor/assessments/observation/${observationId}`);
     }
@@ -47,9 +47,6 @@ export default function EditObservationPage() {
     sessionOne: "",
     sessionTwo: "",
     sessionThree: "",
-    sessionFour: "",
-    sessionFive: "",
-    sessionSix: "",
     summary: "",
   });
 
@@ -60,9 +57,6 @@ export default function EditObservationPage() {
         sessionOne: observation.sessionOne || "",
         sessionTwo: observation.sessionTwo || "",
         sessionThree: observation.sessionThree || "",
-        sessionFour: observation.sessionFour || "",
-        sessionFive: observation.sessionFive || "",
-        sessionSix: observation.sessionSix || "",
         summary: observation.summary || "",
       });
     }
@@ -91,9 +85,6 @@ export default function EditObservationPage() {
           sessionOne: formData.sessionOne.trim(),
           sessionTwo: formData.sessionTwo.trim(),
           sessionThree: formData.sessionThree.trim(),
-          sessionFour: formData.sessionFour.trim(),
-          sessionFive: formData.sessionFive.trim(),
-          sessionSix: formData.sessionSix.trim(),
           summary: formData.summary.trim(),
         },
       },
@@ -105,7 +96,7 @@ export default function EditObservationPage() {
         onError: (error: any) => {
           toast.error(error?.message || "Gagal memperbarui observasi");
         },
-      }
+      },
     );
   };
 
@@ -226,54 +217,6 @@ export default function EditObservationPage() {
                 placeholder="Masukkan catatan observasi untuk sesi 3..."
               />
             </div>
-
-            {/* Session 4 */}
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Sesi 4 *</BodySmallMedium>
-              </label>
-              <textarea
-                name="sessionFour"
-                value={formData.sessionFour}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan catatan observasi untuk sesi 4..."
-              />
-            </div>
-
-            {/* Session 5 */}
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Sesi 5 *</BodySmallMedium>
-              </label>
-              <textarea
-                name="sessionFive"
-                value={formData.sessionFive}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan catatan observasi untuk sesi 5..."
-              />
-            </div>
-
-            {/* Session 6 */}
-            <div>
-              <label className="block mb-2">
-                <BodySmallMedium>Sesi 6 *</BodySmallMedium>
-              </label>
-              <textarea
-                name="sessionSix"
-                value={formData.sessionSix}
-                onChange={handleChange}
-                required
-                rows={3}
-                className="w-full px-4 py-3 border border-grey-stroke rounded-lg focus:outline-none focus:ring-2 focus:ring-moss-stone focus:border-transparent resize-none"
-                placeholder="Masukkan catatan observasi untuk sesi 6..."
-              />
-            </div>
           </div>
         </div>
 
@@ -297,7 +240,7 @@ export default function EditObservationPage() {
             />
             <p className="text-xs text-grey mt-2">
               Berikan ringkasan komprehensif yang menyintesis observasi dari
-              semua enam sesi.
+              semua tiga sesi.
             </p>
           </div>
         </div>

@@ -41,7 +41,7 @@ export default function ObservationDetailPage() {
       },
       onError: (error: any) => {
         toast.error(
-          error.response?.data?.message || "Gagal menghapus observasi"
+          error.response?.data?.message || "Gagal menghapus observasi",
         );
       },
     });
@@ -188,30 +188,6 @@ export default function ObservationDetailPage() {
           <Heading5 className="text-neutral-02 mb-3">Sesi 3</Heading5>
           <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
             {observation.sessionThree || "-"}
-          </p>
-        </div>
-
-        {/* Session 4 */}
-        <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Sesi 4</Heading5>
-          <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
-            {observation.sessionFour || "-"}
-          </p>
-        </div>
-
-        {/* Session 5 */}
-        <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Sesi 5</Heading5>
-          <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
-            {observation.sessionFive || "-"}
-          </p>
-        </div>
-
-        {/* Session 6 */}
-        <div className="bg-white border border-grey-stroke rounded-xl p-6">
-          <Heading5 className="text-neutral-02 mb-3">Sesi 6</Heading5>
-          <p className="text-neutral-02 whitespace-pre-wrap wrap-break-word overflow-wrap-anywhere">
-            {observation.sessionSix || "-"}
           </p>
         </div>
 

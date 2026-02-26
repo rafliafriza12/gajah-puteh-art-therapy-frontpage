@@ -258,30 +258,6 @@ export default function ParentTherapyDetailPage() {
                       {observation.sessionThree || "-"}
                     </p>
                   </div>
-                  <div>
-                    <BodySmallMedium className="text-grey mb-1">
-                      Sesi 4
-                    </BodySmallMedium>
-                    <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
-                      {observation.sessionFour || "-"}
-                    </p>
-                  </div>
-                  <div>
-                    <BodySmallMedium className="text-grey mb-1">
-                      Sesi 5
-                    </BodySmallMedium>
-                    <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
-                      {observation.sessionFive || "-"}
-                    </p>
-                  </div>
-                  <div>
-                    <BodySmallMedium className="text-grey mb-1">
-                      Sesi 6
-                    </BodySmallMedium>
-                    <p className="text-sm text-neutral-02 whitespace-pre-wrap wrap-break-word">
-                      {observation.sessionSix || "-"}
-                    </p>
-                  </div>
                 </div>
                 <div className="pt-4 border-t border-grey-stroke">
                   <BodySmallMedium className="text-grey mb-1">
